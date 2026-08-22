@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Lab Ledger palette — drawn from the material: husk, pith, coir, greenhouse */
+  --color-parchment: #f5efe4;
+  --color-paper: #fcfaf5;
+  --color-ink: #2a1f16;
+  --color-ink-soft: #5e5040;
+  --color-ink-faint: #8a7b68;
+  --color-gold: #c6892b;
+  --color-gold-deep: #8a5a14;
+  --color-green: #3e6b4f;
+  --color-green-deep: #2f5540;
+  --color-clay: #a8542f;
+  --color-rule: #ded2bb;
+  --color-rule-strong: #c3b291;
+
+  --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, monospace;
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-parchment);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: var(--color-gold);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-green);
+  outline-offset: 2px;
+  border-radius: 1px;
+}
+
+/* Dark sections invert the focus ring for visibility */
+.on-ink :focus-visible {
+  outline-color: var(--color-gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

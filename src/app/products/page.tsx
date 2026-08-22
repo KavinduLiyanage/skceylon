@@ -1,0 +1,84 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
+import { ProductDiagram } from "@/components/ProductDiagram";
+import { RfqSection } from "@/components/RfqSection";
+import { SpecLedger } from "@/components/SpecLedger";
+import { PRODUCTS } from "@/content/products";
+import { KEY_SPECS } from "@/content/site";
+
+export const metadata: Metadata = {
+  title: "Products",
+  description:
+    "Coco peat blocks, coconut husk chips, coco grow bags and coir fiber from a Sri Lankan exporter. Full specifications, packing details and lab-verified EC, pH and moisture.",
+  alternates: { canonical: "/products/" },
+  openGraph: {
+    title: "Products — SK Ceylon",
+    description:
+      "Coco peat blocks, husk chips, grow bags and coir fiber — full specifications and lab-verified quality.",
+    url: "/products/",
+  },
+};
+
+export default function ProductsPage() {
+  return (
+    <>
+      <section className="border-b border-rule">
+        <div className="mx-auto max-w-6xl px-5 pt-12 pb-14 sm:px-8 sm:pt-16">
+          <Breadcrumbs
+            crumbs={[{ label: "Home", href: "/" }, { label: "Products" }]}
+          />
+          <h1 className="mt-6 max-w-2xl font-display text-4xl leading-tight font-medium text-ink text-balance sm:text-5xl">
+            Coco peat &amp; coir products, specified like lab samples.
+          </h1>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft">
+            Every product below ships against a written specification, and
+            every lot is tested by an independent Colombo laboratory before
+            loading. These are the figures we hold ourselves to:
+          </p>
+          <SpecLedger
+            rows={KEY_SPECS}
+            caption="Sitewide baseline · verified per lot"
+            framed
+            className="mt-8 max-w-2xl"
+          />
+        </div>
+      </section>
+
+      <section className="bg-paper">
+        <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
+          <div className="space-y-5">
+            {PRODUCTS.map((product, i) => (
+              <Link
+                key={product.slug}
+                href={`/products/${product.slug}/`}
+                className="group grid gap-6 rounded-2xl border border-rule bg-paper p-7 shadow-sm shadow-ink/5 transition-all hover:-translate-y-1 hover:border-rule-strong hover:shadow-lg hover:shadow-ink/10 sm:p-9 lg:grid-cols-[280px_1fr] lg:gap-12"
+              >
+                <ProductDiagram kind={product.diagram} />
+                <div>
+                  <p className="inline-flex rounded-full bg-green/10 px-2.5 py-1 font-mono text-xs font-medium text-green-deep">
+                    {String(i + 1).padStart(2, "0")}
+                  </p>
+                  <h2 className="mt-1 font-display text-2xl font-medium text-ink">
+                    {product.name}
+                  </h2>
+                  <p className="mt-1 font-mono text-xs text-green-deep">
+                    {product.tagline}
+                  </p>
+                  <p className="mt-3 max-w-xl text-sm leading-relaxed text-ink-soft">
+                    {product.summary}
+                  </p>
+                  <p className="mt-4 font-mono text-xs font-medium text-green-deep group-hover:underline">
+                    Full specification →
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <RfqSection />
+    </>
+  );
+}
