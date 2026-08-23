@@ -23,7 +23,7 @@ export default function OpenGraphImage() {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: "#f5efe4",
+          backgroundColor: "#f3f8f0",
           padding: "72px 80px",
           fontFamily: "Georgia, serif",
         }}
@@ -44,7 +44,7 @@ export default function OpenGraphImage() {
               marginTop: 28,
               fontSize: 68,
               lineHeight: 1.1,
-              color: "#2a1f16",
+              color: "#17251a",
               maxWidth: 900,
             }}
           >
@@ -55,8 +55,8 @@ export default function OpenGraphImage() {
           style={{
             display: "flex",
             flexDirection: "column",
-            borderTop: "2px solid #c3b291",
-            borderBottom: "2px solid #c3b291",
+            borderTop: "2px solid #b0c9ad",
+            borderBottom: "2px solid #b0c9ad",
           }}
         >
           {specs.map(([label, value], i) => (
@@ -66,12 +66,12 @@ export default function OpenGraphImage() {
                 display: "flex",
                 justifyContent: "space-between",
                 padding: "14px 0",
-                borderTop: i === 0 ? "none" : "1px dashed #c3b291",
+                borderTop: i === 0 ? "none" : "1px dashed #b0c9ad",
                 fontSize: 28,
               }}
             >
-              <span style={{ color: "#5e5040" }}>{label}</span>
-              <span style={{ color: "#2a1f16", fontWeight: 600 }}>{value}</span>
+              <span style={{ color: "#47604e" }}>{label}</span>
+              <span style={{ color: "#17251a", fontWeight: 600 }}>{value}</span>
             </div>
           ))}
         </div>

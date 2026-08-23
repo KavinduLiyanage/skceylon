@@ -1,21 +1,21 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Lab Ledger palette — drawn from the material: husk, pith, coir, greenhouse */
-  --color-parchment: #f5efe4;
-  --color-paper: #fcfaf5;
-  --color-ink: #2a1f16;
-  --color-ink-soft: #5e5040;
-  --color-ink-faint: #8a7b68;
+  /* Fresh Greens palette — brighter plantation greens on a green-tinted white */
+  --color-parchment: #f3f8f0;
+  --color-paper: #fbfdf9;
+  --color-ink: #17251a;
+  --color-ink-soft: #47604e;
+  --color-ink-faint: #6e8274;
   --color-gold: #c6892b;
   --color-gold-deep: #8a5a14;
-  --color-green: #3e6b4f;
-  --color-green-deep: #2f5540;
-  --color-forest: #2a3c2a;
-  --color-forest-deep: #1b271b;
+  --color-green: #1f7a40;
+  --color-green-deep: #196636;
+  --color-forest: #1c4a2c;
+  --color-forest-deep: #143921;
   --color-clay: #a8542f;
-  --color-rule: #ded2bb;
-  --color-rule-strong: #c3b291;
+  --color-rule: #d6e4d3;
+  --color-rule-strong: #b0c9ad;
 
   --font-sans: var(--font-plex-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-plex-mono), ui-monospace, "SF Mono", Menlo, monospace;
