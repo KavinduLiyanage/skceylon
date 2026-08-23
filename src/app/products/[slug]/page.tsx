@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaLink } from "@/components/CtaLink";
@@ -111,8 +112,20 @@ export default async function ProductPage({ params }: Props) {
                 </CtaLink>
               </div>
             </div>
-            <div className="self-center rounded-2xl border border-rule bg-paper p-6 shadow-sm shadow-ink/5">
-              <ProductDiagram kind={product.diagram} />
+            <div className="space-y-5 self-center">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-rule shadow-sm shadow-ink/5">
+                <Image
+                  src={product.photo.src}
+                  alt={product.photo.alt}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 360px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="rounded-2xl border border-rule bg-paper p-6 shadow-sm shadow-ink/5">
+                <ProductDiagram kind={product.diagram} />
+              </div>
             </div>
           </div>
         </div>

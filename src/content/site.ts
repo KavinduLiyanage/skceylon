@@ -85,6 +85,16 @@ export const FEATURES = [
   },
 ] as const;
 
+/** Attribution for CC-licensed photography, shown in the footer. */
+export const IMAGE_CREDITS = [
+  "Plantation photo: Vyacheslav Argenberg (CC BY 4.0)",
+  "Coir brick: MatiasMiika (CC BY 3.0)",
+  "Greenhouse rows: Lufa Farms (CC BY-SA 2.0)",
+  "Fiber warehouse: TheOilLamp (CC BY-SA 4.0)",
+  "Husk pile: Rprasanth1 (CC BY-SA 4.0)",
+  "via Wikimedia Commons",
+] as const;
+
 export const NAV_LINKS = [
   { href: "/products/", label: "Products" },
   { href: "/quality/", label: "Quality" },

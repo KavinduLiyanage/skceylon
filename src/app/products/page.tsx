@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
-import { ProductDiagram } from "@/components/ProductDiagram";
 import { RfqSection } from "@/components/RfqSection";
 import { SpecLedger } from "@/components/SpecLedger";
 import { PRODUCTS } from "@/content/products";
@@ -54,7 +54,15 @@ export default function ProductsPage() {
                 href={`/products/${product.slug}/`}
                 className="group grid gap-6 rounded-2xl border border-rule bg-paper p-7 shadow-sm shadow-ink/5 transition-all hover:-translate-y-1 hover:border-rule-strong hover:shadow-lg hover:shadow-ink/10 sm:p-9 lg:grid-cols-[280px_1fr] lg:gap-12"
               >
-                <ProductDiagram kind={product.diagram} />
+                <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-rule bg-parchment lg:aspect-auto lg:h-full">
+                  <Image
+                    src={product.photo.src}
+                    alt={product.photo.alt}
+                    fill
+                    sizes="(min-width: 1024px) 280px, 100vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                  />
+                </div>
                 <div>
                   <p className="inline-flex rounded-full bg-green/10 px-2.5 py-1 font-mono text-xs font-medium text-green-deep">
                     {String(i + 1).padStart(2, "0")}

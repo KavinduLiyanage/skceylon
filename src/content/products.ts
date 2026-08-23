@@ -13,6 +13,8 @@ export type Product = {
   summary: string;
   /** Two short spec chips shown on catalog cards. */
   highlights: [string, string];
+  /** Real photograph shown on catalog cards and the product page. */
+  photo: { src: string; alt: string; width: number; height: number };
   /** Body paragraphs on the product page. */
   description: string[];
   specs: SpecRow[];
@@ -24,6 +26,7 @@ export type Product = {
 export const PRODUCTS: Product[] = [
   {
     slug: "5kg-coco-peat-blocks",
+    photo: { src: "/images/product-blocks.jpg", alt: "Compressed coco coir pith block", width: 640, height: 471 },
     highlights: ["EC < 0.5 mS/cm", "5:1 compression"],
     name: "5 kg Coco Peat Blocks",
     shortName: "Coco Peat Blocks",
@@ -61,6 +64,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: "husk-chips",
+    photo: { src: "/images/product-chips.jpg", alt: "Coconut husks stockpiled at a coir mill before cutting", width: 1200, height: 673 },
     highlights: ["Graded 1 – 3 cm", "Washed on request"],
     name: "Coconut Husk Chips",
     shortName: "Husk Chips",
@@ -95,6 +99,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: "grow-bags",
+    photo: { src: "/images/product-growbags.jpg", alt: "Greenhouse tomato rows growing on coco substrate slabs", width: 896, height: 1200 },
     highlights: ["Blends 50:50 – 70:30", "UV-stabilized film"],
     name: "Coco Grow Bags",
     shortName: "Grow Bags",
@@ -131,6 +136,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: "coir-fiber",
+    photo: { src: "/images/product-fiber.jpg", alt: "Baled golden coir fiber stacked in an export warehouse", width: 1200, height: 675 },
     highlights: ["Bristle & mattress", "100 – 120 kg bales"],
     name: "Coir Fiber",
     shortName: "Coir Fiber",

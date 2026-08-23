@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
   COMPANY,
   COMPLIANCE,
+  IMAGE_CREDITS,
   NAV_LINKS,
   TRADE_TERMS,
   rfqMailto,
@@ -86,6 +87,9 @@ export function Footer() {
         <div className="mt-12 border-t border-paper/20 pt-6">
           <p className="font-mono text-[0.625rem] leading-relaxed tracking-wide text-paper/50">
             {COMPLIANCE.join(" · ")}
+          </p>
+          <p className="mt-2 font-mono text-[0.625rem] leading-relaxed text-paper/40">
+            {IMAGE_CREDITS.join(" · ")}
           </p>
           <p className="mt-3 font-mono text-[0.625rem] text-paper/40">
             © {new Date().getFullYear()} {COMPANY.name} · {COMPANY.city},{" "}

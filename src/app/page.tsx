@@ -1,18 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { CtaLink } from "@/components/CtaLink";
-import { HeroScene } from "@/components/HeroScene";
-import { ProductDiagram } from "@/components/ProductDiagram";
 import { RfqSection } from "@/components/RfqSection";
 import { SectionHeading } from "@/components/SectionHeading";
-import { SpecLedger } from "@/components/SpecLedger";
 import { PRODUCTS } from "@/content/products";
 import { CHECKPOINTS } from "@/content/quality";
 import {
-  COMPANY,
   COMPLIANCE,
   FEATURES,
-  KEY_SPECS,
   MARKETS,
   rfqMailto,
 } from "@/content/site";
@@ -68,56 +64,38 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-rule">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(60rem_30rem_at_85%_-10%,rgba(198,137,43,0.12),transparent_60%)]"
+      <section className="relative flex min-h-[calc(100svh-4.5rem)] items-center justify-center overflow-hidden bg-forest-deep text-center">
+        <Image
+          src="/images/hero-plantation-2.jpg"
+          alt="Coconut palm plantation with sunlight falling through the canopy"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-60"
         />
-        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-5 pt-14 pb-16 sm:px-8 sm:pt-20 lg:grid-cols-[1fr_420px] lg:gap-16">
-          <div>
-            <p className="inline-flex items-center gap-2 rounded-full border border-rule-strong bg-paper/70 px-4 py-1.5 font-mono text-[0.6875rem] tracking-[0.18em] text-green-deep uppercase">
-              <span
-                aria-hidden="true"
-                className="h-1.5 w-1.5 rounded-full bg-green"
-              />
-              {COMPANY.name} · {COMPANY.city}, {COMPANY.country}
-            </p>
-            <h1 className="mt-7 font-display text-[2.75rem] leading-[1.05] font-medium text-ink text-balance sm:text-6xl">
-              Premium coconut substrates,{" "}
-              <em className="text-green-deep italic">
-                grown and graded at the source.
-              </em>
-            </h1>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-ink-soft sm:text-lg">
-              Coco peat blocks, husk chips, grow bags and coir fiber from Sri
-              Lanka&rsquo;s coconut triangle — every lot verified by an
-              independent Colombo laboratory before it ships. The report comes
-              with the quotation.
-            </p>
-            <div className="mt-9 flex flex-wrap gap-4">
-              <CtaLink href={rfqMailto()}>Request Wholesale Pricing</CtaLink>
-              <CtaLink href="/products/" variant="secondary">
-                Browse the catalog
-              </CtaLink>
-            </div>
-            <SpecLedger
-              rows={KEY_SPECS}
-              caption="Typical specification · verified per lot"
-              framed
-              className="mt-12 max-w-2xl"
-            />
-          </div>
-          <div className="relative hidden lg:block">
-            <div className="overflow-hidden rounded-3xl border border-rule shadow-lg shadow-ink/10">
-              <HeroScene />
-            </div>
-            <p className="absolute bottom-4 left-4 inline-flex items-center gap-2 rounded-full bg-paper/90 px-4 py-2 font-mono text-[0.6875rem] tracking-wide text-ink shadow-sm backdrop-blur-sm">
-              <span
-                aria-hidden="true"
-                className="h-1.5 w-1.5 rounded-full bg-green"
-              />
-              Kurunegala – Puttalam coconut triangle
-            </p>
+        <div className="relative z-10 max-w-4xl px-5 py-20 sm:px-6">
+          <h1 className="font-display text-4xl leading-tight font-semibold text-white text-balance md:text-5xl lg:text-6xl">
+            Premium coconut substrates, grown and graded at the source.
+          </h1>
+          <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">
+            Coco peat blocks, husk chips, grow bags and coir fiber from Sri
+            Lanka&rsquo;s coconut triangle — every lot verified by an
+            independent Colombo laboratory before it ships. The report comes
+            with the quotation.
+          </p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <a
+              href={rfqMailto()}
+              className="w-full rounded-full bg-white px-8 py-3 text-sm font-medium text-forest-deep transition-colors hover:bg-parchment sm:w-auto sm:text-base"
+            >
+              Request Wholesale Pricing
+            </a>
+            <Link
+              href="/products/"
+              className="w-full rounded-full border border-white px-8 py-3 text-sm font-medium text-white transition-colors hover:bg-white/10 sm:w-auto sm:text-base"
+            >
+              Browse the catalog
+            </Link>
           </div>
         </div>
       </section>
@@ -163,10 +141,13 @@ export default function HomePage() {
                 href={`/products/${product.slug}/`}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-rule bg-paper shadow-sm shadow-ink/5 transition-all hover:-translate-y-1 hover:border-rule-strong hover:shadow-lg hover:shadow-ink/10"
               >
-                <div className="border-b border-rule bg-parchment px-7 pt-6 pb-2 transition-colors group-hover:bg-[#efe6d2]">
-                  <ProductDiagram
-                    kind={product.diagram}
-                    className="mx-auto max-w-[280px]"
+                <div className="relative aspect-[16/9] overflow-hidden border-b border-rule bg-parchment">
+                  <Image
+                    src={product.photo.src}
+                    alt={product.photo.alt}
+                    fill
+                    sizes="(min-width: 640px) 50vw, 100vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-7">

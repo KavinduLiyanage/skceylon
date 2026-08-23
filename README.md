@@ -90,7 +90,12 @@ Search for these and replace with real values:
    `src/content/quality.ts` and `src/content/site.ts`). **These claims must
    only go live once the registrations are actually complete.** If launch
    happens before registration, soften or remove that copy first.
-5. **Lab report / mill photos promise** — the site repeatedly promises an
+5. **Photography** — current photos in `public/images/` are CC-licensed
+   stock from Wikimedia Commons (credits in the footer, sourced from
+   `IMAGE_CREDITS` in `src/content/site.ts`). They are legal for commercial
+   use with the credit line kept, but replace them with your own mill,
+   product and loading photos when available — then drop the credits.
+6. **Lab report / mill photos promise** — the site repeatedly promises an
    independent Colombo lab report, mill photos and a packing spec with every
    quotation. Make sure the sales process can actually deliver this from day
    one.
