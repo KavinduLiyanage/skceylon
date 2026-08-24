@@ -66,7 +66,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative flex min-h-[calc(100svh-4.5rem)] items-center justify-center overflow-hidden bg-forest-deep text-center">
         <Image
-          src="/images/hero-plantation-2.jpg"
+          src="/images/hero-plantation.avif"
           alt="Coconut palm plantation with sunlight falling through the canopy"
           fill
           priority
@@ -128,7 +128,7 @@ export default function HomePage() {
           <div className="flex flex-wrap items-end justify-between gap-6">
             <SectionHeading
               eyebrow="Product catalog"
-              title="Four products, one specification discipline."
+              title="Every product, one specification discipline."
             />
             <CtaLink href="/products/" variant="ghost" className="!px-0">
               View full catalog →

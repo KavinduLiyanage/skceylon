@@ -23,10 +23,10 @@ export type Product = {
   diagram: ProductDiagramKind;
 };
 
-export const PRODUCTS: Product[] = [
+const ALL_PRODUCTS: Product[] = [
   {
     slug: "5kg-coco-peat-blocks",
-    photo: { src: "/images/product-blocks.jpg", alt: "Compressed coco coir pith block", width: 640, height: 471 },
+    photo: { src: "/images/product-blocks.avif", alt: "Compressed coco coir pith block", width: 640, height: 471 },
     highlights: ["EC < 0.5 mS/cm", "5:1 compression"],
     name: "5 kg Coco Peat Blocks",
     shortName: "Coco Peat Blocks",
@@ -99,7 +99,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: "grow-bags",
-    photo: { src: "/images/product-growbags.jpg", alt: "Greenhouse tomato rows growing on coco substrate slabs", width: 896, height: 1200 },
+    photo: { src: "/images/product-growbags.avif", alt: "Greenhouse tomato rows growing on coco substrate slabs", width: 896, height: 1200 },
     highlights: ["Blends 50:50 – 70:30", "UV-stabilized film"],
     name: "Coco Grow Bags",
     shortName: "Grow Bags",
@@ -168,6 +168,16 @@ export const PRODUCTS: Product[] = [
     diagram: "bale",
   },
 ];
+
+/**
+ * Slugs temporarily hidden from the catalog (and from generated pages,
+ * sitemap, footer and forms). Remove a slug from this set to restore it.
+ */
+const HIDDEN_SLUGS = new Set(["husk-chips", "coir-fiber"]);
+
+export const PRODUCTS: Product[] = ALL_PRODUCTS.filter(
+  (p) => !HIDDEN_SLUGS.has(p.slug),
+);
 
 export function getProduct(slug: string): Product | undefined {
   return PRODUCTS.find((p) => p.slug === slug);
