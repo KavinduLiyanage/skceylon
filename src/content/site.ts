@@ -17,8 +17,7 @@ export const COMPANY = {
   country: "Sri Lanka",
   /** PLACEHOLDER — replace before launch */
   email: "info@skceylon.lk",
-  /** PLACEHOLDER — replace before launch */
-  whatsapp: "+94 7X XXX XXXX",
+  whatsapp: "+94 76 867 7530 / +94 77 422 9289",
 } as const;
 
 export type SpecRow = {

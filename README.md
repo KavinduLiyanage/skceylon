@@ -80,8 +80,8 @@ Search for these and replace with real values:
    address. (The form composes a pre-filled email in the buyer's mail client —
    there is no backend. If you later want server-side submissions, swap
    `src/components/InquiryForm.tsx` to post to a service like Formspree.)
-2. **WhatsApp number** — `+94 7X XXX XXXX` in `src/content/site.ts`
-   (`COMPANY.whatsapp`).
+2. **WhatsApp number** — set to `+94 76 867 7530 / +94 77 422 9289` in
+   `src/content/site.ts` (`COMPANY.whatsapp`).
 3. **Domain** — `SITE_URL` in `src/content/site.ts` is set to
    `https://skceylon.lk`. Confirm this is the domain you actually launch on.
 4. **CDA / EDB registration claims** — the site states that shipments carry a
