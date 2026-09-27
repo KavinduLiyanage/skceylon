@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ProductDiagramKind } from "@/content/products";
 
 type ProductDiagramProps = {
@@ -6,10 +7,22 @@ type ProductDiagramProps = {
 };
 
 /**
- * Technical line drawings with dimension callouts, in place of stock photos.
- * Decorative: the figures repeat data from the adjacent spec table.
+ * Dimension figures shown beside the product photo. The block uses a branded
+ * infographic photo; the rest are technical line drawings. Decorative: the
+ * figures repeat data from the adjacent spec table.
  */
 export function ProductDiagram({ kind, className = "" }: ProductDiagramProps) {
+  if (kind === "block") {
+    return (
+      <Image
+        src="/images/product-blocks-4.avif"
+        alt="5 kg coco peat block dimensions: 30 × 30 × 12 cm at 5:1 compression"
+        width={1200}
+        height={800}
+        className={`h-auto w-full rounded-lg ${className}`}
+      />
+    );
+  }
   return (
     <svg
       viewBox="0 0 240 170"
@@ -17,7 +30,6 @@ export function ProductDiagram({ kind, className = "" }: ProductDiagramProps) {
       aria-hidden="true"
       fill="none"
     >
-      {kind === "block" && <BlockDrawing />}
       {kind === "chips" && <ChipsDrawing />}
       {kind === "growbag" && <GrowBagDrawing />}
       {kind === "bale" && <BaleDrawing />}
@@ -58,42 +70,6 @@ function DimLine({
           <line x1={x2} y1={y2 - t} x2={x2} y2={y2 + t} />
         </>
       )}
-    </g>
-  );
-}
-
-function BlockDrawing() {
-  return (
-    <g strokeWidth="1.25">
-      {/* oblique slab: front face 30 × 12, top face 30 × 30 */}
-      <g className={ink}>
-        <rect x="40" y="96" width="120" height="42" />
-        <path d="M40 96 L84 56 L204 56 L160 96 Z" />
-        <path d="M160 96 L204 56 L204 98 L160 138 Z" />
-        {/* compressed pith strata on the front face */}
-        <g strokeWidth="0.5" opacity="0.45">
-          <line x1="40" y1="107" x2="160" y2="107" />
-          <line x1="40" y1="117" x2="160" y2="117" />
-          <line x1="40" y1="127" x2="160" y2="127" />
-        </g>
-      </g>
-      <DimLine x1={40} y1={152} x2={160} y2={152} />
-      <text x="100" y="165" textAnchor="middle" className={dimText}>
-        30 cm
-      </text>
-      <DimLine x1={26} y1={96} x2={26} y2={138} />
-      <text x="20" y="120" textAnchor="end" className={dimText}>
-        12
-      </text>
-      <g className={dim} strokeWidth="1">
-        <line x1="212" y1="52" x2="222" y2="43" />
-      </g>
-      <text x="224" y="42" className={dimText}>
-        30
-      </text>
-      <text x="40" y="42" className={noteText}>
-        5 kg · 5:1
-      </text>
     </g>
   );
 }
