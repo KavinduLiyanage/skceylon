@@ -131,6 +131,36 @@ export default async function ProductPage({ params }: Props) {
         </div>
       </section>
 
+      {product.gallery && (
+        <section className="border-b border-rule">
+          <div className="mx-auto max-w-6xl px-5 py-14 sm:px-8">
+            <h2 className="font-mono text-[0.6875rem] tracking-[0.18em] text-ink-soft uppercase">
+              Product photos
+            </h2>
+            <div
+              className={`mt-4 grid gap-4 ${
+                product.gallery.length >= 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"
+              }`}
+            >
+              {product.gallery.map((image) => (
+                <div
+                  key={image.src}
+                  className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-rule shadow-sm shadow-ink/5"
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(min-width: 640px) 33vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       <section className="border-b border-rule bg-paper">
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-14 sm:px-8 lg:grid-cols-2 lg:gap-16">
           <SpecTable caption="Specification" rows={product.specs} />

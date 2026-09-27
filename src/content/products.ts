@@ -15,6 +15,8 @@ export type Product = {
   highlights: [string, string];
   /** Real photograph shown on catalog cards and the product page. */
   photo: { src: string; alt: string; width: number; height: number };
+  /** Additional photos shown in a gallery on the product page. */
+  gallery?: { src: string; alt: string; width: number; height: number }[];
   /** Body paragraphs on the product page. */
   description: string[];
   specs: SpecRow[];
@@ -26,7 +28,11 @@ export type Product = {
 const ALL_PRODUCTS: Product[] = [
   {
     slug: "5kg-coco-peat-blocks",
-    photo: { src: "/images/product-blocks.avif", alt: "Compressed coco coir pith block", width: 640, height: 471 },
+    photo: { src: "/images/product-blocks-1.avif", alt: "Compressed 5 kg coco peat block", width: 1200, height: 800 },
+    gallery: [
+      { src: "/images/product-blocks-2.avif", alt: "Close-up of compressed coco peat texture and layered coir fibre", width: 1200, height: 800 },
+      { src: "/images/product-blocks-3.avif", alt: "Palletized coco peat blocks strapped and shrink-wrapped for export", width: 1200, height: 800 },
+    ],
     highlights: ["EC < 0.5 mS/cm", "5:1 compression"],
     name: "5 kg Coco Peat Blocks",
     shortName: "Coco Peat Blocks",

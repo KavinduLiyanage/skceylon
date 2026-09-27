@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RfqSection } from "@/components/RfqSection";
 import { SpecLedger } from "@/components/SpecLedger";
-import { COMPANY, MARKETS } from "@/content/site";
+import { COMPANY, MARKETS, VISION_MISSION } from "@/content/site";
 
 export const metadata: Metadata = {
   title: "About",
@@ -76,6 +76,21 @@ export default function AboutPage() {
             framed
             className="self-start lg:mt-2"
           />
+        </div>
+      </section>
+
+      <section className="border-t border-rule bg-paper">
+        <div className="mx-auto grid max-w-6xl gap-10 px-5 py-14 sm:px-8 lg:grid-cols-2 lg:gap-16">
+          {VISION_MISSION.map((item) => (
+            <div key={item.label}>
+              <p className="font-mono text-[0.6875rem] tracking-[0.18em] text-green-deep uppercase">
+                {item.label}
+              </p>
+              <p className="mt-4 font-display text-2xl leading-snug font-medium text-ink text-balance">
+                {item.text}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 

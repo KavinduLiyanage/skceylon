@@ -20,6 +20,18 @@ export const COMPANY = {
   whatsapp: "+94 76 867 7530 / +94 77 422 9289",
 } as const;
 
+/** Shown on the About page. */
+export const VISION_MISSION = [
+  {
+    label: "Our Vision",
+    text: "To become Sri Lanka’s most trusted agricultural export brand, bringing the excellence of our island to markets worldwide.",
+  },
+  {
+    label: "Our Mission",
+    text: "To connect Sri Lanka’s agricultural producers with global buyers through quality coconut products, spices, and other agricultural goods — delivering consistent standards, dependable service, and lasting value through responsible sourcing and strong partnerships.",
+  },
+] as const;
+
 export type SpecRow = {
   label: string;
   value: string;
@@ -87,7 +99,6 @@ export const FEATURES = [
 /** Attribution for CC-licensed photography, shown in the footer. */
 export const IMAGE_CREDITS = [
   "Plantation photo: Vyacheslav Argenberg (CC BY 4.0)",
-  "Coir brick: MatiasMiika (CC BY 3.0)",
   "Greenhouse rows: Lufa Farms (CC BY-SA 2.0)",
   "Fiber warehouse: TheOilLamp (CC BY-SA 4.0)",
   "Husk pile: Rprasanth1 (CC BY-SA 4.0)",
