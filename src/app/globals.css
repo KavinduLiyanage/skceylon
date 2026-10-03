@@ -60,3 +60,13 @@ body {
     scroll-behavior: auto !important;
   }
 }
+
+@media print {
+  body {
+    background-color: #fff;
+  }
+  /* Keep the datasheet compact on paper */
+  section {
+    break-inside: avoid;
+  }
+}

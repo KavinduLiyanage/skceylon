@@ -14,7 +14,7 @@ export function RfqSection({
   heading = "Get a quotation with the lab report attached.",
 }: RfqSectionProps) {
   return (
-    <section className="on-ink border-t-2 border-gold bg-ink">
+    <section className="print:hidden on-ink border-t-2 border-gold bg-ink">
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 lg:grid-cols-2 lg:gap-16">
         <div>
           <p className="font-mono text-[0.6875rem] tracking-[0.18em] text-gold uppercase">

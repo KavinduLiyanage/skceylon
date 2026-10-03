@@ -134,7 +134,7 @@ function GrowBagDrawing() {
       </text>
       <DimLine x1={224} y1={84} x2={224} y2={118} />
       <text x="238" y="104" textAnchor="end" className={dimText}>
-        12
+        14
       </text>
       <text x="24" y="44" className={noteText}>
         holes cut to buyer spec

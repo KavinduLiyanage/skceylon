@@ -6,7 +6,8 @@ import { CtaLink } from "@/components/CtaLink";
 import { JsonLd } from "@/components/JsonLd";
 import { ProductDiagram } from "@/components/ProductDiagram";
 import { RfqSection } from "@/components/RfqSection";
-import { SpecTable } from "@/components/SpecTable";
+import { Datasheet } from "@/components/datasheet/Datasheet";
+import { PackingSection } from "@/components/packing/PackingSection";
 import { PRODUCTS, getProduct } from "@/content/products";
 import { COMPANY, SITE_URL, rfqMailto } from "@/content/site";
 
@@ -49,7 +50,12 @@ export default async function ProductPage({ params }: Props) {
     brand: { "@type": "Brand", name: "SK Ceylon" },
     manufacturer: { "@type": "Organization", name: COMPANY.name },
     countryOfOrigin: { "@type": "Country", name: "Sri Lanka" },
-    additionalProperty: product.specs.map((spec) => ({
+    additionalProperty: [
+      ...(product.datasheet.dimensions?.rows ?? []),
+      ...(product.datasheet.blend?.rows ?? []),
+      ...product.datasheet.groups.flatMap((group) => group.rows),
+      ...product.datasheet.lab,
+    ].map((spec) => ({
       "@type": "PropertyValue",
       name: spec.label,
       value: spec.note ? `${spec.value} (${spec.note})` : spec.value,
@@ -161,29 +167,17 @@ export default async function ProductPage({ params }: Props) {
         </section>
       )}
 
-      <section className="border-b border-rule bg-paper">
-        <div className="mx-auto grid max-w-6xl gap-12 px-5 py-14 sm:px-8 lg:grid-cols-2 lg:gap-16">
-          <SpecTable caption="Specification" rows={product.specs} />
-          <div className="space-y-10">
-            <SpecTable caption="Packing & loading" rows={product.packing} />
-            <div>
-              <h2 className="font-mono text-[0.6875rem] tracking-[0.18em] text-ink-soft uppercase">
-                Applications
-              </h2>
-              <ul className="mt-2 border-y border-rule-strong">
-                {product.applications.map((application) => (
-                  <li
-                    key={application}
-                    className="border-b border-dotted border-rule-strong/70 py-2.5 text-sm text-ink last:border-b-0"
-                  >
-                    {application}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Datasheet
+        product={product.shortName}
+        rfqHref={rfqMailto(product.name)}
+        sheet={product.datasheet}
+      />
+
+      <PackingSection
+        packing={product.packing}
+        applications={product.applications}
+        rfqHref={rfqMailto(product.name)}
+      />
 
       <RfqSection
         product={product.name}
