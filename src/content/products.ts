@@ -4,6 +4,8 @@ export type ProductDiagramKind =
   | "block"
   | "chips"
   | "chipblock"
+  | "peatbale"
+  | "peatdisc"
   | "growbag"
   | "bale";
 
@@ -27,7 +29,12 @@ export type Product = {
   datasheet: Datasheet;
   packing: Packing;
   applications: Application[];
-  diagram: ProductDiagramKind;
+  /** Who buys it; switches grower-specific copy to manufacturing wording. */
+  audience?: "growers" | "manufacturers";
+  /** Line drawing shown under the hero photo; omit to show the photo alone. */
+  diagram?: ProductDiagramKind;
+  /** Branded infographic shown in the hero instead of the line drawing. */
+  diagramImage?: { src: string; alt: string; width: number; height: number };
 };
 
 const ALL_PRODUCTS: Product[] = [
@@ -142,6 +149,7 @@ const ALL_PRODUCTS: Product[] = [
       { icon: "fiber", title: "Animal bedding", detail: "Absorbent, low-dust bedding material.", tag: "high-EC" },
     ],
     diagram: "block",
+    diagramImage: { src: "/images/product-blocks-4.avif", alt: "5 kg coco peat block diagram with length, width and height called out", width: 1200, height: 800 },
   },
   {
     slug: "5kg-coco-chip-blocks",
@@ -254,6 +262,383 @@ const ALL_PRODUCTS: Product[] = [
     diagram: "chipblock",
   },
   {
+    slug: "25kg-coco-peat-bales",
+    photo: { src: "/images/product-bales-1.avif", alt: "Open 25 kg SK Ceylon coco peat bale showing the coir pith inside", width: 1200, height: 1200 },
+    gallery: [
+      { src: "/images/product-bales-2.avif", alt: "Sealed 25 kg coco peat bale in its branded polythene bag", width: 1200, height: 1200 },
+      { src: "/images/product-bales-3.avif", alt: "Sealed 25 kg coco peat bale, front view", width: 1200, height: 1200 },
+    ],
+    highlights: ["25 kg bales", "Polythene-bagged"],
+    name: "25 kg Coco Peat Bales",
+    shortName: "Coco Peat Bales",
+    tagline: "Bulk coir pith for nurseries, growers and potting mixes.",
+    summary:
+      "Coconut coir pith in compact 25 kg bales for bulk growing-media preparation. Individually bagged, floor-loaded or palletized, with grade, washing and buffering agreed to your application.",
+    description: [
+      "Our 25 kg coco peat bales supply coconut coir pith in a compact format for bulk growing-media preparation. Made from the material obtained during coconut husk processing, coco peat holds moisture and suits growing mixes for a wide range of plants.",
+      "After loosening and adding water as needed, the material can be blended with other growing-media ingredients to suit the crop, container and watering method. Its moisture-holding properties help keep water around roots, while the blend you choose sets aeration and drainage.",
+      "The bale format takes less storage space than loose material and makes bulk supply practical for nurseries, substrate producers and commercial growing operations.",
+    ],
+    datasheet: {
+      lead: "Share your intended application, preferred grade, packaging requirements and destination port. We propose a suitable product specification and loading plan.",
+      // The source sheet (files/25 kg Cocopeat Bales.pdf) gives no figures
+      // for dimensions, compression, expanded volume, moisture, EC or pH.
+      // When they are confirmed, add keyFigures, dimensions and lab gauges
+      // like the coco peat block entry above.
+      keyFigures: [
+        { value: "25 kg", label: "nominal weight" },
+        { value: "Coir pith", label: "raw material" },
+        { value: "Sri Lanka", label: "country of origin" },
+      ],
+      lab: [],
+      groups: [
+        {
+          title: "Bale",
+          rows: [
+            { label: "Product", value: "coco peat bale" },
+            { label: "Nominal weight", value: "25 kg" },
+            { label: "Raw material", value: "coconut coir pith" },
+            { label: "Country of origin", value: "Sri Lanka" },
+            { label: "Bale dimensions", value: "in the quotation", note: "specified for your order" },
+            { label: "Compression", value: "per agreed spec", note: "ratio according to the agreed product specification" },
+            { label: "Expanded volume", value: "per grade", note: "specified for the selected grade" },
+          ],
+        },
+        {
+          title: "Grade & processing",
+          rows: [
+            { label: "Particle size & blend", value: "to buyer requirements", note: "considered when selecting the grade" },
+            { label: "Washing", value: "on request", note: "specify your requirement when enquiring" },
+            { label: "Buffering", value: "on request", note: "specify your requirement when enquiring" },
+          ],
+        },
+        {
+          title: "Lab values",
+          aside: true,
+          rows: [
+            { label: "EC", value: "agreed with buyer", note: "target EC and test method" },
+            { label: "pH", value: "per agreed spec" },
+            { label: "Moisture", value: "per agreed spec" },
+          ],
+        },
+        {
+          title: "Documentation",
+          aside: true,
+          rows: [
+            { label: "Certificate of analysis", value: "every shipment", note: "EC, pH and moisture of the actual lot" },
+            { label: "Phytosanitary", value: "every shipment", note: "CDA export permit included" },
+            { label: "Fumigation", value: "where required", note: "to destination import rules" },
+          ],
+        },
+      ],
+      advantages: [
+        { label: "Moisture retention", detail: "holds water within the growing medium" },
+        { label: "Flexible blending", detail: "mixes with other substrate ingredients to reach the growing conditions you need" },
+        { label: "Compact storage", detail: "compressed material takes less space than loose coco peat" },
+        { label: "Bulk preparation", detail: "a practical format for preparing larger quantities of growing media" },
+        { label: "Useful coconut resource", detail: "makes productive use of material from coconut husk processing" },
+      ],
+      options: [
+        { label: "Grade", detail: "particle size and blend chosen for your application" },
+        { label: "Washing & buffering", detail: "specified when you enquire" },
+        { label: "EC target", detail: "target and test method agreed with you" },
+        { label: "Packaging", detail: "plain or custom-branded polythene bags" },
+        { label: "Loading", detail: "floor-loaded or palletized, as agreed" },
+      ],
+      footnote: "Final specifications, packaging and quantities are agreed before order confirmation. Choose the grade and blend for the intended application; loosen the material and adjust its moisture before use.",
+    },
+    packing: {
+      lead: "Bales ship individually bagged, floor-loaded or palletized as agreed. Container quantity depends on bale dimensions and packing arrangement, and the loading plan is provided with the quotation.",
+      units: [
+        { icon: "bale", label: "Bale", value: "25 kg", note: "individually packed in a protective polythene bag" },
+        { icon: "pallet", label: "Pallet", value: "Palletized", note: "or floor-loaded, as agreed" },
+        { icon: "container", label: "Container", value: "40 ft HC", note: "quantity based on bale dimensions and packing" },
+      ],
+      steps: [
+        "Coir pith is compressed into 25 kg bales.",
+        "Each bale is packed in a protective polythene bag, plain or custom-branded.",
+        "Bales are floor-loaded or palletized, as agreed.",
+      ],
+      notes: [
+        { label: "Packaging", value: "polythene bags", note: "individually packed for protection" },
+        { label: "Branding", value: "plain or custom", note: "custom-branded packaging enquiries welcome" },
+        { label: "Loading", value: "floor-loaded or palletized", note: "as agreed" },
+        { label: "Container quantity", value: "per loading plan", note: "based on bale dimensions and packing arrangement" },
+        { label: "Loading plan", value: "with quotation" },
+      ],
+      terms: [
+        { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP to your port or warehouse" },
+        { label: "Container", value: "40 ft HC", note: "quantity per loading plan" },
+        { label: "Lead time", value: "3 – 5 weeks", note: "from order confirmation" },
+        { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
+      ],
+    },
+    applications: [
+      { icon: "pot", title: "Nursery production", detail: "Growing mixes for young plants and ornamental plants." },
+      { icon: "slab", title: "Potting-mix production", detail: "A moisture-retaining ingredient for commercial substrate blends." },
+      { icon: "vine", title: "Greenhouse cultivation", detail: "Growing media selected for the crop and irrigation system." },
+      { icon: "flower", title: "Container gardening", detail: "Mixes for vegetables, flowers and other potted plants." },
+      { icon: "leaf", title: "Seed propagation", detail: "Fine-grade material with EC suited to sensitive seedlings." },
+      { icon: "soil", title: "Landscaping & soil conditioning", detail: "Worked into soil blends to improve moisture retention." },
+    ],
+    diagram: "peatbale",
+  },
+  {
+    slug: "coco-peat-discs",
+    photo: { src: "/images/product-discs-1.avif", alt: "Close-up of a compressed coco peat disc with a second disc behind it", width: 1200, height: 1200 },
+    gallery: [
+      { src: "/images/product-discs-2.avif", alt: "Three compressed coco peat discs, two stacked and one in front", width: 1200, height: 1200 },
+      { src: "/images/product-discs-3.avif", alt: "Four compressed coco peat discs arranged on a white surface", width: 1200, height: 1200 },
+    ],
+    highlights: ["Expand with water", "Bare discs or netted plugs"],
+    name: "Coco Peat Discs",
+    shortName: "Coco Peat Discs",
+    tagline: "Compact growing media for seed starting, nurseries and potted plants.",
+    summary:
+      "Coconut coir pith compressed into round discs that expand when watered, for preparing growing media directly in pots and propagation trays. Disc size and grade matched to your container and crop.",
+    description: [
+      "Our coco peat discs are a convenient way to prepare growing media directly in pots and propagation trays. Made from coconut coir pith compressed into round discs, they expand when watered, so there is less loose substrate to measure and handle.",
+      "The expanded coco peat holds moisture while providing air spaces around roots. Disc size and material grade are matched to the container and crop, from fine material for seed starting to coarser blends for flowering and potted plants.",
+      "Compact to store and simple to prepare, the discs suit commercial nurseries, greenhouse growers, garden retailers and home gardeners. Share your pot or tray dimensions and growing requirements and we will propose a suitable specification.",
+    ],
+    datasheet: {
+      lead: "Tell us your crop, pot or tray dimensions, required expanded volume and preferred EC grade. We propose a suitable disc specification with the quotation.",
+      // The source sheet (files/coco-peat-discs.pdf) gives no figures for
+      // diameter, thickness, unit weight, expanded volume, EC, pH or
+      // moisture; each is set per order. When standard sizes are confirmed,
+      // add keyFigures, dimensions and lab gauges like the coco peat block
+      // entry above.
+      keyFigures: [
+        { value: "Coir pith", label: "raw material" },
+        { value: "Round disc", label: "compressed shape" },
+        { value: "Sri Lanka", label: "country of origin" },
+      ],
+      lab: [],
+      groups: [
+        {
+          title: "Disc",
+          rows: [
+            { label: "Product", value: "compressed coco peat discs" },
+            { label: "Raw material", value: "coconut coir pith" },
+            { label: "Shape", value: "round, flat disc" },
+            { label: "Diameter", value: "to fit your pot or tray", note: "selected per order" },
+            { label: "Thickness & weight", value: "per expanded volume", note: "matched to the volume you need" },
+            { label: "Expanded volume", value: "per disc size", note: "specified for the selected disc" },
+            { label: "Origin", value: "Sri Lanka" },
+          ],
+        },
+        {
+          title: "Grade & format",
+          rows: [
+            { label: "Material grade", value: "per crop and container", note: "fine for seed starting, coarser for potted plants" },
+            { label: "Format", value: "bare discs", note: "netted propagation plugs on enquiry" },
+            { label: "Additional", value: "on request", note: "seed indentation, washing or buffering" },
+          ],
+        },
+        {
+          title: "Lab values",
+          aside: true,
+          rows: [
+            { label: "EC", value: "agreed grade", note: "value and test method stated in the quotation" },
+            { label: "pH", value: "per agreed spec", note: "range stated" },
+            { label: "Moisture", value: "per agreed spec", note: "limit at packing stated" },
+          ],
+        },
+        {
+          title: "Documentation",
+          aside: true,
+          rows: [
+            { label: "Certificate of analysis", value: "every shipment", note: "EC, pH and moisture of the actual lot" },
+            { label: "Phytosanitary", value: "every shipment", note: "CDA export permit included" },
+            { label: "Fumigation", value: "where required", note: "to destination import rules" },
+          ],
+        },
+      ],
+      usage: {
+        steps: [
+          "Place the disc in a suitable pot or tray cell with drainage.",
+          "Add water gradually and allow it to expand fully.",
+          "Gently loosen the material if needed and let excess water drain.",
+          "Sow seeds or insert cuttings, then manage watering and feeding for the crop.",
+        ],
+        note: "Bare discs should stay supported by a suitable container after expansion. Netted plugs use a surrounding mesh to help hold the growing medium together during handling.",
+      },
+      advantages: [
+        { label: "Simple preparation", detail: "place in a container, add water and let the disc expand" },
+        { label: "Convenient portions", detail: "individual discs reduce the need to measure loose growing media" },
+        { label: "Moisture retention", detail: "coco peat holds water within the root zone" },
+        { label: "Root-zone aeration", detail: "a porous structure gives air spaces when properly hydrated and drained" },
+        { label: "Compact storage and transport", detail: "supplied compressed to reduce bulk before use" },
+        { label: "Flexible selection", detail: "disc dimensions and material grade chosen for the application" },
+      ],
+      options: [
+        { label: "Disc diameter", detail: "sized to your pot or tray" },
+        { label: "Thickness & unit weight", detail: "matched to the expanded volume you need" },
+        { label: "Material grade", detail: "selected for crop and container" },
+        { label: "Format", detail: "bare discs or netted propagation plugs" },
+        { label: "Seed indentation", detail: "available on request" },
+        { label: "Washing & buffering", detail: "discussed per order" },
+        { label: "Retail packs", detail: "labelled packs and buyer branding" },
+      ],
+      footnote: "Final specifications, product options and packaging are agreed before order confirmation.",
+    },
+    packing: {
+      lead: "Discs ship in protective cartons. Carton, pallet and container quantities are calculated for your disc size and provided with the quotation.",
+      units: [
+        { icon: "disc", label: "Disc", value: "Compressed", note: "bare disc or netted plug" },
+        { icon: "carton", label: "Carton", value: "Cartons", note: "quantity by disc size and pack" },
+        { icon: "pallet", label: "Pallet", value: "Palletized", note: "arranged by carton size and handling" },
+        { icon: "container", label: "Container", value: "Per quotation", note: "calculated for your product and packing" },
+      ],
+      steps: [
+        "Coir pith is compressed into round, flat discs.",
+        "Discs are packed in protective cartons, or labelled retail packs on enquiry.",
+        "Cartons are palletized to suit carton size and handling requirements.",
+        "Container loading is calculated for the selected product and packing.",
+      ],
+      notes: [
+        { label: "Bulk packaging", value: "protective cartons" },
+        { label: "Retail packaging", value: "on enquiry", note: "labelled packs and buyer branding" },
+        { label: "Packing quantity", value: "per disc size", note: "based on disc dimensions and pack requirements" },
+        { label: "Pallet arrangement", value: "as agreed", note: "by carton size and handling requirements" },
+        { label: "Loading details", value: "with quotation", note: "carton, pallet and container quantities" },
+      ],
+      terms: [
+        { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP to your port or warehouse" },
+        { label: "Container", value: "per quotation", note: "calculated for your product and packing" },
+        { label: "Lead time", value: "3 – 5 weeks", note: "from order confirmation" },
+        { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
+      ],
+    },
+    applications: [
+      { icon: "leaf", title: "Seed germination", detail: "Grades and sizes for seed trays and starter pots." },
+      { icon: "pot", title: "Nursery propagation", detail: "Growing media for seedlings and rooting cuttings." },
+      { icon: "flower", title: "Flowering & ornamental plants", detail: "Pot-sized discs for gerberas and other suitable plants." },
+      { icon: "vine", title: "Greenhouse production", detail: "Media preparation for nursery and container-growing systems." },
+      { icon: "slab", title: "Hydroponic propagation", detail: "Starter media used with appropriate irrigation and nutrient management." },
+      { icon: "soil", title: "Home gardening & growing kits", detail: "Convenient portions for small pots and seed-starting kits." },
+    ],
+    diagram: "peatdisc",
+  },
+  {
+    slug: "coir-fibre-bales",
+    audience: "manufacturers",
+    photo: { src: "/images/product-fibre-1.avif", alt: "Compressed coir fibre bale bound with yellow straps", width: 1200, height: 800 },
+    gallery: [
+      { src: "/images/product-fibre-2.avif", alt: "Three strapped coir fibre bales standing side by side", width: 1200, height: 675 },
+      { src: "/images/product-fibre-3.avif", alt: "Loose golden coir fibre after opening a bale", width: 1200, height: 675 },
+    ],
+    highlights: ["Compressed bales", "Grades to order"],
+    name: "Coir Fibre Bales",
+    shortName: "Coir Fibre Bales",
+    tagline: "Natural coconut fibre for manufacturing and industry.",
+    summary:
+      "Coconut husk fibre compressed into compact bales for handling, storage and bulk transport. A raw material for mattresses, upholstery, erosion-control products, mats, pots and ropes, with grade and bale weight agreed per order.",
+    description: [
+      "Our coir fibre bales contain coconut husk fibre compressed into compact bales for convenient handling, storage and bulk transport.",
+      "Coir fibre is a raw material in mattress, upholstery and erosion-control product manufacturing. Depending on the fibre grade and further processing, it can also be made into mats, plant pots, ropes and other coir products.",
+      "The compressed format reduces the space loose fibre would need and makes bulk supply practical. Tell us your intended application, fibre requirements and preferred packing, and we will propose a suitable supply option.",
+    ],
+    datasheet: {
+      lead: "Tell us your intended use, required fibre grade, order quantity, preferred bale weight and destination port. We confirm the figures with the quotation.",
+      // The source sheet (files/coir-fibre-bales.pdf) leaves every figure as
+      // "Confirm": fibre grade, colour, fibre length, net bale weight and
+      // tolerance, bale dimensions, moisture and impurity / pith content.
+      // Replace the "on request" / "per agreed spec" rows when confirmed.
+      keyFigures: [
+        { value: "Husk fibre", label: "raw material" },
+        { value: "Compressed", label: "bale format" },
+        { value: "Sri Lanka", label: "country of origin" },
+      ],
+      lab: [],
+      groups: [
+        {
+          title: "Fibre",
+          rows: [
+            { label: "Raw material", value: "coconut husk fibre" },
+            { label: "Fibre grade", value: "on request", note: "mattress, mixed or other grades by availability" },
+            { label: "Fibre length", value: "per grade", note: "range confirmed with quotation" },
+            { label: "Colour", value: "per sample", note: "confirmed against the supplied lot" },
+            { label: "Country of origin", value: "Sri Lanka" },
+          ],
+        },
+        {
+          title: "Bale",
+          rows: [
+            { label: "Packing form", value: "compressed bales" },
+            { label: "Net bale weight", value: "to order", note: "weight and tolerance agreed per order" },
+            { label: "Bale dimensions", value: "in the quotation", note: "length × width × height" },
+          ],
+        },
+        {
+          title: "Quality",
+          aside: true,
+          rows: [
+            { label: "Moisture", value: "per agreed spec", note: "maximum and test method stated" },
+            { label: "Impurity / pith", value: "per agreed spec", note: "maximum and measurement basis stated" },
+          ],
+        },
+        {
+          title: "Documentation",
+          aside: true,
+          rows: [
+            { label: "Phytosanitary", value: "every shipment", note: "CDA export permit included" },
+            { label: "Fumigation", value: "where required", note: "to destination import rules" },
+          ],
+        },
+      ],
+      advantages: [
+        { label: "Natural raw material", detail: "made from coconut husk fibre" },
+        { label: "Compact packing", detail: "compression reduces the space loose fibre occupies" },
+        { label: "Convenient bulk handling", detail: "bales are easier to store, load and transport" },
+        { label: "Versatile applications", detail: "different fibre grades serve a range of manufacturing needs" },
+        { label: "Resource use", detail: "adds value to coconut husks through further processing" },
+      ],
+      options: [
+        { label: "Fibre grade", detail: "chosen for your manufacturing process" },
+        { label: "Fibre length", detail: "range agreed per grade" },
+        { label: "Bale weight", detail: "your preferred weight, with agreed tolerance" },
+        { label: "Strapping & wrapping", detail: "options confirmed per order" },
+        { label: "Marking", detail: "labels and buyer markings" },
+      ],
+      footnote: "Application suitability depends on fibre grade, length, cleanliness and your manufacturing process. Final specifications are agreed before order confirmation.",
+    },
+    packing: {
+      lead: "Fibre ships as compressed bales. Strapping, wrapping, marking and container loading are confirmed with the quotation.",
+      units: [
+        { icon: "bale", label: "Bale", value: "Compressed", note: "net weight agreed per order" },
+        { icon: "container", label: "Container", value: "Per quotation", note: "net weight and bale count by container type" },
+      ],
+      steps: [
+        "Coconut husk fibre is compressed into compact bales.",
+        "Bales are strapped, and covered where the order calls for it.",
+        "Loaded to the plan confirmed with your quotation.",
+      ],
+      notes: [
+        { label: "Strapping", value: "on request", note: "plastic or metal, confirmed per order" },
+        { label: "Wrapping", value: "on request", note: "unwrapped or covered, confirmed per order" },
+        { label: "Marking", value: "to buyer spec", note: "labels and buyer markings" },
+        { label: "Minimum order", value: "with quotation" },
+        { label: "Loading plan", value: "with quotation", note: "net weight and bale count per container" },
+      ],
+      terms: [
+        { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP to your port or warehouse" },
+        { label: "Container", value: "per quotation", note: "bale count by container type" },
+        { label: "Lead time", value: "with quotation", note: "production and dispatch time confirmed per order" },
+        { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
+      ],
+    },
+    applications: [
+      { icon: "slab", title: "Mattresses & bedding", detail: "Raw material for coir mattress layers and padding." },
+      { icon: "fiber", title: "Furniture & vehicle upholstery", detail: "Fibre for cushioning and upholstery components after processing." },
+      { icon: "leaf", title: "Erosion-control products", detail: "Used to manufacture coir blankets and related products." },
+      { icon: "soil", title: "Drainage filtration", detail: "Fibre for suitable drainage-filter applications." },
+      { icon: "brush", title: "Mats & floor coverings", detail: "Raw material for selected coir matting products." },
+      { icon: "pot", title: "Horticultural products", detail: "Used to manufacture coir pots and liners." },
+      { icon: "rope", title: "Yarn, twine & ropes", detail: "Suitable grades can be processed into twisted products." },
+    ],
+  },
+  {
     slug: "husk-chips",
     photo: { src: "/images/product-chips.jpg", alt: "Coconut husks stockpiled at a coir mill before cutting", width: 1200, height: 673 },
     highlights: ["Graded 1 – 3 cm", "Washed on request"],
@@ -327,7 +712,7 @@ const ALL_PRODUCTS: Product[] = [
   },
   {
     slug: "grow-bags",
-    photo: { src: "/images/product-growbags.avif", alt: "Greenhouse tomato rows growing on coco substrate slabs", width: 896, height: 1200 },
+    photo: { src: "/images/product-growbags-1.avif", alt: "SK Ceylon coco grow bag with three planting holes cut in white UV-treated film", width: 1200, height: 800 },
     highlights: ["60:40 peat : chips standard", "UV-treated film, 2 yr"],
     name: "Coco Grow Bags",
     shortName: "Grow Bags",
@@ -441,6 +826,7 @@ const ALL_PRODUCTS: Product[] = [
       { icon: "melon", title: "Melon & other high-wire crops", detail: "Heavy-fruiting vines with high water demand.", tag: "typical 60 : 40 – 70 : 30" },
     ],
     diagram: "growbag",
+    diagramImage: { src: "/images/product-growbags-2.avif", alt: "Grow bag diagram showing planting holes, plant spacing, irrigation openings, drainage cuts and the coco peat and husk chip blend, all set to buyer requirements", width: 1200, height: 800 },
   },
   {
     slug: "coir-fiber",

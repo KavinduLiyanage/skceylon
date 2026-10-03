@@ -15,7 +15,7 @@ import {
 
 export const metadata: Metadata = {
   description:
-    "Coco peat exporter in Sri Lanka. Lab-tested 5 kg coco peat blocks, husk chips, grow bags and coir fiber — EC < 0.5 mS/cm washed, pH 5.5–6.8, FOB Colombo. Request a quotation.",
+    "Coco peat exporter in Sri Lanka. Lab-tested 5 kg coco peat blocks, husk chips, grow bags and coir fiber — EC < 0.5 mS/cm washed, pH 5.5–6.5, FOB Colombo. Request a quotation.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "SK Ceylon — Coco Peat & Coir Exports Sri Lanka",

@@ -9,6 +9,7 @@ type PackingSectionProps = {
   applications: Application[];
   /** Mailto for the quotation prompt under the applications. */
   rfqHref: string;
+  audience?: "growers" | "manufacturers";
 };
 
 function Eyebrow({ children }: { children: string }) {
@@ -29,6 +30,7 @@ export function PackingSection({
   packing,
   applications,
   rfqHref,
+  audience = "growers",
 }: PackingSectionProps) {
   const { lead, units, steps, notes, terms } = packing;
   const chainLabel = units
@@ -63,7 +65,9 @@ export function PackingSection({
                 Packing &amp; loading
               </h3>
               <p className="font-mono text-[0.6875rem] tracking-[0.18em] text-ink-soft uppercase">
-                FOB Colombo · 40 ft HC
+                {terms.some((row) => row.value === "40 ft HC")
+                  ? "FOB Colombo · 40 ft HC"
+                  : "FOB Colombo"}
               </p>
             </div>
 
@@ -166,12 +170,16 @@ export function PackingSection({
                 Applications
               </h2>
               <p className="font-mono text-[0.6875rem] tracking-[0.18em] text-ink-soft uppercase">
-                Crop fit
+                {audience === "manufacturers" ? "End uses" : "Crop fit"}
               </p>
             </div>
             <ul
               className={`grid gap-x-8 divide-y divide-rule px-6 sm:grid-cols-2 sm:divide-y-0 sm:px-7 ${
-                applications.length === 5 ? "lg:grid-cols-5" : "lg:grid-cols-4"
+                applications.length === 5
+                  ? "lg:grid-cols-5"
+                  : applications.length === 6
+                    ? "lg:grid-cols-3"
+                    : "lg:grid-cols-4"
               }`}
             >
               {applications.map((application) => (
@@ -197,12 +205,16 @@ export function PackingSection({
             </ul>
             <div className="border-t border-rule bg-parchment/60 px-6 py-4 sm:px-7">
               <p className="text-[0.9375rem] leading-relaxed text-ink-soft">
-                Growing something else?{" "}
+                {audience === "manufacturers"
+                  ? "Making something else?"
+                  : "Growing something else?"}{" "}
                 <a
                   href={rfqHref}
                   className="font-medium text-green-deep underline-offset-4 hover:underline"
                 >
-                  Tell us the crop
+                  {audience === "manufacturers"
+                    ? "Tell us the application"
+                    : "Tell us the crop"}
                 </a>{" "}
                 and we will propose a specification to suit it.
               </p>

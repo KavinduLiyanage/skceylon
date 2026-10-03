@@ -82,6 +82,8 @@ export type PackingUnitIcon =
   | "block"
   | "bag"
   | "bale"
+  | "disc"
+  | "carton"
   | "pallet"
   | "container";
 
@@ -157,6 +159,10 @@ export type Datasheet = {
   };
   /** Any further fixed specification groups. */
   groups: SpecGroup[];
+  /** Numbered preparation steps, with an optional closing note. */
+  usage?: { steps: string[]; note?: string };
+  /** Product benefits, shown as a checklist panel. */
+  advantages?: { label: string; detail?: string }[];
   /** What is set per order rather than fixed. */
   options: { label: string; detail?: string }[];
   /** Small print under the sheet, e.g. that figures are from current production. */

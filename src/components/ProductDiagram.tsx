@@ -22,6 +22,8 @@ export function ProductDiagram({ kind, className = "" }: ProductDiagramProps) {
       {kind === "chipblock" && <ChipBlockDrawing />}
       {kind === "growbag" && <GrowBagDrawing />}
       {kind === "bale" && <BaleDrawing />}
+      {kind === "peatbale" && <PeatBaleDrawing />}
+      {kind === "peatdisc" && <PeatDiscDrawing />}
     </svg>
   );
 }
@@ -192,6 +194,58 @@ function GrowBagDrawing() {
       </text>
       <text x="24" y="44" className={noteText}>
         holes cut to buyer spec
+      </text>
+    </g>
+  );
+}
+
+function PeatDiscDrawing() {
+  return (
+    <g strokeWidth="1.25">
+      <g className={ink}>
+        {/* compressed disc */}
+        <path d="M34 92 v10 a30 9 0 0 0 60 0 v-10" />
+        <ellipse cx="64" cy="92" rx="30" ry="9" />
+        {/* hydration arrow */}
+        <path d="M108 96 h22 M124 90 l6 6 l-6 6" />
+        {/* expanded plug in a pot */}
+        <path d="M150 84 h56 l-7 40 h-42 Z" />
+        <path d="M152 84 c6 -16 46 -16 52 0" />
+        <path d="M178 70 v-16 M178 60 c-7 0 -10 -4 -10 -8 c6 0 10 3 10 8 Z M178 60 c7 0 10 -4 10 -8 c-6 0 -10 3 -10 8 Z" />
+      </g>
+      <text x="64" y="130" textAnchor="middle" className={dimText}>
+        disc
+      </text>
+      <text x="178" y="142" textAnchor="middle" className={dimText}>
+        expanded
+      </text>
+      <text x="120" y="28" textAnchor="middle" className={noteText}>
+        expands when watered
+      </text>
+    </g>
+  );
+}
+
+function PeatBaleDrawing() {
+  return (
+    <g strokeWidth="1.25">
+      <g className={ink}>
+        <path d="M62 122 h84 v-56 h-84 Z" />
+        <path d="M62 66 l24 -20 h84 l-24 20 Z" />
+        <path d="M146 122 l24 -20 v-56 l-24 20 Z" />
+        {/* bag seam */}
+        <g strokeWidth="0.5" opacity="0.45">
+          <path d="M62 76 h84 M146 76 l24 -20" />
+        </g>
+      </g>
+      <text x="104" y="100" textAnchor="middle" className={dimText}>
+        25 kg
+      </text>
+      <text x="116" y="146" textAnchor="middle" className={dimText}>
+        coir pith bale
+      </text>
+      <text x="120" y="28" textAnchor="middle" className={noteText}>
+        packed in a protective polythene bag
       </text>
     </g>
   );
