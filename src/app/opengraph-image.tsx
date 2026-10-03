@@ -8,8 +8,8 @@ export const contentType = "image/png";
 
 const specs = [
   ["EC, washed", "< 0.5 mS/cm"],
-  ["pH", "5.5 – 6.8"],
-  ["Moisture", "< 18 %"],
+  ["pH", "5.5 – 6.5"],
+  ["Moisture", "< 20 %"],
   ["Compression", "5 : 1"],
 ];
 

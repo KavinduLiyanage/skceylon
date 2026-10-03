@@ -1,6 +1,11 @@
 import type { Application, Datasheet, Packing } from "./site";
 
-export type ProductDiagramKind = "block" | "chips" | "growbag" | "bale";
+export type ProductDiagramKind =
+  | "block"
+  | "chips"
+  | "chipblock"
+  | "growbag"
+  | "bale";
 
 export type Product = {
   slug: string;
@@ -33,49 +38,56 @@ const ALL_PRODUCTS: Product[] = [
       { src: "/images/product-blocks-2.avif", alt: "Close-up of compressed coco peat texture and layered coir fibre", width: 1200, height: 800 },
       { src: "/images/product-blocks-3.avif", alt: "Palletized coco peat blocks strapped and shrink-wrapped for export", width: 1200, height: 800 },
     ],
-    highlights: ["EC < 0.5 mS/cm", "5:1 compression"],
+    highlights: ["EC < 0.5 mS/cm", "Min. 12 L/kg expansion"],
     name: "5 kg Coco Peat Blocks",
     shortName: "Coco Peat Blocks",
     tagline: "The standard unit of substrate supply.",
     summary:
-      "Compressed 5 kg coco peat blocks, 30 × 30 × 12 cm at 5:1 compression, expanding to roughly 70–75 litres. Washed, unwashed and low-EC grades, every lot lab-tested before shipment.",
+      "Washed, screened coir pith compressed into 5 kg blocks, 30 × 30 × 15 cm, expanding to 60 litres or more. Low-EC washed and high-EC grades, with a certificate of analysis for every shipment.",
     description: [
-      "The 5 kg block is the workhorse of coco peat export: dense enough to ship economically, sized for manual or line handling, and consistent enough to feed automated mixing. Each block is compressed 5:1 from sieved coco pith and expands to roughly 70–75 litres with water.",
-      "Blocks are available washed or unwashed, with a low-EC grade for buyers blending for salt-sensitive crops. Washing is done at the mill with fresh water and verified by an independent Colombo laboratory before any container is confirmed — the lab report travels with the quotation, not after the sale.",
+      "The 5 kg block is the standard commercial format of coco peat: washed coir pith from Sri Lankan husk, screened to under 12 mm and compressed for economical freight. Hydrate it to produce a low-EC, free-draining growing medium, or the base for your own potting mix.",
+      "Each block expands to at least 12 litres per kilogram, 60 litres or more per block, with higher-purity grades reaching 15 to 18 litres per kilogram. The low-EC washed grade is made for horticulture; a high-EC grade is available for soil amendment, landscaping and bedding. Husk chips or fibre can be blended in to order.",
     ],
     datasheet: {
-      lead: "Every lot is sampled at the mill and tested by an independent Colombo laboratory. The report travels with the quotation.",
+      lead: "Every shipment is supplied with a certificate of analysis for the actual lot. Sizes, mixes and EC grades can be produced to your own specification.",
       keyFigures: [
         { value: "5 kg", label: "per block" },
         { value: "5 : 1", label: "compression" },
-        { value: "70 – 75 L", label: "expanded volume" },
+        { value: "≥ 60 L", label: "expanded volume" },
         { value: "< 0.5", label: "mS/cm EC, washed" },
       ],
       dimensions: {
         length: 30,
         width: 30,
-        height: 12,
+        height: 15,
         unit: "cm",
         caption: "compressed block",
         rows: [
-          { label: "Dimensions", value: "30 × 30 × 12 cm" },
-          { label: "Weight", value: "5 kg", note: "± tolerance to buyer spec" },
+          { label: "Dimensions", value: "30 × 30 × 15 cm" },
+          { label: "Dry weight", value: "5 kg ± 200 g" },
           { label: "Compression", value: "5 : 1" },
-          { label: "Expanded volume", value: "≈ 70 – 75 L", note: "per block" },
+          { label: "Expansion", value: "min. 12 L / kg", note: "60 L or more per block; higher-purity grades reach 15 – 18 L / kg" },
         ],
       },
       lab: [
-        { label: "EC, washed", value: "< 0.5 mS/cm", note: "1:1.5 method", scale: [0, 2], band: [0, 0.5], ticks: ["0", "2 mS/cm"] },
-        { label: "pH", value: "5.5 – 6.8", scale: [4, 8], band: [5.5, 6.8] },
-        { label: "Moisture", value: "< 18 %", note: "at packing", scale: [0, 40], band: [0, 18], ticks: ["0", "40 %"] },
+        { label: "EC, washed", value: "< 0.5 mS/cm", note: "1:5 v/v", scale: [0, 2], band: [0, 0.5], ticks: ["0", "2 mS/cm"] },
+        { label: "pH", value: "5.5 – 6.5", scale: [4, 8], band: [5.5, 6.5] },
+        { label: "Moisture", value: "< 20 %", note: "at dispatch", scale: [0, 40], band: [0, 20], ticks: ["0", "40 %"] },
       ],
       groups: [
         {
-          title: "Grades",
+          title: "Material",
           rows: [
-            { label: "Washed", value: "EC < 0.5 mS/cm", note: "fresh-water washed at mill" },
-            { label: "Unwashed", value: "natural EC", note: "for buyers who wash or blend" },
-            { label: "Low-EC", value: "on request", note: "for salt-sensitive crops" },
+            { label: "Material", value: "100 % coir pith", note: "from Sri Lankan coconut husk" },
+            { label: "Particle size", value: "< 12 mm", note: "screened" },
+            { label: "Blends", value: "to order", note: "husk chips or fibre added on request" },
+          ],
+        },
+        {
+          title: "EC grades",
+          rows: [
+            { label: "Low-EC washed", value: "< 0.5 mS/cm", note: "for horticulture" },
+            { label: "High-EC", value: "available", note: "for soil amendment, landscaping and bedding" },
           ],
         },
         {
@@ -89,44 +101,157 @@ const ALL_PRODUCTS: Product[] = [
         },
       ],
       options: [
-        { label: "Grade", detail: "washed, unwashed or low-EC" },
-        { label: "Weight tolerance", detail: "agreed per order" },
-        { label: "Sleeve printing", detail: "optional printed shrink sleeve" },
-        { label: "Loading", detail: "palletized or floor-loaded" },
+        { label: "EC grade", detail: "low-EC washed or high-EC" },
+        { label: "Mix", detail: "100 % peat, or husk chips and fibre blended in" },
+        { label: "Wrapping", detail: "unwrapped as standard; shrink wrap or printed sleeve on request" },
+        { label: "Loading", detail: "palletized, loose-loaded or single pallets" },
       ],
-      footnote: "Specifications from current production. Every shipment is supplied with a certificate of analysis for the actual lot, and grades and EC levels can be produced to your own specification.",
+      footnote: "Specifications from current production. Every shipment is supplied with a certificate of analysis for the actual lot, and sizes, mixes and EC grades can be produced to your own specification.",
     },
     packing: {
-      lead: "Blocks leave Colombo shrink-wrapped and palletized or floor-loaded. Loading depends on pallet configuration and destination weight limits, so we confirm exact quantities with each quotation.",
+      lead: "Shipped as full 40 ft high-cube containers, palletized or loose-loaded, or as single pallets for trials and smaller orders. Loading depends on pallet configuration and destination weight limits, so we confirm exact quantities with each quotation.",
       units: [
-        { icon: "block", label: "Block", value: "5 kg", note: "30 × 30 × 12 cm, shrink-wrapped" },
-        { icon: "pallet", label: "Pallet", value: "Palletized", note: "or floor-loaded, count per loading plan" },
-        { icon: "container", label: "Container", value: "40 ft HC", note: "quantity confirmed with quotation" },
+        { icon: "block", label: "Block", value: "5 kg", note: "30 × 30 × 15 cm, unwrapped as standard" },
+        { icon: "pallet", label: "Pallet", value: "240 blocks", note: "strapped and stretch-wrapped", multiplier: "× 240" },
+        { icon: "container", label: "Container", value: "4,800 blocks", note: "20 pallets in a 40 ft HC", multiplier: "× 20" },
       ],
       steps: [
-        "Sieved pith is compressed 5 : 1 into 5 kg blocks at the mill.",
-        "Each block is shrink-wrapped, with an optional printed sleeve.",
-        "Blocks are palletized or floor-loaded to the agreed plan.",
-        "Stuffed into a 40 ft high-cube container at Colombo.",
+        "Washed pith is screened to under 12 mm and compressed into 5 kg blocks.",
+        "Blocks are stacked on export pallets without individual shrink wrap.",
+        "Pallets are strapped and stretch-wrapped with corner protectors.",
+        "Twenty pallets are stuffed into a 40 ft high-cube container at Colombo.",
       ],
       notes: [
-        { label: "Loading plan", value: "shared with quotation" },
+        { label: "Loose-loaded", value: "5,120 blocks", note: "per 40 ft HC, without pallets" },
+        { label: "Single pallets", value: "available", note: "LCL consignments for trials and smaller orders" },
+        { label: "Loading plan", value: "confirmed with quotation" },
         { label: "Marking", value: "to buyer spec" },
       ],
       terms: [
         { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP to your port or warehouse" },
-        { label: "Container", value: "40 ft HC", note: "quantity per loading plan" },
+        { label: "Container", value: "40 ft HC", note: "4,800 palletized or 5,120 loose-loaded" },
         { label: "Lead time", value: "3 – 5 weeks", note: "from order confirmation" },
         { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
       ],
     },
     applications: [
-      { icon: "vine", title: "Greenhouse & hydroponic growing", detail: "Soilless media for vegetables and flowers under cover.", tag: "washed · low-EC" },
-      { icon: "slab", title: "Grow bag & slab production", detail: "The pith fraction for blended slabs and bags.", tag: "unwashed or washed" },
-      { icon: "pot", title: "Potting mix & nursery media", detail: "Professional mixes, plugs and container nursery stock.", tag: "washed" },
-      { icon: "soil", title: "Soil conditioning", detail: "Water-holding amendment for horticultural blends.", tag: "unwashed" },
+      { icon: "pot", title: "Nursery & potting mixes", detail: "The base for professional mixes, plugs and container stock.", tag: "low-EC washed" },
+      { icon: "vine", title: "Vegetables", detail: "Soilless growing media for crops under cover.", tag: "low-EC washed" },
+      { icon: "slab", title: "Hydroponics", detail: "Free-draining substrate for drip and slab systems.", tag: "low-EC washed" },
+      { icon: "soil", title: "Soil amendment & landscaping", detail: "Water-holding conditioner for beds and blends.", tag: "high-EC" },
+      { icon: "fiber", title: "Animal bedding", detail: "Absorbent, low-dust bedding material.", tag: "high-EC" },
     ],
     diagram: "block",
+  },
+  {
+    slug: "5kg-coco-chip-blocks",
+    photo: { src: "/images/product-chip-blocks-1.avif", alt: "Compressed 5 kg coco husk chip block", width: 1200, height: 1200 },
+    gallery: [
+      { src: "/images/product-chip-blocks-2.avif", alt: "Two coco husk chip blocks with loose husk chips in front", width: 1200, height: 1200 },
+      { src: "/images/product-chip-blocks-3.avif", alt: "Close-up of a compressed chip block beside loosened husk chips", width: 1200, height: 1200 },
+    ],
+    highlights: ["100 % husk chips", "Min. 8 – 9 L/kg expansion"],
+    name: "5 kg Coco Chip Blocks",
+    shortName: "Coco Chip Blocks",
+    tagline: "Natural husk chips for moisture, airflow and drainage.",
+    summary:
+      "Compressed 5 kg coconut husk chip blocks, 30 × 30 × 15 cm, that loosen into chips after hydration. Chips hold moisture while keeping air and drainage around roots, for orchid mixes, nursery containers and greenhouse blends.",
+    description: [
+      "Our 5 kg coco chip blocks are a practical growing-medium component for commercial growers, nurseries and gardening businesses. Compressed for convenient storage and transport, each block loosens into coconut husk chips after hydration, expanding to at least 8 to 9 litres per kilogram.",
+      "The chips hold moisture within their fibres while keeping spaces for air and drainage around roots. Blend them with coco peat or other growing materials to build a mix suited to your crop and watering system, from orchid and anthurium potting mixes to nursery containers and greenhouse blends.",
+    ],
+    datasheet: {
+      lead: "Every shipment is supplied with a certificate of analysis for the actual lot. Chip grade, washing and packing are agreed per order.",
+      keyFigures: [
+        { value: "5 kg", label: "per block" },
+        { value: "100 %", label: "husk chips" },
+        { value: "8 – 9 L/kg", label: "minimum expansion" },
+        { value: "< 0.5", label: "mS/cm EC, washed" },
+      ],
+      dimensions: {
+        length: 30,
+        width: 30,
+        height: 15,
+        unit: "cm",
+        caption: "compressed block",
+        rows: [
+          { label: "Dimensions", value: "30 × 30 × 15 cm" },
+          { label: "Dry weight", value: "5 kg ± 100 g" },
+          { label: "Expansion", value: "min. 8 – 9 L / kg", note: "about 40 – 45 L per block after hydration" },
+          // Not stated in either source; confirm and replace.
+          { label: "Compression", value: "on request", note: "ratio confirmed with quotation" },
+        ],
+      },
+      lab: [
+        { label: "EC, washed", value: "< 0.5 mS/cm", note: "1:5 v/v", scale: [0, 2], band: [0, 0.5], ticks: ["0", "2 mS/cm"] },
+        { label: "pH", value: "5.5 – 6.5", scale: [4, 8], band: [5.5, 6.5] },
+        { label: "Moisture", value: "< 20 %", note: "at dispatch", scale: [0, 40], band: [0, 20], ticks: ["0", "40 %"] },
+      ],
+      groups: [
+        {
+          title: "Chips & grades",
+          rows: [
+            { label: "Mix", value: "100 % husk chips" },
+            // Not stated in either source; confirm and replace.
+            { label: "Chip size", value: "on request", note: "size range agreed per order" },
+            { label: "Low-EC washed", value: "< 0.5 mS/cm", note: "for horticulture" },
+            { label: "High-EC", value: "available", note: "for landscaping, mulch and soil amendment" },
+            { label: "Buffered", value: "on request" },
+          ],
+        },
+        {
+          title: "Documentation",
+          aside: true,
+          rows: [
+            { label: "Certificate of analysis", value: "every shipment", note: "EC, pH and moisture of the actual lot" },
+            { label: "Phytosanitary", value: "every shipment", note: "CDA export permit included" },
+            { label: "Fumigation", value: "where required", note: "to destination import rules" },
+          ],
+        },
+      ],
+      options: [
+        { label: "Chip grade", detail: "size range to suit your mix" },
+        { label: "Peat-chip blend", detail: "50 : 50 blocks for mixes needing extra air porosity" },
+        { label: "Washing & buffering", detail: "low-EC washed, high-EC or buffered" },
+        { label: "Packing format", detail: "bulk, shrink-wrapped, LDPE carry bags or retail cartons" },
+        { label: "Labelling", detail: "your branding and customized labels" },
+      ],
+      footnote: "Specifications from current production. Every shipment is supplied with a certificate of analysis for the actual lot, and chip grades, mixes and EC grades can be produced to your own specification.",
+    },
+    packing: {
+      lead: "Blocks ship in bulk, individually wrapped or retail packed, as full containers or single pallets. Loading depends on pallet configuration and destination weight limits, so we confirm exact quantities with each quotation.",
+      units: [
+        { icon: "block", label: "Block", value: "5 kg", note: "30 × 30 × 15 cm compressed chip block" },
+        { icon: "pallet", label: "Pallet", value: "420 blocks", note: "single pallets for LCL orders", multiplier: "× 420" },
+        { icon: "container", label: "Container", value: "40 ft HC", note: "full-container quantity quoted per order" },
+      ],
+      steps: [
+        "Husk chips are compressed into 5 kg blocks for storage and transport.",
+        "Blocks are left unwrapped for bulk orders, or packed individually for handling and retail.",
+        "Loaded directly into the container or stacked on pallets, to the agreed plan.",
+      ],
+      notes: [
+        { label: "Bulk packing", value: "unwrapped blocks", note: "loaded directly into containers or stacked on pallets" },
+        { label: "Individual packing", value: "shrink-wrapped", note: "or transparent LDPE bags with carry handles" },
+        { label: "Retail packing", value: "label inserts", note: "individually packed blocks; carton packing available" },
+        { label: "Labelling", value: "buyer's branding", note: "customized labels" },
+        { label: "Loading plan", value: "with quotation", note: "packing method and loading quantities" },
+      ],
+      terms: [
+        { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP to your port or warehouse" },
+        { label: "Container", value: "40 ft HC", note: "quantity quoted per order" },
+        { label: "Lead time", value: "3 – 5 weeks", note: "from order confirmation" },
+        { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
+      ],
+    },
+    applications: [
+      { icon: "flower", title: "Orchids, anthurium & ornamentals", detail: "Open, free-draining potting mixes.", tag: "low-EC washed" },
+      { icon: "pot", title: "Nursery pots & containers", detail: "The structural fraction in container growing mixes.", tag: "low-EC washed" },
+      { icon: "vine", title: "Greenhouse & hydroponics", detail: "Substrate-based hydroponic and greenhouse blends.", tag: "low-EC washed" },
+      { icon: "slab", title: "Coco peat blends", detail: "The chip fraction for grow bags and slabs.", tag: "to specification" },
+      { icon: "leaf", title: "Landscaping mulch", detail: "Mulch, drainage layers and surface covering.", tag: "high-EC" },
+    ],
+    diagram: "chipblock",
   },
   {
     slug: "husk-chips",

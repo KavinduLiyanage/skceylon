@@ -24,7 +24,7 @@ export const CHECKPOINTS: Checkpoint[] = [
     short:
       "An independent Colombo laboratory verifies EC, pH and moisture before shipment.",
     body: [
-      "Before any container is confirmed, a sample from the actual production lot goes to an independent laboratory in Colombo. The lab verifies electrical conductivity (1:1.5 method), pH and moisture content against the agreed specification.",
+      "Before any container is confirmed, a sample from the actual production lot goes to an independent laboratory in Colombo. The lab verifies electrical conductivity (1:5 v/v method), pH and moisture content against the agreed specification.",
       "The report is shared with every quotation — you see the numbers for your material before you commit, not a generic brochure figure. If a lot misses spec, it does not ship under our name.",
     ],
   },

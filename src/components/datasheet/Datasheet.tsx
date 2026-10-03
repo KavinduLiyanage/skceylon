@@ -70,23 +70,25 @@ export function Datasheet({ product, rfqHref, sheet }: DatasheetProps) {
           </div>
         </div>
 
-        <dl className="mt-8 grid grid-cols-2 overflow-hidden rounded-2xl border border-rule bg-paper shadow-sm shadow-ink/5 sm:grid-cols-4">
-          {keyFigures.map((figure, index) => (
-            <div
-              key={figure.label}
-              className={`px-6 py-5 sm:px-7 ${index % 2 === 1 ? "border-l border-rule" : ""} ${
-                index >= 2 ? "border-t border-rule sm:border-t-0 sm:border-l" : ""
-              }`}
-            >
-              <dd className="font-display text-[1.75rem] leading-none font-medium tracking-tight text-ink sm:text-[2rem]">
-                {figure.value}
-              </dd>
-              <dt className="mt-2 font-mono text-[0.6875rem] tracking-[0.14em] text-ink-soft uppercase">
-                {figure.label}
-              </dt>
-            </div>
-          ))}
-        </dl>
+        {keyFigures.length > 0 && (
+          <dl className="mt-8 grid grid-cols-2 overflow-hidden rounded-2xl border border-rule bg-paper shadow-sm shadow-ink/5 sm:grid-cols-4">
+            {keyFigures.map((figure, index) => (
+              <div
+                key={figure.label}
+                className={`px-6 py-5 sm:px-7 ${index % 2 === 1 ? "border-l border-rule" : ""} ${
+                  index >= 2 ? "border-t border-rule sm:border-t-0 sm:border-l" : ""
+                }`}
+              >
+                <dd className="font-display text-[1.75rem] leading-none font-medium tracking-tight text-ink sm:text-[2rem]">
+                  {figure.value}
+                </dd>
+                <dt className="mt-2 font-mono text-[0.6875rem] tracking-[0.14em] text-ink-soft uppercase">
+                  {figure.label}
+                </dt>
+              </div>
+            ))}
+          </dl>
+        )}
 
         {/* Single-column on small screens (wrappers are display: contents so
             panels can be ordered), two columns from lg. */}
@@ -131,16 +133,18 @@ export function Datasheet({ product, rfqHref, sheet }: DatasheetProps) {
           </div>
 
           <div className="contents lg:col-span-5 lg:block lg:space-y-6">
-            <Panel title="Lab values" className="order-2">
-              <div className="divide-y divide-dotted divide-rule-strong/70">
-                {lab.map((item) => (
-                  <LabGauge key={item.label} {...item} />
-                ))}
-              </div>
-              <p className="mt-4 text-[0.8125rem] leading-snug text-ink-soft">
-                Green band marks the guaranteed range on each scale.
-              </p>
-            </Panel>
+            {lab.length > 0 && (
+              <Panel title="Lab values" className="order-2">
+                <div className="divide-y divide-dotted divide-rule-strong/70">
+                  {lab.map((item) => (
+                    <LabGauge key={item.label} {...item} />
+                  ))}
+                </div>
+                <p className="mt-4 text-[0.8125rem] leading-snug text-ink-soft">
+                  Green band marks the guaranteed range on each scale.
+                </p>
+              </Panel>
+            )}
 
             <Panel title="Built to your order" className="order-5">
               <ul className="space-y-3">

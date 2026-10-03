@@ -1,4 +1,3 @@
-import Image from "next/image";
 import type { ProductDiagramKind } from "@/content/products";
 
 type ProductDiagramProps = {
@@ -7,22 +6,10 @@ type ProductDiagramProps = {
 };
 
 /**
- * Dimension figures shown beside the product photo. The block uses a branded
- * infographic photo; the rest are technical line drawings. Decorative: the
+ * Technical line drawings shown beside the product photo. Decorative: the
  * figures repeat data from the adjacent spec table.
  */
 export function ProductDiagram({ kind, className = "" }: ProductDiagramProps) {
-  if (kind === "block") {
-    return (
-      <Image
-        src="/images/product-blocks-4.avif"
-        alt="5 kg coco peat block dimensions: 30 × 30 × 12 cm at 5:1 compression"
-        width={1200}
-        height={800}
-        className={`h-auto w-full rounded-lg ${className}`}
-      />
-    );
-  }
   return (
     <svg
       viewBox="0 0 240 170"
@@ -30,7 +17,9 @@ export function ProductDiagram({ kind, className = "" }: ProductDiagramProps) {
       aria-hidden="true"
       fill="none"
     >
+      {kind === "block" && <BlockDrawing />}
       {kind === "chips" && <ChipsDrawing />}
+      {kind === "chipblock" && <ChipBlockDrawing />}
       {kind === "growbag" && <GrowBagDrawing />}
       {kind === "bale" && <BaleDrawing />}
     </svg>
@@ -74,6 +63,38 @@ function DimLine({
   );
 }
 
+function BlockDrawing() {
+  return (
+    <g strokeWidth="1.25">
+      <g className={ink}>
+        <path d="M60 118 h90 v-45 h-90 Z" />
+        <path d="M60 73 l29 -29 h90 l-29 29 Z" />
+        <path d="M150 118 l29 -29 v-45 l-29 29 Z" />
+        {/* compressed layers */}
+        <g strokeWidth="0.5" opacity="0.45">
+          <line x1="60" y1="84" x2="150" y2="84" />
+          <line x1="60" y1="95" x2="150" y2="95" />
+          <line x1="60" y1="106" x2="150" y2="106" />
+        </g>
+      </g>
+      <DimLine x1={60} y1={132} x2={150} y2={132} />
+      <text x="105" y="147" textAnchor="middle" className={dimText}>
+        30 cm
+      </text>
+      <DimLine x1={192} y1={44} x2={192} y2={89} />
+      <text x="199" y="70" className={dimText}>
+        15
+      </text>
+      <text x="172" y="114" className={dimText}>
+        30
+      </text>
+      <text x="120" y="26" textAnchor="middle" className={noteText}>
+        5 kg block, compressed 5 : 1
+      </text>
+    </g>
+  );
+}
+
 function ChipsDrawing() {
   return (
     <g strokeWidth="1.25">
@@ -102,6 +123,39 @@ function ChipsDrawing() {
       </text>
       <text x="120" y="30" textAnchor="middle" className={noteText}>
         screen-graded fraction
+      </text>
+    </g>
+  );
+}
+
+function ChipBlockDrawing() {
+  return (
+    <g strokeWidth="1.25">
+      <g className={ink}>
+        {/* compressed block */}
+        <path d="M28 108 h52 v-34 h-52 Z" />
+        <path d="M28 74 l14 -11 h52 l-14 11 Z" />
+        <path d="M80 108 l14 -11 v-34 l-14 11 Z" />
+        {/* chip texture on the front face */}
+        <g strokeWidth="0.5" opacity="0.45">
+          <path d="M34 82 l8 -3 l5 6 l-7 5 Z M52 80 l9 -2 l4 7 l-8 4 Z M38 96 l9 -3 l5 6 l-8 5 Z M58 94 l8 -2 l5 6 l-7 5 Z" />
+        </g>
+        {/* hydration arrow */}
+        <path d="M106 86 h22 M122 80 l6 6 l-6 6" />
+        {/* loosened chips */}
+        <path d="M146 78 L162 72 L171 84 L159 94 L144 90 Z" />
+        <path d="M176 62 L191 59 L198 71 L186 80 L173 74 Z" />
+        <path d="M184 92 L201 86 L211 98 L198 109 L182 104 Z" />
+        <path d="M152 104 L166 100 L173 110 L162 118 L149 114 Z" />
+      </g>
+      <text x="61" y="130" textAnchor="middle" className={dimText}>
+        5 kg block
+      </text>
+      <text x="178" y="136" textAnchor="middle" className={dimText}>
+        husk chips
+      </text>
+      <text x="120" y="30" textAnchor="middle" className={noteText}>
+        loosens after hydration
       </text>
     </g>
   );

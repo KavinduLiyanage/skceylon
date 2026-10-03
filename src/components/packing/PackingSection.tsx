@@ -169,7 +169,11 @@ export function PackingSection({
                 Crop fit
               </p>
             </div>
-            <ul className="grid gap-x-8 divide-y divide-rule px-6 sm:grid-cols-2 sm:divide-y-0 sm:px-7 lg:grid-cols-4">
+            <ul
+              className={`grid gap-x-8 divide-y divide-rule px-6 sm:grid-cols-2 sm:divide-y-0 sm:px-7 ${
+                applications.length === 5 ? "lg:grid-cols-5" : "lg:grid-cols-4"
+              }`}
+            >
               {applications.map((application) => (
                 <li key={application.title} className="flex gap-4 py-5 sm:flex-col sm:gap-3">
                   <span className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-rule bg-parchment/60">

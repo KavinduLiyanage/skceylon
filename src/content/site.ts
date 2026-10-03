@@ -165,9 +165,9 @@ export type Datasheet = {
 
 /** The four headline specs, shown in the hero ledger and repeated sitewide. */
 export const KEY_SPECS: SpecRow[] = [
-  { label: "EC, washed", value: "< 0.5 mS/cm", note: "1:1.5 method" },
-  { label: "pH", value: "5.5 – 6.8" },
-  { label: "Moisture", value: "< 18 %", note: "at packing" },
+  { label: "EC, washed", value: "< 0.5 mS/cm", note: "1:5 v/v" },
+  { label: "pH", value: "5.5 – 6.5" },
+  { label: "Moisture", value: "< 20 %", note: "at dispatch" },
   { label: "Compression", value: "5 : 1" },
 ];
 

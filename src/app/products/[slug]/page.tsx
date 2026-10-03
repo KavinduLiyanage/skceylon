@@ -119,7 +119,13 @@ export default async function ProductPage({ params }: Props) {
               </div>
             </div>
             <div className="space-y-5 self-center">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-rule shadow-sm shadow-ink/5">
+              <div
+                className={`relative overflow-hidden rounded-2xl border border-rule shadow-sm shadow-ink/5 ${
+                  product.photo.width === product.photo.height
+                    ? "aspect-square"
+                    : "aspect-[4/3]"
+                }`}
+              >
                 <Image
                   src={product.photo.src}
                   alt={product.photo.alt}
@@ -151,7 +157,11 @@ export default async function ProductPage({ params }: Props) {
               {product.gallery.map((image) => (
                 <div
                   key={image.src}
-                  className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-rule shadow-sm shadow-ink/5"
+                  className={`relative overflow-hidden rounded-2xl border border-rule shadow-sm shadow-ink/5 ${
+                    image.width === image.height
+                      ? "aspect-square"
+                      : "aspect-[3/2]"
+                  }`}
                 >
                   <Image
                     src={image.src}
