@@ -17,7 +17,8 @@ export const COMPANY = {
   country: "Sri Lanka",
   /** PLACEHOLDER — replace before launch */
   email: "info@skceylon.lk",
-  whatsapp: "+94 76 867 7530 / +94 77 422 9289",
+  /** Each number becomes its own WhatsApp chat link. */
+  whatsapp: ["+94 76 867 7530", "+94 77 422 9289"],
 } as const;
 
 /** Shown on the About page. */
@@ -82,6 +83,8 @@ export type PackingUnitIcon =
   | "block"
   | "bag"
   | "bale"
+  | "disc"
+  | "carton"
   | "pallet"
   | "container";
 
@@ -157,6 +160,10 @@ export type Datasheet = {
   };
   /** Any further fixed specification groups. */
   groups: SpecGroup[];
+  /** Numbered preparation steps, with an optional closing note. */
+  usage?: { steps: string[]; note?: string };
+  /** Product benefits, shown as a checklist panel. */
+  advantages?: { label: string; detail?: string }[];
   /** What is set per order rather than fixed. */
   options: { label: string; detail?: string }[];
   /** Small print under the sheet, e.g. that figures are from current production. */
@@ -165,9 +172,9 @@ export type Datasheet = {
 
 /** The four headline specs, shown in the hero ledger and repeated sitewide. */
 export const KEY_SPECS: SpecRow[] = [
-  { label: "EC, washed", value: "< 0.5 mS/cm", note: "1:1.5 method" },
-  { label: "pH", value: "5.5 – 6.8" },
-  { label: "Moisture", value: "< 18 %", note: "at packing" },
+  { label: "EC, washed", value: "< 0.5 mS/cm", note: "1:5 v/v" },
+  { label: "pH", value: "5.5 – 6.5" },
+  { label: "Moisture", value: "< 20 %", note: "at dispatch" },
   { label: "Compression", value: "5 : 1" },
 ];
 

@@ -119,7 +119,12 @@ export default async function ProductPage({ params }: Props) {
               </div>
             </div>
             <div className="space-y-5 self-center">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-rule shadow-sm shadow-ink/5">
+              <div
+                className="relative overflow-hidden rounded-2xl border border-rule shadow-sm shadow-ink/5"
+                style={{
+                  aspectRatio: `${product.photo.width} / ${product.photo.height}`,
+                }}
+              >
                 <Image
                   src={product.photo.src}
                   alt={product.photo.alt}
@@ -129,9 +134,26 @@ export default async function ProductPage({ params }: Props) {
                   className="object-cover"
                 />
               </div>
-              <div className="rounded-2xl border border-rule bg-paper p-6 shadow-sm shadow-ink/5">
-                <ProductDiagram kind={product.diagram} />
-              </div>
+              {product.diagramImage ? (
+                <div
+                  className="relative overflow-hidden rounded-2xl border border-rule shadow-sm shadow-ink/5"
+                  style={{
+                    aspectRatio: `${product.diagramImage.width} / ${product.diagramImage.height}`,
+                  }}
+                >
+                  <Image
+                    src={product.diagramImage.src}
+                    alt={product.diagramImage.alt}
+                    fill
+                    sizes="(min-width: 1024px) 360px, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              ) : product.diagram ? (
+                <div className="rounded-2xl border border-rule bg-paper p-6 shadow-sm shadow-ink/5">
+                  <ProductDiagram kind={product.diagram} />
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
@@ -145,19 +167,24 @@ export default async function ProductPage({ params }: Props) {
             </h2>
             <div
               className={`mt-4 grid gap-4 ${
-                product.gallery.length >= 3 ? "sm:grid-cols-3" : "sm:grid-cols-2"
+                product.gallery.length >= 3
+                  ? "sm:grid-cols-3"
+                  : product.gallery.length === 2
+                    ? "sm:grid-cols-2"
+                    : "max-w-3xl"
               }`}
             >
               {product.gallery.map((image) => (
                 <div
                   key={image.src}
-                  className="relative aspect-[3/2] overflow-hidden rounded-2xl border border-rule shadow-sm shadow-ink/5"
+                  className="relative overflow-hidden rounded-2xl border border-rule shadow-sm shadow-ink/5"
+                  style={{ aspectRatio: `${image.width} / ${image.height}` }}
                 >
                   <Image
                     src={image.src}
                     alt={image.alt}
                     fill
-                    sizes="(min-width: 640px) 33vw, 100vw"
+                    sizes="(min-width: 640px) 50vw, 100vw"
                     className="object-cover"
                   />
                 </div>
@@ -171,12 +198,14 @@ export default async function ProductPage({ params }: Props) {
         product={product.shortName}
         rfqHref={rfqMailto(product.name)}
         sheet={product.datasheet}
+        audience={product.audience}
       />
 
       <PackingSection
         packing={product.packing}
         applications={product.applications}
         rfqHref={rfqMailto(product.name)}
+        audience={product.audience}
       />
 
       <RfqSection

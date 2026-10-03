@@ -49,6 +49,20 @@ export function UnitIcon({ kind }: { kind: PackingUnitIcon }) {
           />
         </g>
       )}
+      {kind === "disc" && (
+        <g className="stroke-ink">
+          <path d="M14 22 v8 a18 6 0 0 0 36 0 v-8" className="fill-paper" />
+          <ellipse cx="32" cy="22" rx="18" ry="6" className="fill-parchment" />
+        </g>
+      )}
+      {kind === "carton" && (
+        <g className="stroke-ink">
+          <path d="M14 40 h28 v-20 h-28 Z" className="fill-paper" />
+          <path d="M14 20 l8 -7 h28 l-8 7 Z" className="fill-parchment" />
+          <path d="M42 40 l8 -7 v-20 l-8 7 Z" className="fill-rule/60" />
+          <path d="M28 20 l8 -7 M28 20 v7" strokeWidth="0.75" opacity="0.6" />
+        </g>
+      )}
       {kind === "pallet" && (
         <g className="stroke-ink">
           <path d="M10 40 h44 v-4 h-44 Z" className="fill-rule/60" />

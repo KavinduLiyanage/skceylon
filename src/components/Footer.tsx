@@ -4,10 +4,10 @@ import {
   COMPLIANCE,
   IMAGE_CREDITS,
   NAV_LINKS,
-  TRADE_TERMS,
   rfqMailto,
 } from "@/content/site";
 import { PRODUCTS } from "@/content/products";
+import { WhatsAppLinks } from "./WhatsAppLinks";
 
 export function Footer() {
   return (
@@ -63,24 +63,17 @@ export function Footer() {
 
           <div>
             <p className="font-mono text-[0.6875rem] tracking-[0.18em] text-gold uppercase">
-              Trade
+              Contact
             </p>
-            <dl className="mt-4 space-y-2 font-mono text-xs text-paper/80">
-              {TRADE_TERMS.map((term) => (
-                <div key={term.label} className="flex justify-between gap-4">
-                  <dt className="text-paper/50">{term.label}</dt>
-                  <dd>{term.value}</dd>
-                </div>
-              ))}
-            </dl>
-            <p className="mt-5 text-sm">
+            <p className="mt-4 text-sm">
               <a href={rfqMailto()} className="text-gold hover:underline">
                 {COMPANY.email}
               </a>
             </p>
-            <p className="mt-1 font-mono text-xs text-paper/60">
-              WhatsApp {COMPANY.whatsapp}
+            <p className="mt-4 font-mono text-[0.6875rem] tracking-[0.18em] text-paper/60 uppercase">
+              WhatsApp
             </p>
+            <WhatsAppLinks onInk className="mt-2" />
           </div>
         </div>
 

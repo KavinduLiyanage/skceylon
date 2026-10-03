@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { InquiryForm } from "@/components/InquiryForm";
 import { SpecLedger } from "@/components/SpecLedger";
+import { WhatsAppLinks } from "@/components/WhatsAppLinks";
 import { COMPANY, TRADE_TERMS } from "@/content/site";
 
 export const metadata: Metadata = {
@@ -30,8 +31,8 @@ export default function ContactPage() {
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft">
             Tell us what you grow and where it ships. You&rsquo;ll receive
-            pricing with an independent lab report, mill photos and a packing
-            specification — usually within two working days.
+            pricing with a product specification, packing details and a
+            loading plan — usually within two working days.
           </p>
         </div>
       </section>
@@ -79,9 +80,10 @@ export default function ContactPage() {
                   {COMPANY.email}
                 </a>
               </p>
-              <p className="mt-1 font-mono text-xs text-ink-soft">
-                WhatsApp {COMPANY.whatsapp}
+              <p className="mt-4 font-mono text-[0.6875rem] tracking-[0.18em] text-ink-soft uppercase">
+                WhatsApp
               </p>
+              <WhatsAppLinks className="mt-2" />
               <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-soft">
                 Samples are available against courier account for serious
                 enquiries. If you prefer, send your existing substrate
