@@ -1,4 +1,4 @@
-import type { SpecRow } from "./site";
+import type { Application, Datasheet, Packing } from "./site";
 
 export type ProductDiagramKind = "block" | "chips" | "growbag" | "bale";
 
@@ -19,9 +19,9 @@ export type Product = {
   gallery?: { src: string; alt: string; width: number; height: number }[];
   /** Body paragraphs on the product page. */
   description: string[];
-  specs: SpecRow[];
-  packing: SpecRow[];
-  applications: string[];
+  datasheet: Datasheet;
+  packing: Packing;
+  applications: Application[];
   diagram: ProductDiagramKind;
 };
 
@@ -43,28 +43,88 @@ const ALL_PRODUCTS: Product[] = [
       "The 5 kg block is the workhorse of coco peat export: dense enough to ship economically, sized for manual or line handling, and consistent enough to feed automated mixing. Each block is compressed 5:1 from sieved coco pith and expands to roughly 70–75 litres with water.",
       "Blocks are available washed or unwashed, with a low-EC grade for buyers blending for salt-sensitive crops. Washing is done at the mill with fresh water and verified by an independent Colombo laboratory before any container is confirmed — the lab report travels with the quotation, not after the sale.",
     ],
-    specs: [
-      { label: "Block dimensions", value: "30 × 30 × 12 cm" },
-      { label: "Block weight", value: "5 kg", note: "± tolerance to buyer spec" },
-      { label: "Compression", value: "5 : 1" },
-      { label: "Expanded volume", value: "≈ 70 – 75 L", note: "per block" },
-      { label: "EC, washed", value: "< 0.5 mS/cm", note: "1:1.5 method" },
-      { label: "EC, low-EC grade", value: "on request", note: "for salt-sensitive crops" },
-      { label: "pH", value: "5.5 – 6.8" },
-      { label: "Moisture", value: "< 18 %", note: "at packing" },
-      { label: "Grades", value: "washed / unwashed / low-EC" },
-    ],
-    packing: [
-      { label: "Unit", value: "5 kg block", note: "shrink-wrapped, optional printed sleeve" },
-      { label: "Loading", value: "palletized or floor-loaded", note: "40 ft HC" },
-      { label: "Loading plan", value: "shared with quotation" },
-      { label: "Marking", value: "to buyer spec" },
-    ],
+    datasheet: {
+      lead: "Every lot is sampled at the mill and tested by an independent Colombo laboratory. The report travels with the quotation.",
+      keyFigures: [
+        { value: "5 kg", label: "per block" },
+        { value: "5 : 1", label: "compression" },
+        { value: "70 – 75 L", label: "expanded volume" },
+        { value: "< 0.5", label: "mS/cm EC, washed" },
+      ],
+      dimensions: {
+        length: 30,
+        width: 30,
+        height: 12,
+        unit: "cm",
+        caption: "compressed block",
+        rows: [
+          { label: "Dimensions", value: "30 × 30 × 12 cm" },
+          { label: "Weight", value: "5 kg", note: "± tolerance to buyer spec" },
+          { label: "Compression", value: "5 : 1" },
+          { label: "Expanded volume", value: "≈ 70 – 75 L", note: "per block" },
+        ],
+      },
+      lab: [
+        { label: "EC, washed", value: "< 0.5 mS/cm", note: "1:1.5 method", scale: [0, 2], band: [0, 0.5], ticks: ["0", "2 mS/cm"] },
+        { label: "pH", value: "5.5 – 6.8", scale: [4, 8], band: [5.5, 6.8] },
+        { label: "Moisture", value: "< 18 %", note: "at packing", scale: [0, 40], band: [0, 18], ticks: ["0", "40 %"] },
+      ],
+      groups: [
+        {
+          title: "Grades",
+          rows: [
+            { label: "Washed", value: "EC < 0.5 mS/cm", note: "fresh-water washed at mill" },
+            { label: "Unwashed", value: "natural EC", note: "for buyers who wash or blend" },
+            { label: "Low-EC", value: "on request", note: "for salt-sensitive crops" },
+          ],
+        },
+        {
+          title: "Documentation",
+          aside: true,
+          rows: [
+            { label: "Certificate of analysis", value: "every shipment", note: "EC, pH and moisture of the actual lot" },
+            { label: "Phytosanitary", value: "every shipment", note: "CDA export permit included" },
+            { label: "Fumigation", value: "where required", note: "to destination import rules" },
+          ],
+        },
+      ],
+      options: [
+        { label: "Grade", detail: "washed, unwashed or low-EC" },
+        { label: "Weight tolerance", detail: "agreed per order" },
+        { label: "Sleeve printing", detail: "optional printed shrink sleeve" },
+        { label: "Loading", detail: "palletized or floor-loaded" },
+      ],
+      footnote: "Specifications from current production. Every shipment is supplied with a certificate of analysis for the actual lot, and grades and EC levels can be produced to your own specification.",
+    },
+    packing: {
+      lead: "Blocks leave Colombo shrink-wrapped and palletized or floor-loaded. Loading depends on pallet configuration and destination weight limits, so we confirm exact quantities with each quotation.",
+      units: [
+        { icon: "block", label: "Block", value: "5 kg", note: "30 × 30 × 12 cm, shrink-wrapped" },
+        { icon: "pallet", label: "Pallet", value: "Palletized", note: "or floor-loaded, count per loading plan" },
+        { icon: "container", label: "Container", value: "40 ft HC", note: "quantity confirmed with quotation" },
+      ],
+      steps: [
+        "Sieved pith is compressed 5 : 1 into 5 kg blocks at the mill.",
+        "Each block is shrink-wrapped, with an optional printed sleeve.",
+        "Blocks are palletized or floor-loaded to the agreed plan.",
+        "Stuffed into a 40 ft high-cube container at Colombo.",
+      ],
+      notes: [
+        { label: "Loading plan", value: "shared with quotation" },
+        { label: "Marking", value: "to buyer spec" },
+      ],
+      terms: [
+        { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP to your port or warehouse" },
+        { label: "Container", value: "40 ft HC", note: "quantity per loading plan" },
+        { label: "Lead time", value: "3 – 5 weeks", note: "from order confirmation" },
+        { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
+      ],
+    },
     applications: [
-      "Greenhouse growing media, hydroponic and soilless culture",
-      "Substrate base for grow bag and slab production",
-      "Professional potting mix and nursery media",
-      "Soil conditioning and horticultural blends",
+      { icon: "vine", title: "Greenhouse & hydroponic growing", detail: "Soilless media for vegetables and flowers under cover.", tag: "washed · low-EC" },
+      { icon: "slab", title: "Grow bag & slab production", detail: "The pith fraction for blended slabs and bags.", tag: "unwashed or washed" },
+      { icon: "pot", title: "Potting mix & nursery media", detail: "Professional mixes, plugs and container nursery stock.", tag: "washed" },
+      { icon: "soil", title: "Soil conditioning", detail: "Water-holding amendment for horticultural blends.", tag: "unwashed" },
     ],
     diagram: "block",
   },
@@ -81,62 +141,179 @@ const ALL_PRODUCTS: Product[] = [
       "Husk chips are cut from whole coconut husk and screen-graded to 1–3 cm, giving substrate blends the air-filled porosity and drainage that fine pith alone cannot provide. They resist compaction across multi-year crop cycles, which is why chip fractions dominate long-cycle crops like orchids and berries.",
       "Chips are supplied unwashed by default and washed on request, compressed into blocks for economical freight or loose where the buyer's process requires it. Grading consistency is checked per lot — a chip fraction is only useful if the size band actually holds.",
     ],
-    specs: [
-      { label: "Chip grade", value: "1 – 3 cm", note: "screen-graded" },
-      { label: "Washing", value: "on request", note: "fresh-water washed at mill" },
-      { label: "EC, washed", value: "< 0.5 mS/cm", note: "1:1.5 method" },
-      { label: "pH", value: "5.5 – 6.8" },
-      { label: "Moisture", value: "< 18 %", note: "at packing" },
-      { label: "Form", value: "compressed blocks or loose" },
-    ],
-    packing: [
-      { label: "Compressed", value: "5 kg blocks", note: "5:1 compression" },
-      { label: "Loose", value: "bagged", note: "bag size to buyer spec" },
-      { label: "Loading", value: "palletized or floor-loaded", note: "40 ft HC" },
-      { label: "Loading plan", value: "shared with quotation" },
-    ],
+    datasheet: {
+      lead: "Grading is checked per lot and every washed lot is tested by an independent Colombo laboratory before a container is confirmed.",
+      keyFigures: [
+        { value: "1 – 3 cm", label: "chip grade" },
+        { value: "5 : 1", label: "compression" },
+        { value: "< 0.5", label: "mS/cm EC, washed" },
+        { value: "< 18 %", label: "moisture" },
+      ],
+      lab: [
+        { label: "EC, washed", value: "< 0.5 mS/cm", note: "1:1.5 method", scale: [0, 2], band: [0, 0.5], ticks: ["0", "2 mS/cm"] },
+        { label: "pH", value: "5.5 – 6.8", scale: [4, 8], band: [5.5, 6.8] },
+        { label: "Moisture", value: "< 18 %", note: "at packing", scale: [0, 40], band: [0, 18], ticks: ["0", "40 %"] },
+      ],
+      groups: [
+        {
+          title: "Chips",
+          rows: [
+            { label: "Chip grade", value: "1 – 3 cm", note: "screen-graded" },
+            { label: "Form", value: "compressed blocks or loose" },
+          ],
+        },
+      ],
+      options: [
+        { label: "Washing", detail: "fresh-water washed at mill on request" },
+        { label: "Form", detail: "5 kg compressed blocks or loose bagged" },
+        { label: "Bag size", detail: "to buyer spec for loose supply" },
+      ],
+    },
+    packing: {
+      lead: "Chips ship compressed or loose. Loading depends on pallet configuration and destination weight limits, so we confirm exact quantities with each quotation.",
+      units: [
+        { icon: "block", label: "Block or bag", value: "5 kg blocks", note: "or loose, bag size to buyer spec" },
+        { icon: "pallet", label: "Pallet", value: "Palletized", note: "or floor-loaded" },
+        { icon: "container", label: "Container", value: "40 ft HC", note: "quantity confirmed with quotation" },
+      ],
+      steps: [
+        "Chips are screen-graded to 1 – 3 cm and washed on request.",
+        "Compressed 5 : 1 into 5 kg blocks, or bagged loose.",
+        "Palletized or floor-loaded to the agreed plan.",
+        "Stuffed into a 40 ft high-cube container at Colombo.",
+      ],
+      notes: [
+        { label: "Loading plan", value: "shared with quotation" },
+      ],
+      terms: [
+        { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP to your port or warehouse" },
+        { label: "Container", value: "40 ft HC", note: "quantity per loading plan" },
+        { label: "Lead time", value: "3 – 5 weeks", note: "from order confirmation" },
+        { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
+      ],
+    },
     applications: [
-      "Orchid and anthurium growing media",
-      "Chip fraction in peat:chip substrate blends",
-      "Berry and long-cycle crop substrates",
-      "Mulching and landscaping",
+      { icon: "flower", title: "Orchids & anthurium", detail: "Open, free-draining media for epiphytes.", tag: "1 – 3 cm" },
+      { icon: "slab", title: "Peat : chip blends", detail: "The chip fraction for air-filled porosity in slabs.", tag: "washed" },
+      { icon: "berry", title: "Berries & long-cycle crops", detail: "Resists compaction over multi-year cycles.", tag: "washed" },
+      { icon: "leaf", title: "Mulching & landscaping", detail: "Decorative, slow-breakdown ground cover.", tag: "unwashed" },
     ],
     diagram: "chips",
   },
   {
     slug: "grow-bags",
     photo: { src: "/images/product-growbags.avif", alt: "Greenhouse tomato rows growing on coco substrate slabs", width: 896, height: 1200 },
-    highlights: ["Blends 50:50 – 70:30", "UV-stabilized film"],
+    highlights: ["60:40 peat : chips standard", "UV-treated film, 2 yr"],
     name: "Coco Grow Bags",
     shortName: "Grow Bags",
     tagline: "A finished substrate system, built to your spec.",
     summary:
-      "Ready-to-plant coco grow bags, 100 × 15 × 12 cm standard in UV-stabilized white/black film. Custom peat:chip blends from 50:50 to 70:30, buffered on request, holes cut to buyer spec.",
+      "Ready-to-plant coco grow bags, 100 × 18 × 14 cm standard (≈ 25 L expanded) in 350-gauge UV-treated white/black LDPE film. Standard 60:40 peat:chip blend, with 100:0, 80:20, 70:30 and 50:50 blends on order, buffered on request, holes cut to buyer spec.",
     description: [
-      "Grow bags arrive at the greenhouse as a finished system: compressed substrate slab, UV-stabilized co-extruded film, planting and drainage holes already cut. Lay, drip, expand, plant. The standard bag is 100 × 15 × 12 cm; other dimensions are produced against order.",
-      "The blend is the specification that matters most, and it is yours to set: peat to chips from 50:50 to 70:30 depending on crop and irrigation strategy, washed or buffered substrate, and hole patterns matched to your planting density and drip layout. Every blend batch is lab-verified for EC and pH before filling.",
+      "Grow bags arrive at the greenhouse as a finished system: compressed substrate slab, UV-treated co-extruded film, planting and drainage holes already cut. Lay, drip, expand, plant. The standard bag expands to 100 × 18 × 14 cm, roughly 25 litres of substrate per slab from a 2.8 kg dry fill; other dimensions are produced against order.",
+      "The blend is the specification that matters most, and it is yours to set. The standard fill is 60 % dust-free coir peat to 40 % husk chips of 6–7 mm; 100 % peat, 80:20, 70:30 and 50:50 blends are available, washed or buffered, with hole patterns matched to your planting density and drip layout. Every blend batch is lab-verified for EC and pH before filling.",
     ],
-    specs: [
-      { label: "Standard size", value: "100 × 15 × 12 cm", note: "custom sizes on order" },
-      { label: "Film", value: "UV-stabilized", note: "co-extruded white / black" },
-      { label: "Blend, peat : chips", value: "50:50 – 70:30", note: "to buyer spec" },
-      { label: "Buffering", value: "on request", note: "calcium nitrate treated" },
-      { label: "Planting holes", value: "to buyer spec", note: "count, size, position" },
-      { label: "Drain holes", value: "to buyer spec" },
-      { label: "EC, washed", value: "< 0.5 mS/cm", note: "1:1.5 method" },
-      { label: "pH", value: "5.5 – 6.8" },
-    ],
-    packing: [
-      { label: "Unit", value: "flat compressed bag" },
-      { label: "Loading", value: "palletized or floor-loaded", note: "40 ft HC" },
-      { label: "Loading plan", value: "shared with quotation" },
-      { label: "Marking", value: "printed film to buyer spec" },
-    ],
+    datasheet: {
+      lead: "Every blend batch is lab-verified for EC and pH before filling. Holes, sizes and ratios are cut and mixed to your order.",
+      keyFigures: [
+        { value: "25 L", label: "substrate per slab" },
+        { value: "2.8 kg", label: "dry weight" },
+        { value: "60 : 40", label: "peat : chips, standard" },
+        { value: "2 yr", label: "UV-treated film" },
+      ],
+      dimensions: {
+        length: 100,
+        width: 18,
+        height: 14,
+        unit: "cm",
+        caption: "expanded slab",
+        rows: [
+          { label: "Expanded size", value: "100 × 18 × 14 cm", note: "≈ 25 L substrate per slab" },
+          { label: "Dry weight", value: "2.8 kg ± 10 %", note: "per slab" },
+          { label: "Expansion", value: "18 L / kg" },
+        ],
+      },
+      lab: [
+        { label: "EC", value: "< 0.5 mS/cm", note: "1:5 v/v, washed", scale: [0, 2], band: [0, 0.5], ticks: ["0", "2 mS/cm"] },
+        { label: "pH", value: "5.5 – 6.5", scale: [4, 8], band: [5.5, 6.5] },
+        { label: "Moisture", value: "< 20 %", note: "at dispatch", scale: [0, 40], band: [0, 20], ticks: ["0", "40 %"] },
+      ],
+      blend: {
+        intro: "Slabs can be pressed in any peat-to-chip ratio. These are the ratios most often requested; tell us the crop and irrigation strategy and we will recommend one.",
+        standard: { peat: 60, chips: 40, character: "Free draining with good water-holding; the standard grow bag mix.", uses: "Tomato, cucumber, pepper, eggplant, cut flowers" },
+        options: [
+          { peat: 100, chips: 0, character: "Highest water-holding capacity.", uses: "Soilless mixes, seed starting, container growing" },
+          { peat: 80, chips: 20, character: "High moisture retention with moderate aeration.", uses: "Strawberry, leafy crops, cooler climates" },
+          { peat: 70, chips: 30, character: "Balanced water retention and aeration.", uses: "The common horticultural blend for greenhouse vegetables" },
+          { peat: 60, chips: 40, character: "Free draining with good water-holding; the standard grow bag mix.", uses: "Tomato, cucumber, pepper, eggplant, cut flowers" },
+          { peat: 50, chips: 50, character: "Improved drainage and air porosity.", uses: "Crops needing strong root oxygenation; warm climates and high-frequency irrigation" },
+        ],
+        rows: [
+          { label: "Coir peat", value: "dust-free", note: "sieved pith" },
+          { label: "Husk chips", value: "6 – 7 mm", note: "screen-graded" },
+          { label: "Buffering", value: "on request", note: "calcium nitrate treated" },
+        ],
+      },
+      groups: [
+        {
+          title: "Bag & finishing",
+          rows: [
+            { label: "Film", value: "LDPE, 350 gauge", note: "black inside / white outside" },
+            { label: "UV treatment", value: "2 years" },
+            { label: "Finishing", value: "factory-cut", note: "plant holes and drain cuts; pattern, hole shape and slab size customisable" },
+            { label: "Printing", value: "to buyer spec" },
+          ],
+        },
+        {
+          title: "Documentation",
+          aside: true,
+          rows: [
+            { label: "Certificate of analysis", value: "every shipment", note: "EC, pH and moisture of the actual batch" },
+            { label: "Phytosanitary", value: "every shipment", note: "CDA export permit included" },
+            { label: "Fumigation", value: "where required", note: "to destination import rules" },
+          ],
+        },
+      ],
+      options: [
+        { label: "Blend ratio", detail: "100 % peat to 50 : 50, matched to crop and irrigation" },
+        { label: "Planting holes", detail: "count, size and position" },
+        { label: "Drain cuts", detail: "pattern to your drip layout" },
+        { label: "Slab size", detail: "other dimensions produced against order" },
+        { label: "Buffering", detail: "calcium nitrate treated substrate" },
+        { label: "Film printing", detail: "your brand on the bag" },
+      ],
+      footnote: "Specifications from current production. Every shipment is supplied with a certificate of analysis for the actual batch, and sizes, mixes and EC grades can be produced to your own specification.",
+    },
+    packing: {
+      lead: "Slabs leave Colombo palletized, strapped and wrapped. Loading depends on pallet configuration and destination weight limits, so we confirm exact quantities with each quotation.",
+      units: [
+        { icon: "slab", label: "Slab", value: "1 grow bag", note: "100 × 18 × 14 cm, 2.8 kg dry" },
+        { icon: "pallet", label: "Pallet", value: "450 slabs", note: "stacked flat, strapped and wrapped", multiplier: "× 450" },
+        { icon: "container", label: "Container", value: "9,000 slabs", note: "20 pallets in a 40 ft HC", multiplier: "× 20" },
+      ],
+      steps: [
+        "Each compressed slab is sealed in its UV-treated LDPE grow bag.",
+        "Slabs are stacked flat on export pallets.",
+        "Pallets are strapped and stretch-wrapped with corner protectors.",
+        "Twenty pallets are stuffed into a 40 ft high-cube container at Colombo.",
+      ],
+      notes: [
+        { label: "Loading plan", value: "confirmed with quotation", note: "per pallet configuration and destination weight limits" },
+        { label: "Trial pallets", value: "available", note: "for crop trials" },
+        { label: "Marking", value: "printed film to buyer spec" },
+      ],
+      terms: [
+        { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP to your port or warehouse" },
+        { label: "Container", value: "40 ft HC", note: "20 pallets · 9,000 slabs" },
+        { label: "Lead time", value: "3 – 5 weeks", note: "from order confirmation" },
+        { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
+      ],
+    },
     applications: [
-      "Greenhouse tomatoes, cucumbers and peppers",
-      "Strawberries and other berries on gutters",
-      "Cut flowers — roses and gerbera",
-      "Melon and other high-wire crops",
+      { icon: "vine", title: "Tomatoes, cucumbers & peppers", detail: "High-wire vegetables on drip in glasshouse or polytunnel.", tag: "typical 60 : 40 – 70 : 30" },
+      { icon: "berry", title: "Strawberries & berries", detail: "Gutter and tabletop systems that need drainage.", tag: "typical 50 : 50 – 60 : 40" },
+      { icon: "flower", title: "Roses & gerbera", detail: "Cut-flower crops run for several years on one slab.", tag: "typical 50 : 50 – 60 : 40" },
+      { icon: "melon", title: "Melon & other high-wire crops", detail: "Heavy-fruiting vines with high water demand.", tag: "typical 60 : 40 – 70 : 30" },
     ],
     diagram: "growbag",
   },
@@ -153,23 +330,58 @@ const ALL_PRODUCTS: Product[] = [
       "Coir fiber is the long golden strand extracted from coconut husk — strong, elastic and resistant to salt water, which is why it has been export cargo from this coastline for over a century. We supply both bristle fiber, the longer and stiffer grade, and mattress fiber, the finer curled grade.",
       "Fiber ships in machine-compressed bales of roughly 100–120 kg, strapped for container stuffing. Grade, fiber length and bale weight are agreed per order and confirmed against samples before loading.",
     ],
-    specs: [
-      { label: "Grades", value: "bristle / mattress" },
-      { label: "Bale weight", value: "≈ 100 – 120 kg", note: "machine compressed" },
-      { label: "Color", value: "golden brown", note: "natural, unbleached" },
-      { label: "Moisture", value: "< 18 %", note: "at packing" },
-      { label: "Fiber length", value: "per grade", note: "confirmed against sample" },
-    ],
-    packing: [
-      { label: "Unit", value: "compressed bale", note: "strapped" },
-      { label: "Loading", value: "floor-loaded", note: "40 ft HC" },
-      { label: "Loading plan", value: "shared with quotation" },
-    ],
+    datasheet: {
+      lead: "Grade, fiber length and bale weight are agreed per order and confirmed against samples before loading.",
+      keyFigures: [
+        { value: "100 – 120 kg", label: "per bale" },
+        { value: "2 grades", label: "bristle & mattress" },
+        { value: "< 18 %", label: "moisture" },
+      ],
+      lab: [
+        { label: "Moisture", value: "< 18 %", note: "at packing", scale: [0, 40], band: [0, 18], ticks: ["0", "40 %"] },
+      ],
+      groups: [
+        {
+          title: "Fiber",
+          rows: [
+            { label: "Grades", value: "bristle / mattress" },
+            { label: "Bale weight", value: "≈ 100 – 120 kg", note: "machine compressed" },
+            { label: "Color", value: "golden brown", note: "natural, unbleached" },
+            { label: "Fiber length", value: "per grade", note: "confirmed against sample" },
+          ],
+        },
+      ],
+      options: [
+        { label: "Grade", detail: "bristle or mattress" },
+        { label: "Bale weight", detail: "agreed per order" },
+      ],
+    },
+    packing: {
+      lead: "Bales are floor-loaded at Colombo. Loading depends on bale size and destination weight limits, so we confirm exact quantities with each quotation.",
+      units: [
+        { icon: "bale", label: "Bale", value: "≈ 100 – 120 kg", note: "machine compressed, strapped" },
+        { icon: "container", label: "Container", value: "40 ft HC", note: "floor-loaded, quantity per loading plan" },
+      ],
+      steps: [
+        "Fiber is machine-compressed into bales of roughly 100 – 120 kg.",
+        "Bales are strapped for container stuffing.",
+        "Floor-loaded into a 40 ft high-cube container at Colombo.",
+      ],
+      notes: [
+        { label: "Loading plan", value: "shared with quotation" },
+      ],
+      terms: [
+        { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP to your port or warehouse" },
+        { label: "Container", value: "40 ft HC", note: "quantity per loading plan" },
+        { label: "Lead time", value: "3 – 5 weeks", note: "from order confirmation" },
+        { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
+      ],
+    },
     applications: [
-      "Brushes, brooms and tawashi",
-      "Ropes, twine and netting",
-      "Mattress and upholstery filling",
-      "Erosion-control logs, geotextiles and basket liners",
+      { icon: "brush", title: "Brushes, brooms & tawashi", detail: "Stiff bristle fiber for sweeping and scouring.", tag: "bristle" },
+      { icon: "rope", title: "Ropes, twine & netting", detail: "Salt-resistant cordage for marine and farm use.", tag: "bristle" },
+      { icon: "fiber", title: "Mattress & upholstery", detail: "Curled fiber filling with lasting resilience.", tag: "mattress" },
+      { icon: "leaf", title: "Erosion control & liners", detail: "Coir logs, geotextiles and hanging-basket liners.", tag: "mattress" },
     ],
     diagram: "bale",
   },

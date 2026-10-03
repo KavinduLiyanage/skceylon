@@ -11,7 +11,7 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-rule bg-paper/90 backdrop-blur-md">
+    <header className="print:hidden sticky top-0 z-40 border-b border-rule bg-paper/90 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-5 py-4 sm:px-8 lg:px-12">
         <div className="flex flex-1 items-center">
           <Link href="/" onClick={() => setOpen(false)}>

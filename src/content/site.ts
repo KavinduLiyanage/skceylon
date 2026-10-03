@@ -38,6 +38,131 @@ export type SpecRow = {
   note?: string;
 };
 
+/** A headline number shown as a tile at the top of a product datasheet. */
+export type KeyFigure = {
+  value: string;
+  label: string;
+};
+
+/**
+ * A lab figure drawn as a gauge: `band` is the guaranteed range plotted on a
+ * `scale` of [min, max]. A one-sided limit such as "< 0.5" is a band from
+ * the scale minimum to the limit.
+ */
+export type LabValue = {
+  label: string;
+  /** Display value, e.g. "< 0.5 mS/cm". */
+  value: string;
+  note?: string;
+  scale: [number, number];
+  band: [number, number];
+  /** Tick labels printed under the scale ends; defaults to the numbers. */
+  ticks?: [string, string];
+};
+
+/** A peat : chips ratio, as whole percentages summing to 100. */
+export type BlendRatio = {
+  peat: number;
+  chips: number;
+  /** What the ratio does for water and air, e.g. "Free draining with good water-holding". */
+  character: string;
+  /** Crops and systems the ratio is typically used for. */
+  uses: string;
+};
+
+export type SpecGroup = {
+  title: string;
+  rows: SpecRow[];
+  /** Render in the narrower side column (with lab values and options). */
+  aside?: boolean;
+};
+
+export type PackingUnitIcon =
+  | "slab"
+  | "block"
+  | "bag"
+  | "bale"
+  | "pallet"
+  | "container";
+
+/** One step of the unitisation chain: unit → pallet → container. */
+export type PackingUnit = {
+  icon: PackingUnitIcon;
+  label: string;
+  /** Headline figure, e.g. "450 slabs". */
+  value: string;
+  note?: string;
+  /** Multiplier printed on the connector leading to this unit, e.g. "× 450". */
+  multiplier?: string;
+};
+
+/** Structured content behind the packing & loading section. */
+export type Packing = {
+  /** One line under the "How it ships" heading. */
+  lead: string;
+  units: PackingUnit[];
+  /** How the product is packed, in order. */
+  steps: string[];
+  notes: SpecRow[];
+  /** Shipping terms band: Incoterms, container, lead time, documents. */
+  terms: SpecRow[];
+};
+
+export type ApplicationIcon =
+  | "vine"
+  | "berry"
+  | "flower"
+  | "melon"
+  | "pot"
+  | "slab"
+  | "soil"
+  | "leaf"
+  | "brush"
+  | "rope"
+  | "fiber";
+
+/** One crop or use case a product is sold into. */
+export type Application = {
+  icon: ApplicationIcon;
+  title: string;
+  /** One line on why the product fits. */
+  detail: string;
+  /** Short mono tag, e.g. a typical blend or grade. */
+  tag?: string;
+};
+
+/** Structured content behind the product datasheet section. */
+export type Datasheet = {
+  /** One line under the heading, e.g. how figures are verified. */
+  lead: string;
+  keyFigures: KeyFigure[];
+  /** Outer dimensions, drawn to proportion with the rows beside it. */
+  dimensions?: {
+    length: number;
+    width: number;
+    height: number;
+    unit: string;
+    /** Label for the drawn object, e.g. "expanded slab". */
+    caption: string;
+    rows: SpecRow[];
+  };
+  lab: LabValue[];
+  /** Substrate blend selector; only for blended products. */
+  blend?: {
+    /** One line above the picker, e.g. that any ratio can be pressed. */
+    intro: string;
+    standard: BlendRatio;
+    options: BlendRatio[];
+    rows: SpecRow[];
+  };
+  /** Any further fixed specification groups. */
+  groups: SpecGroup[];
+  /** What is set per order rather than fixed. */
+  options: { label: string; detail?: string }[];
+  /** Small print under the sheet, e.g. that figures are from current production. */
+  footnote?: string;
+};
+
 /** The four headline specs, shown in the hero ledger and repeated sitewide. */
 export const KEY_SPECS: SpecRow[] = [
   { label: "EC, washed", value: "< 0.5 mS/cm", note: "1:1.5 method" },
@@ -56,7 +181,7 @@ export const MARKETS = [
 ] as const;
 
 export const TRADE_TERMS: SpecRow[] = [
-  { label: "Incoterms", value: "FOB Colombo" },
+  { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP on request" },
   { label: "Container", value: "40 ft HC" },
   { label: "Lead time", value: "3 – 5 weeks", note: "from order confirmation" },
 ];
