@@ -904,9 +904,27 @@ const ALL_PRODUCTS: Product[] = [
  */
 const HIDDEN_SLUGS = new Set(["husk-chips", "coir-fiber"]);
 
+/**
+ * Display order for the catalog, homepage, footer, sitemap and forms.
+ * Reorder the slugs here; a product missing from the list sorts last.
+ */
+const PRODUCT_ORDER = [
+  "5kg-coco-peat-blocks",
+  "grow-bags",
+  "5kg-coco-chip-blocks",
+  "coir-fibre-bales",
+  "25kg-coco-peat-bales",
+  "coco-peat-discs",
+];
+
+const orderOf = (slug: string) => {
+  const index = PRODUCT_ORDER.indexOf(slug);
+  return index === -1 ? PRODUCT_ORDER.length : index;
+};
+
 export const PRODUCTS: Product[] = ALL_PRODUCTS.filter(
   (p) => !HIDDEN_SLUGS.has(p.slug),
-);
+).sort((a, b) => orderOf(a.slug) - orderOf(b.slug));
 
 export function getProduct(slug: string): Product | undefined {
   return PRODUCTS.find((p) => p.slug === slug);

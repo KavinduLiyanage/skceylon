@@ -17,7 +17,8 @@ export const COMPANY = {
   country: "Sri Lanka",
   /** PLACEHOLDER — replace before launch */
   email: "info@skceylon.lk",
-  whatsapp: "+94 76 867 7530 / +94 77 422 9289",
+  /** Each number becomes its own WhatsApp chat link. */
+  whatsapp: ["+94 76 867 7530", "+94 77 422 9289"],
 } as const;
 
 /** Shown on the About page. */
