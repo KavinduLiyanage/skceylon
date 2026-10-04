@@ -9,6 +9,7 @@ import { RfqSection } from "@/components/RfqSection";
 import { Datasheet } from "@/components/datasheet/Datasheet";
 import { PackingSection } from "@/components/packing/PackingSection";
 import { PRODUCTS, getProduct } from "@/content/products";
+import { pageMeta } from "@/content/seo";
 import { COMPANY, SITE_URL, rfqMailto } from "@/content/site";
 
 type Props = {
@@ -23,16 +24,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) return {};
-  return {
-    title: product.name,
-    description: product.summary,
-    alternates: { canonical: `/products/${product.slug}/` },
-    openGraph: {
-      title: `${product.name} — SK Ceylon`,
-      description: product.summary,
-      url: `/products/${product.slug}/`,
+  return pageMeta({
+    title: `${product.name} — Sri Lanka Exporter`,
+    description: product.metaDescription ?? product.summary,
+    path: `/products/${product.slug}/`,
+    image: {
+      url: `/og/${product.slug}.jpg`,
+      alt: product.photo.alt,
     },
-  };
+  });
 }
 
 export default async function ProductPage({ params }: Props) {
@@ -46,9 +46,22 @@ export default async function ProductPage({ params }: Props) {
     name: product.name,
     description: product.summary,
     url: `${SITE_URL}/products/${product.slug}/`,
-    category: "Horticultural growing media",
+    sku: product.slug,
+    image: [
+      `${SITE_URL}/og/${product.slug}.jpg`,
+      `${SITE_URL}${product.photo.src}`,
+      ...(product.gallery ?? []).map((image) => `${SITE_URL}${image.src}`),
+    ],
+    category:
+      product.audience === "manufacturers"
+        ? "Coir fibre raw material"
+        : "Horticultural growing media",
     brand: { "@type": "Brand", name: "SK Ceylon" },
-    manufacturer: { "@type": "Organization", name: COMPANY.name },
+    manufacturer: {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: COMPANY.name,
+    },
     countryOfOrigin: { "@type": "Country", name: "Sri Lanka" },
     additionalProperty: [
       ...(product.datasheet.dimensions?.rows ?? []),

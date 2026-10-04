@@ -4,25 +4,34 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RfqSection } from "@/components/RfqSection";
 import { SpecLedger } from "@/components/SpecLedger";
+import { JsonLd } from "@/components/JsonLd";
 import { PRODUCTS } from "@/content/products";
-import { KEY_SPECS } from "@/content/site";
+import { KEY_SPECS, SITE_URL } from "@/content/site";
+import { pageMeta } from "@/content/seo";
 
-export const metadata: Metadata = {
-  title: "Products",
+export const metadata: Metadata = pageMeta({
+  title: "Coco Peat & Coir Products",
   description:
-    "Coco peat blocks, coconut husk chips, coco grow bags and coir fiber from a Sri Lankan exporter. Full specifications, packing details and lab-verified EC, pH and moisture.",
-  alternates: { canonical: "/products/" },
-  openGraph: {
-    title: "Products — SK Ceylon",
-    description:
-      "Coco peat blocks, husk chips, grow bags and coir fiber — full specifications and lab-verified quality.",
-    url: "/products/",
-  },
+    "Coco peat blocks, grow bags, coco chip blocks, peat bales, discs and coir fibre bales from Sri Lanka. Full specifications and packing details.",
+  path: "/products/",
+});
+
+const catalogJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "SK Ceylon coco peat and coir products",
+  itemListElement: PRODUCTS.map((product, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: product.name,
+    url: `${SITE_URL}/products/${product.slug}/`,
+  })),
 };
 
 export default function ProductsPage() {
   return (
     <>
+      <JsonLd data={catalogJsonLd} />
       <section className="border-b border-rule">
         <div className="mx-auto max-w-6xl px-5 pt-12 pb-14 sm:px-8 sm:pt-16">
           <Breadcrumbs

@@ -7,8 +7,9 @@
 export const SITE_URL = "https://skceylon.lk";
 
 export const SITE_NAME = "SK Ceylon";
+/** Homepage title; other pages use "<page title> | SK Ceylon". */
 export const SITE_TITLE_SUFFIX =
-  "SK Ceylon | Coco Peat & Coir Exports Sri Lanka";
+  "Coco Peat & Coir Exporter in Sri Lanka | SK Ceylon";
 
 export const COMPANY = {
   name: "SK Ceylon (Pvt) Ltd",

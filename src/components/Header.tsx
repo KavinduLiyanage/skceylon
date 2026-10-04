@@ -6,8 +6,20 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NAV_LINKS, rfqMailto } from "@/content/site";
 
-export function Header() {
+type HeaderProduct = {
+  slug: string;
+  name: string;
+  photo: string;
+};
+
+type HeaderProps = {
+  /** Catalog entries for the Products dropdown, already in display order. */
+  products: HeaderProduct[];
+};
+
+export function Header({ products }: HeaderProps) {
   const [open, setOpen] = useState(false);
+  const [menu, setMenu] = useState(false);
   const pathname = usePathname();
 
   return (
@@ -29,19 +41,123 @@ export function Header() {
         <nav aria-label="Main" className="hidden items-center gap-8 md:flex">
           {NAV_LINKS.map((link) => {
             const active = pathname.startsWith(link.href.replace(/\/$/, ""));
+            const linkClass = `text-sm font-medium transition-colors ${
+              active
+                ? "text-forest underline decoration-forest/40 decoration-2 underline-offset-8"
+                : "text-ink/80 hover:text-forest"
+            }`;
+
+            if (link.href !== "/products/") {
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  className={linkClass}
+                >
+                  {link.label}
+                </Link>
+              );
+            }
+
+            // Products opens a dropdown on hover and on keyboard focus; the
+            // label itself still links to the catalog page.
             return (
-              <Link
+              <div
                 key={link.href}
-                href={link.href}
-                aria-current={active ? "page" : undefined}
-                className={`text-sm font-medium transition-colors ${
-                  active
-                    ? "text-forest underline decoration-forest/40 decoration-2 underline-offset-8"
-                    : "text-ink/80 hover:text-forest"
-                }`}
+                className="relative"
+                onMouseEnter={() => setMenu(true)}
+                onMouseLeave={() => setMenu(false)}
+                onFocus={() => setMenu(true)}
+                onBlur={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget)) {
+                    setMenu(false);
+                  }
+                }}
+                onKeyDown={(event) => {
+                  if (event.key === "Escape") setMenu(false);
+                }}
               >
-                {link.label}
-              </Link>
+                <Link
+                  href={link.href}
+                  aria-current={active ? "page" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={menu}
+                  aria-controls="products-menu"
+                  className={`inline-flex items-center gap-1.5 ${linkClass}`}
+                  onClick={() => setMenu(false)}
+                >
+                  {link.label}
+                  <svg
+                    width="10"
+                    height="10"
+                    viewBox="0 0 10 10"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                    className={`transition-transform duration-200 motion-reduce:transition-none ${
+                      menu ? "rotate-180" : ""
+                    }`}
+                  >
+                    <path d="M2 3.5 5 6.5 8 3.5" />
+                  </svg>
+                </Link>
+
+                {/* pt-4 bridges the gap so the pointer can travel from the
+                    link into the panel without closing it. */}
+                <div
+                  id="products-menu"
+                  className={`absolute top-full left-1/2 w-80 -translate-x-1/2 pt-4 transition-all duration-150 motion-reduce:transition-none ${
+                    menu
+                      ? "visible translate-y-0 opacity-100"
+                      : "invisible -translate-y-1 opacity-0"
+                  }`}
+                >
+                  <div className="overflow-hidden rounded-2xl border border-rule bg-paper shadow-lg shadow-ink/10">
+                    <ul className="p-2">
+                      {products.map((product) => {
+                        const current =
+                          pathname === `/products/${product.slug}/`;
+                        return (
+                          <li key={product.slug}>
+                            <Link
+                              href={`/products/${product.slug}/`}
+                              aria-current={current ? "page" : undefined}
+                              onClick={() => setMenu(false)}
+                              className={`flex items-center gap-3 rounded-xl p-2 text-sm font-medium transition-colors ${
+                                current
+                                  ? "bg-parchment text-forest"
+                                  : "text-ink hover:bg-parchment hover:text-forest"
+                              }`}
+                            >
+                              <span className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-rule bg-parchment">
+                                <Image
+                                  src={product.photo}
+                                  alt=""
+                                  fill
+                                  sizes="40px"
+                                  className="object-cover"
+                                />
+                              </span>
+                              {product.name}
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                    <Link
+                      href="/products/"
+                      onClick={() => setMenu(false)}
+                      className="block border-t border-rule bg-parchment px-4 py-3 font-mono text-xs font-medium text-green-deep hover:underline"
+                    >
+                      View all products →
+                    </Link>
+                  </div>
+                </div>
+              </div>
             );
           })}
         </nav>
@@ -99,6 +215,21 @@ export function Header() {
                 >
                   {link.label}
                 </Link>
+                {link.href === "/products/" && (
+                  <ul className="pb-3 pl-4">
+                    {products.map((product) => (
+                      <li key={product.slug}>
+                        <Link
+                          href={`/products/${product.slug}/`}
+                          className="block py-1.5 text-sm text-ink-soft"
+                          onClick={() => setOpen(false)}
+                        >
+                          {product.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </li>
             ))}
           </ul>

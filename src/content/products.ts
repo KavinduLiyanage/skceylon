@@ -16,8 +16,10 @@ export type Product = {
   shortName: string;
   /** One-line positioning used under the name. */
   tagline: string;
-  /** Meta description + card summary. */
+  /** Card summary, shown on the homepage and catalog. */
   summary: string;
+  /** Search-result description; keep to about 155 characters. */
+  metaDescription?: string;
   /** Two short spec chips shown on catalog cards. */
   highlights: [string, string];
   /** Real photograph shown on catalog cards and the product page. */
@@ -49,6 +51,8 @@ const ALL_PRODUCTS: Product[] = [
     name: "5 kg Coco Peat Blocks",
     shortName: "Coco Peat Blocks",
     tagline: "The standard unit of substrate supply.",
+    metaDescription:
+      "5 kg coco peat blocks from Sri Lanka, 30 × 30 × 15 cm, expanding to 60 L or more. Low-EC washed and high-EC grades. Request a wholesale quotation.",
     summary:
       "Washed, screened coir pith compressed into 5 kg blocks, 30 × 30 × 15 cm, expanding to 60 litres or more. Low-EC washed and high-EC grades, with a certificate of analysis for every shipment.",
     description: [
@@ -162,6 +166,8 @@ const ALL_PRODUCTS: Product[] = [
     name: "5 kg Coco Chip Blocks",
     shortName: "Coco Chip Blocks",
     tagline: "Natural husk chips for moisture, airflow and drainage.",
+    metaDescription:
+      "5 kg coco husk chip blocks from Sri Lanka, 30 × 30 × 15 cm. Chips for orchid mixes, nursery containers and greenhouse blends. Bulk or retail packed.",
     summary:
       "Compressed 5 kg coconut husk chip blocks, 30 × 30 × 15 cm, that loosen into chips after hydration. Chips hold moisture while keeping air and drainage around roots, for orchid mixes, nursery containers and greenhouse blends.",
     description: [
@@ -272,6 +278,8 @@ const ALL_PRODUCTS: Product[] = [
     name: "25 kg Coco Peat Bales",
     shortName: "Coco Peat Bales",
     tagline: "Bulk coir pith for nurseries, growers and potting mixes.",
+    metaDescription:
+      "25 kg coco peat bales from Sri Lanka for nurseries, potting-mix producers and growers. Individually bagged, with grade and washing to your spec.",
     summary:
       "Coconut coir pith in compact 25 kg bales for bulk growing-media preparation. Individually bagged, floor-loaded or palletized, with grade, washing and buffering agreed to your application.",
     description: [
@@ -394,6 +402,8 @@ const ALL_PRODUCTS: Product[] = [
     name: "Coco Peat Discs",
     shortName: "Coco Peat Discs",
     tagline: "Compact growing media for seed starting, nurseries and potted plants.",
+    metaDescription:
+      "Coco peat discs from Sri Lanka that expand when watered, for seed starting, nurseries and potted plants. Disc size and grade to your spec.",
     summary:
       "Coconut coir pith compressed into round discs that expand when watered, for preparing growing media directly in pots and propagation trays. Disc size and grade matched to your container and crop.",
     description: [
@@ -532,6 +542,8 @@ const ALL_PRODUCTS: Product[] = [
     name: "Coir Fibre Bales",
     shortName: "Coir Fibre Bales",
     tagline: "Natural coconut fibre for manufacturing and industry.",
+    metaDescription:
+      "Coir fibre bales from Sri Lanka for mattresses, upholstery, erosion control, mats and ropes. Fibre grade and bale weight agreed per order.",
     summary:
       "Coconut husk fibre compressed into compact bales for handling, storage and bulk transport. A raw material for mattresses, upholstery, erosion-control products, mats, pots and ropes, with grade and bale weight agreed per order.",
     description: [
@@ -717,6 +729,8 @@ const ALL_PRODUCTS: Product[] = [
     name: "Coco Grow Bags",
     shortName: "Grow Bags",
     tagline: "A finished substrate system, built to your spec.",
+    metaDescription:
+      "Coco grow bags from Sri Lanka, 100 × 18 × 14 cm, in UV-treated film. Peat and chip blends from 100:0 to 50:50, with holes cut to your spec.",
     summary:
       "Ready-to-plant coco grow bags, 100 × 18 × 14 cm standard (≈ 25 L expanded) in 350-gauge UV-treated white/black LDPE film. Standard 60:40 peat:chip blend, with 100:0, 80:20, 70:30 and 50:50 blends on order, buffered on request, holes cut to buyer spec.",
     description: [

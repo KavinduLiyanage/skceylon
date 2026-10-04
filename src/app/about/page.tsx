@@ -3,19 +3,14 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RfqSection } from "@/components/RfqSection";
 import { SpecLedger } from "@/components/SpecLedger";
 import { COMPANY, MARKETS, VISION_MISSION } from "@/content/site";
+import { pageMeta } from "@/content/seo";
 
-export const metadata: Metadata = {
-  title: "About",
+export const metadata: Metadata = pageMeta({
+  title: "About Us",
   description:
-    "SK Ceylon is a Colombo-based coco peat and coir exporter sourcing from CDA-registered mills in Sri Lanka's coconut triangle, with founder-supervised quality on every shipment.",
-  alternates: { canonical: "/about/" },
-  openGraph: {
-    title: "About — SK Ceylon",
-    description:
-      "A Colombo-based exporter with founder-supervised quality and direct, personal accountability.",
-    url: "/about/",
-  },
-};
+    "SK Ceylon is a Colombo-based exporter of coco peat and coir products, sourcing from Sri Lanka's coconut triangle with hands-on quality supervision.",
+  path: "/about/",
+});
 
 const FACTS = [
   { label: "Based", value: "Colombo, Sri Lanka" },

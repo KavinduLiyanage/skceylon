@@ -4,19 +4,14 @@ import { InquiryForm } from "@/components/InquiryForm";
 import { SpecLedger } from "@/components/SpecLedger";
 import { WhatsAppLinks } from "@/components/WhatsAppLinks";
 import { COMPANY, TRADE_TERMS } from "@/content/site";
+import { pageMeta } from "@/content/seo";
 
-export const metadata: Metadata = {
-  title: "Contact",
+export const metadata: Metadata = pageMeta({
+  title: "Contact & Wholesale Quotation",
   description:
-    "Request a wholesale coco peat quotation from SK Ceylon. Send product, blend and EC grade, monthly volume and destination port — lab report included with every quote.",
-  alternates: { canonical: "/contact/" },
-  openGraph: {
-    title: "Contact — SK Ceylon",
-    description:
-      "Request a wholesale quotation: product, blend & EC grade, monthly volume, destination port.",
-    url: "/contact/",
-  },
-};
+    "Request a wholesale quotation for coco peat and coir products from SK Ceylon. Send your product, specification, volume and destination port.",
+  path: "/contact/",
+});
 
 export default function ContactPage() {
   return (

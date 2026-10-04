@@ -12,18 +12,13 @@ import {
   MARKETS,
   rfqMailto,
 } from "@/content/site";
+import { pageMeta } from "@/content/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMeta({
   description:
-    "Coco peat exporter in Sri Lanka. Lab-tested 5 kg coco peat blocks, husk chips, grow bags and coir fiber — EC < 0.5 mS/cm washed, pH 5.5–6.5, FOB Colombo. Request a quotation.",
-  alternates: { canonical: "/" },
-  openGraph: {
-    title: "SK Ceylon — Coco Peat & Coir Exports Sri Lanka",
-    description:
-      "Lab-tested coco peat blocks, husk chips, grow bags and coir fiber from Sri Lanka's coconut triangle.",
-    url: "/",
-  },
-};
+    "SK Ceylon exports coco peat blocks, grow bags, chip blocks, bales, discs and coir fibre from Sri Lanka. Low-EC grades, custom specs, FOB Colombo.",
+  path: "/",
+});
 
 function FeatureIcon({ icon }: { icon: string }) {
   return (

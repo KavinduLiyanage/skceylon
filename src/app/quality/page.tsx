@@ -4,19 +4,14 @@ import { RfqSection } from "@/components/RfqSection";
 import { SpecLedger } from "@/components/SpecLedger";
 import { CHECKPOINTS, QUOTATION_INCLUDES } from "@/content/quality";
 import { KEY_SPECS } from "@/content/site";
+import { pageMeta } from "@/content/seo";
 
-export const metadata: Metadata = {
-  title: "Quality",
+export const metadata: Metadata = pageMeta({
+  title: "Quality Process",
   description:
-    "SK Ceylon's four-checkpoint quality process: CDA-registered mills in the coconut triangle, independent Colombo lab testing of EC, pH and moisture, export certification, and supervised container loading.",
-  alternates: { canonical: "/quality/" },
-  openGraph: {
-    title: "Quality — SK Ceylon",
-    description:
-      "Four checkpoints between the mill and your port: source, test, certify, load.",
-    url: "/quality/",
-  },
-};
+    "How SK Ceylon controls quality from mill to port: sourcing in Sri Lanka's coconut triangle, EC, pH and moisture checks, export documents and loading.",
+  path: "/quality/",
+});
 
 export default function QualityPage() {
   return (
