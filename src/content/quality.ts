@@ -22,10 +22,10 @@ export const CHECKPOINTS: Checkpoint[] = [
     number: "02",
     title: "Test",
     short:
-      "An independent Colombo laboratory verifies EC, pH and moisture before shipment.",
+      "Material is checked against the agreed EC, pH and moisture specification, with an independent lab report on request.",
     body: [
-      "Before any container is confirmed, a sample from the actual production lot goes to an independent laboratory in Colombo. The lab verifies electrical conductivity (1:5 v/v method), pH and moisture content against the agreed specification.",
-      "The report is shared with every quotation — you see the numbers for your material before you commit, not a generic brochure figure. If a lot misses spec, it does not ship under our name.",
+      "Every order is produced against an agreed specification for electrical conductivity (1:5 v/v method), pH and moisture content. Those are the three figures that decide whether coco peat performs in your greenhouse.",
+      "On request, we send a sample of the material and have it tested by an independent laboratory in Colombo, so you can see the numbers before you commit. If a lot misses spec, it does not ship under our name.",
     ],
   },
   {
@@ -49,18 +49,18 @@ export const CHECKPOINTS: Checkpoint[] = [
   },
 ];
 
-/** What accompanies every quotation — the proof, before the order. */
+/** What a buyer can ask for before placing an order. */
 export const QUOTATION_INCLUDES = [
   {
-    title: "Independent lab report",
-    detail: "EC, pH and moisture for the offered lot, tested in Colombo.",
+    title: "Product samples",
+    detail: "A sample of the material, sent on request so you can test it yourself.",
   },
   {
-    title: "Mill photos",
-    detail: "The material and the facility it comes from, photographed current.",
+    title: "Independent lab report",
+    detail: "EC, pH and moisture tested in Colombo, on request.",
   },
   {
     title: "Packing specification",
-    detail: "Unit packing, palletization and container loading plan.",
+    detail: "Unit packing, palletization and loading plan, with the quotation.",
   },
 ] as const;

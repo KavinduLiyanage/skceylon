@@ -16,7 +16,7 @@ const FACTS = [
   { label: "Based", value: "Colombo, Sri Lanka" },
   { label: "Sourcing", value: "Kurunegala – Puttalam", note: "coconut triangle" },
   { label: "Mills", value: "CDA-registered", note: "with washing capability" },
-  { label: "Testing", value: "independent Colombo lab" },
+  { label: "Testing", value: "independent lab report", note: "on request" },
   { label: "Markets", value: `${MARKETS.length} countries`, note: MARKETS.slice(0, 3).join(", ") + " …" },
 ];
 
@@ -57,7 +57,7 @@ export default function AboutPage() {
             <p>
               That structure is our positioning: direct, personal
               accountability. When you buy from SK Ceylon, you know exactly who
-              chose the mill, who reviewed the lab report, and who stood at the
+              chose the mill, who checked the specification, and who stood at the
               container door while it was loaded. The same person answers your
               email.
             </p>

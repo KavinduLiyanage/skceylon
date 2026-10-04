@@ -16,7 +16,6 @@ export const COMPANY = {
   tagline: "Lab-tested coco peat, shipped from the source.",
   city: "Colombo",
   country: "Sri Lanka",
-  /** PLACEHOLDER — replace before launch */
   email: "info@skceylon.lk",
   /** Each number becomes its own WhatsApp chat link. */
   whatsapp: ["+94 76 867 7530", "+94 77 422 9289"],
@@ -204,7 +203,7 @@ export const COMPLIANCE = [
   "CDA export permit & quality certificate",
   "Phytosanitary certificate for every shipment",
   "Fumigation where the destination requires it",
-  "Independent lab report with every quotation",
+  "Independent lab report and samples on request",
 ] as const;
 
 /** "Why Choose Us" feature cards on the home page. */
@@ -212,7 +211,7 @@ export const FEATURES = [
   {
     title: "Lab-verified consistency",
     detail:
-      "EC, pH and moisture tested by an independent Colombo laboratory for every lot — the report ships with your quotation, not after the sale.",
+      "Every product ships against a written specification for EC, pH and moisture, and blend batches are lab-verified before filling. An independent lab report and samples are available on request.",
     icon: "flask",
   },
   {
@@ -238,9 +237,6 @@ export const FEATURES = [
 /** Attribution for CC-licensed photography, shown in the footer. */
 export const IMAGE_CREDITS = [
   "Plantation photo: Vyacheslav Argenberg (CC BY 4.0)",
-  "Greenhouse rows: Lufa Farms (CC BY-SA 2.0)",
-  "Fiber warehouse: TheOilLamp (CC BY-SA 4.0)",
-  "Husk pile: Rprasanth1 (CC BY-SA 4.0)",
   "via Wikimedia Commons",
 ] as const;
 

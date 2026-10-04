@@ -51,8 +51,8 @@ export default function ContactPage() {
               <ul className="mt-2 border-y border-rule-strong">
                 {[
                   "Pricing for your specification and volume",
-                  "Independent Colombo lab report for the offered lot",
-                  "Mill photos and packing specification",
+                  "Product specification and packing details",
+                  "Independent lab report and samples, on request",
                   "Loading plan for a 40 ft HC container",
                 ].map((item) => (
                   <li

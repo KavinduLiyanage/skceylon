@@ -18,10 +18,8 @@ export function ProductDiagram({ kind, className = "" }: ProductDiagramProps) {
       fill="none"
     >
       {kind === "block" && <BlockDrawing />}
-      {kind === "chips" && <ChipsDrawing />}
       {kind === "chipblock" && <ChipBlockDrawing />}
       {kind === "growbag" && <GrowBagDrawing />}
-      {kind === "bale" && <BaleDrawing />}
       {kind === "peatbale" && <PeatBaleDrawing />}
       {kind === "peatdisc" && <PeatDiscDrawing />}
     </svg>
@@ -92,39 +90,6 @@ function BlockDrawing() {
       </text>
       <text x="120" y="26" textAnchor="middle" className={noteText}>
         5 kg block, compressed 5 : 1
-      </text>
-    </g>
-  );
-}
-
-function ChipsDrawing() {
-  return (
-    <g strokeWidth="1.25">
-      <g className={ink}>
-        {/* screen-graded chips */}
-        <path d="M52 66 L74 58 L86 74 L70 88 L50 82 Z" />
-        <path d="M104 48 L124 44 L134 60 L118 72 L100 64 Z" />
-        <path d="M148 70 L172 62 L186 78 L168 94 L146 86 Z" />
-        <path d="M84 96 L104 90 L114 104 L98 116 L80 110 Z" />
-        <path d="M126 84 L140 80 L148 92 L136 102 L122 96 Z" />
-        {/* fiber texture on two chips */}
-        <g strokeWidth="0.5" opacity="0.45">
-          <line x1="58" y1="68" x2="78" y2="78" />
-          <line x1="152" y1="74" x2="176" y2="84" />
-          <line x1="108" y1="52" x2="126" y2="62" />
-        </g>
-      </g>
-      {/* grading scale */}
-      <DimLine x1={60} y1={138} x2={180} y2={138} />
-      <g className={dim} strokeWidth="1">
-        <line x1="100" y1="135" x2="100" y2="141" />
-        <line x1="140" y1="135" x2="140" y2="141" />
-      </g>
-      <text x="120" y="154" textAnchor="middle" className={dimText}>
-        graded 1 – 3 cm
-      </text>
-      <text x="120" y="30" textAnchor="middle" className={noteText}>
-        screen-graded fraction
       </text>
     </g>
   );
@@ -251,29 +216,3 @@ function PeatBaleDrawing() {
   );
 }
 
-function BaleDrawing() {
-  return (
-    <g strokeWidth="1.25">
-      <g className={ink}>
-        <rect x="48" y="48" width="144" height="76" rx="6" />
-        {/* straps */}
-        <line x1="88" y1="48" x2="88" y2="124" />
-        <line x1="152" y1="48" x2="152" y2="124" />
-        {/* fiber strands */}
-        <g strokeWidth="0.5" opacity="0.5">
-          <path d="M56 62 C72 58 100 66 116 60 C136 54 160 64 184 58" />
-          <path d="M56 78 C76 74 96 82 120 76 C144 70 164 80 184 74" />
-          <path d="M56 94 C72 90 100 98 116 92 C136 86 160 96 184 90" />
-          <path d="M56 110 C76 106 96 114 120 108 C144 102 164 112 184 106" />
-        </g>
-      </g>
-      <DimLine x1={48} y1={140} x2={192} y2={140} />
-      <text x="120" y="155" textAnchor="middle" className={dimText}>
-        ≈ 100 – 120 kg
-      </text>
-      <text x="120" y="36" textAnchor="middle" className={noteText}>
-        machine-compressed, strapped
-      </text>
-    </g>
-  );
-}
