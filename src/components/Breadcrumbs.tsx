@@ -1,13 +1,36 @@
 import Link from "next/link";
+import { SITE_URL } from "@/content/site";
+import { JsonLd } from "./JsonLd";
 
 export type Crumb = {
   label: string;
   href?: string;
 };
 
-export function Breadcrumbs({ crumbs }: { crumbs: Crumb[] }) {
+type BreadcrumbsProps = {
+  crumbs: Crumb[];
+  /**
+   * Path of the current page, e.g. "/quality/". When given, the trail is
+   * also output as BreadcrumbList structured data for search engines.
+   */
+  currentPath?: string;
+};
+
+export function Breadcrumbs({ crumbs, currentPath }: BreadcrumbsProps) {
+  const jsonLd = currentPath && {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: crumbs.map((crumb, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: crumb.label,
+      item: `${SITE_URL}${crumb.href ?? currentPath}`,
+    })),
+  };
+
   return (
     <nav aria-label="Breadcrumb">
+      {jsonLd && <JsonLd data={jsonLd} />}
       <ol className="flex flex-wrap items-center gap-2 font-mono text-[0.6875rem] tracking-wide text-ink-soft uppercase">
         {crumbs.map((crumb, i) => (
           <li key={crumb.label} className="flex items-center gap-2">

@@ -1,4 +1,4 @@
-import type { Application, Datasheet, Packing } from "./site";
+import type { Application, Datasheet, Faq, Packing } from "./site";
 
 export type ProductDiagramKind =
   | "block"
@@ -14,10 +14,17 @@ export type Product = {
   name: string;
   /** Short name used in cards and navigation. */
   shortName: string;
+  /**
+   * Other names buyers search for (e.g. the one-word "cocopeat" spelling).
+   * Shown under the tagline and output as structured data.
+   */
+  alternateNames?: string[];
   /** One-line positioning used under the name. */
   tagline: string;
-  /** Meta description + card summary. */
+  /** Card summary, shown on the homepage and catalog. */
   summary: string;
+  /** Search-result description; keep to about 155 characters. */
+  metaDescription?: string;
   /** Two short spec chips shown on catalog cards. */
   highlights: [string, string];
   /** Real photograph shown on catalog cards and the product page. */
@@ -29,6 +36,10 @@ export type Product = {
   datasheet: Datasheet;
   packing: Packing;
   applications: Application[];
+  /** Questions and answers shown at the foot of the product page. */
+  faqs?: Faq[];
+  /** Slugs of products to cross-link from this page, in display order. */
+  related?: string[];
   /** Who buys it; switches grower-specific copy to manufacturing wording. */
   audience?: "growers" | "manufacturers";
   /** Line drawing shown under the hero photo; omit to show the photo alone. */
@@ -40,6 +51,7 @@ export type Product = {
 const ALL_PRODUCTS: Product[] = [
   {
     slug: "5kg-coco-peat-blocks",
+    alternateNames: ["5 kg cocopeat blocks", "coir pith blocks"],
     photo: { src: "/images/product-blocks-1.avif", alt: "Compressed 5 kg coco peat block", width: 1200, height: 800 },
     gallery: [
       { src: "/images/product-blocks-2.avif", alt: "Close-up of compressed coco peat texture and layered coir fibre", width: 1200, height: 800 },
@@ -49,6 +61,8 @@ const ALL_PRODUCTS: Product[] = [
     name: "5 kg Coco Peat Blocks",
     shortName: "Coco Peat Blocks",
     tagline: "The standard unit of substrate supply.",
+    metaDescription:
+      "5 kg coco peat blocks from Sri Lanka, 30 × 30 × 15 cm, expanding to 60 L or more. Low-EC washed and high-EC grades. Request a wholesale quotation.",
     summary:
       "Washed, screened coir pith compressed into 5 kg blocks, 30 × 30 × 15 cm, expanding to 60 litres or more. Low-EC washed and high-EC grades, with a certificate of analysis for every shipment.",
     description: [
@@ -141,6 +155,39 @@ const ALL_PRODUCTS: Product[] = [
         { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
       ],
     },
+    faqs: [
+      {
+        question: "What size and weight is a 5 kg coco peat block?",
+        answer:
+          "Each block measures 30 × 30 × 15 cm and weighs 5 kg ± 200 g. It is made from 100 % coir pith screened to under 12 mm and compressed 5 : 1.",
+      },
+      {
+        question: "How much growing medium does one block make?",
+        answer:
+          "A block expands to at least 12 litres per kilogram, which is 60 litres or more per block. Higher-purity grades reach 15 to 18 litres per kilogram.",
+      },
+      {
+        question: "What are the EC, pH and moisture of the blocks?",
+        answer:
+          "The low-EC washed grade is under 0.5 mS/cm, measured 1:5 v/v, with a pH of 5.5 to 6.5 and moisture under 20 % at dispatch. A high-EC grade is available for soil amendment, landscaping and bedding.",
+      },
+      {
+        question: "How many blocks fit in a container?",
+        answer:
+          "A pallet holds 240 blocks. A 40 ft high-cube container takes 20 pallets, or 4,800 blocks, and 5,120 blocks when loose-loaded without pallets. Single pallets are available for trials and smaller orders.",
+      },
+      {
+        question: "Can you supply blocks to my own specification?",
+        answer:
+          "Yes. Husk chips or fibre can be blended in to order, and sizes, mixes and EC grades can be produced to your specification. Blocks ship unwrapped as standard, with shrink wrap or a printed sleeve on request.",
+      },
+      {
+        question: "What are the shipping terms and lead time?",
+        answer:
+          "We quote FOB Colombo, or CIF and DAP to your port or warehouse. Lead time is 3 to 5 weeks from order confirmation.",
+      },
+    ],
+    related: ["25kg-coco-peat-bales", "5kg-coco-chip-blocks", "grow-bags"],
     applications: [
       { icon: "pot", title: "Nursery & potting mixes", detail: "The base for professional mixes, plugs and container stock.", tag: "low-EC washed" },
       { icon: "vine", title: "Vegetables", detail: "Soilless growing media for crops under cover.", tag: "low-EC washed" },
@@ -153,6 +200,7 @@ const ALL_PRODUCTS: Product[] = [
   },
   {
     slug: "5kg-coco-chip-blocks",
+    alternateNames: ["coco husk chip blocks", "coconut husk chips"],
     photo: { src: "/images/product-chip-blocks-1.avif", alt: "Compressed 5 kg coco husk chip block", width: 1200, height: 1200 },
     gallery: [
       { src: "/images/product-chip-blocks-2.avif", alt: "Two coco husk chip blocks with loose husk chips in front", width: 1200, height: 1200 },
@@ -162,6 +210,8 @@ const ALL_PRODUCTS: Product[] = [
     name: "5 kg Coco Chip Blocks",
     shortName: "Coco Chip Blocks",
     tagline: "Natural husk chips for moisture, airflow and drainage.",
+    metaDescription:
+      "5 kg coco husk chip blocks from Sri Lanka, 30 × 30 × 15 cm. Chips for orchid mixes, nursery containers and greenhouse blends. Bulk or retail packed.",
     summary:
       "Compressed 5 kg coconut husk chip blocks, 30 × 30 × 15 cm, that loosen into chips after hydration. Chips hold moisture while keeping air and drainage around roots, for orchid mixes, nursery containers and greenhouse blends.",
     description: [
@@ -252,6 +302,39 @@ const ALL_PRODUCTS: Product[] = [
         { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
       ],
     },
+    faqs: [
+      {
+        question: "What is a coco chip block?",
+        answer:
+          "It is coconut husk cut into chips and compressed into a 5 kg block of 30 × 30 × 15 cm, weighing 5 kg ± 100 g. The block loosens into husk chips after hydration.",
+      },
+      {
+        question: "How much do the chips expand?",
+        answer:
+          "Chip blocks expand to at least 8 to 9 litres per kilogram, which is about 40 to 45 litres per block after hydration.",
+      },
+      {
+        question: "What are coco husk chips used for?",
+        answer:
+          "They are used in orchid, anthurium and ornamental potting mixes, nursery pots and container mixes, greenhouse and substrate-based hydroponic blends, coco peat blends for grow bags and slabs, and as landscaping mulch.",
+      },
+      {
+        question: "Which grades are available?",
+        answer:
+          "The low-EC washed grade is under 0.5 mS/cm for horticulture, and a high-EC grade is available for landscaping, mulch and soil amendment. Buffered chips and 50:50 peat-chip blocks are produced on request. Chip size range is agreed per order.",
+      },
+      {
+        question: "How are chip blocks packed?",
+        answer:
+          "Bulk orders ship as unwrapped blocks, loaded directly into the container or stacked on pallets. Blocks can also be shrink-wrapped, packed in transparent LDPE bags with carry handles, or retail packed with label inserts and cartons under your branding.",
+      },
+      {
+        question: "What are the shipping terms and lead time?",
+        answer:
+          "We quote FOB Colombo, or CIF and DAP to your port or warehouse. Lead time is 3 to 5 weeks from order confirmation, and loading quantities are provided with the quotation.",
+      },
+    ],
+    related: ["5kg-coco-peat-blocks", "grow-bags", "25kg-coco-peat-bales"],
     applications: [
       { icon: "flower", title: "Orchids, anthurium & ornamentals", detail: "Open, free-draining potting mixes.", tag: "low-EC washed" },
       { icon: "pot", title: "Nursery pots & containers", detail: "The structural fraction in container growing mixes.", tag: "low-EC washed" },
@@ -263,6 +346,7 @@ const ALL_PRODUCTS: Product[] = [
   },
   {
     slug: "25kg-coco-peat-bales",
+    alternateNames: ["25 kg cocopeat bales", "coir pith bales"],
     photo: { src: "/images/product-bales-1.avif", alt: "Open 25 kg SK Ceylon coco peat bale showing the coir pith inside", width: 1200, height: 1200 },
     gallery: [
       { src: "/images/product-bales-2.avif", alt: "Sealed 25 kg coco peat bale in its branded polythene bag", width: 1200, height: 1200 },
@@ -272,6 +356,8 @@ const ALL_PRODUCTS: Product[] = [
     name: "25 kg Coco Peat Bales",
     shortName: "Coco Peat Bales",
     tagline: "Bulk coir pith for nurseries, growers and potting mixes.",
+    metaDescription:
+      "25 kg coco peat bales from Sri Lanka for nurseries, potting-mix producers and growers. Individually bagged, with grade and washing to your spec.",
     summary:
       "Coconut coir pith in compact 25 kg bales for bulk growing-media preparation. Individually bagged, floor-loaded or palletized, with grade, washing and buffering agreed to your application.",
     description: [
@@ -373,6 +459,34 @@ const ALL_PRODUCTS: Product[] = [
         { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
       ],
     },
+    faqs: [
+      {
+        question: "What is a 25 kg coco peat bale?",
+        answer:
+          "It is coconut coir pith in a compact 25 kg format for bulk growing-media preparation. Each bale is individually packed in a protective polythene bag.",
+      },
+      {
+        question: "How do I use coco peat from a bale?",
+        answer:
+          "Loosen the material and add water as needed, then blend it with other growing-media ingredients to suit the crop, container and watering method. Adjust its moisture before use.",
+      },
+      {
+        question: "When should I choose bales instead of 5 kg blocks?",
+        answer:
+          "Bales suit nurseries, substrate producers and commercial growers preparing larger quantities of growing media. The 5 kg block is the standard compressed format for mixing lines and container growing.",
+      },
+      {
+        question: "Can the coco peat be washed or buffered?",
+        answer:
+          "Yes. Specify your washing or buffering requirements when enquiring. The target EC and test method are agreed with you, along with particle size and blend.",
+      },
+      {
+        question: "How are the bales loaded?",
+        answer:
+          "Bales are floor-loaded or palletized, as agreed. Container quantity depends on bale dimensions and packing arrangement, and the loading plan is provided with the quotation. Bags can be plain or custom-branded.",
+      },
+    ],
+    related: ["5kg-coco-peat-blocks", "coco-peat-discs", "5kg-coco-chip-blocks"],
     applications: [
       { icon: "pot", title: "Nursery production", detail: "Growing mixes for young plants and ornamental plants." },
       { icon: "slab", title: "Potting-mix production", detail: "A moisture-retaining ingredient for commercial substrate blends." },
@@ -385,6 +499,7 @@ const ALL_PRODUCTS: Product[] = [
   },
   {
     slug: "coco-peat-discs",
+    alternateNames: ["cocopeat discs", "coir pellets"],
     photo: { src: "/images/product-discs-1.avif", alt: "Close-up of a compressed coco peat disc with a second disc behind it", width: 1200, height: 1200 },
     gallery: [
       { src: "/images/product-discs-2.avif", alt: "Three compressed coco peat discs, two stacked and one in front", width: 1200, height: 1200 },
@@ -394,6 +509,8 @@ const ALL_PRODUCTS: Product[] = [
     name: "Coco Peat Discs",
     shortName: "Coco Peat Discs",
     tagline: "Compact growing media for seed starting, nurseries and potted plants.",
+    metaDescription:
+      "Coco peat discs from Sri Lanka that expand when watered, for seed starting, nurseries and potted plants. Disc size and grade to your spec.",
     summary:
       "Coconut coir pith compressed into round discs that expand when watered, for preparing growing media directly in pots and propagation trays. Disc size and grade matched to your container and crop.",
     description: [
@@ -510,6 +627,34 @@ const ALL_PRODUCTS: Product[] = [
         { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
       ],
     },
+    faqs: [
+      {
+        question: "How do I use a coco peat disc?",
+        answer:
+          "Place the disc in a pot or tray cell with drainage, add water gradually and let it expand fully. Loosen the material if needed, let excess water drain, then sow seeds or insert cuttings.",
+      },
+      {
+        question: "What disc sizes are available?",
+        answer:
+          "Disc diameter is selected to fit your pot or tray, and thickness and unit weight are matched to the expanded volume you need. Share your pot or tray dimensions and we will propose a specification.",
+      },
+      {
+        question: "What is the difference between bare discs and netted plugs?",
+        answer:
+          "Bare discs should stay supported by a container after expansion. Netted propagation plugs use a surrounding mesh that helps hold the growing medium together during handling.",
+      },
+      {
+        question: "What are coco peat discs used for?",
+        answer:
+          "They are used for seed germination, nursery propagation of seedlings and cuttings, flowering and ornamental plants such as gerberas, greenhouse production, hydroponic propagation, and home gardening and growing kits.",
+      },
+      {
+        question: "How are the discs packed?",
+        answer:
+          "Discs are packed in protective cartons, with labelled retail packs and buyer branding available on enquiry. Seed indentation, washing and buffering can also be discussed. Carton, pallet and container quantities are provided with the quotation.",
+      },
+    ],
+    related: ["5kg-coco-peat-blocks", "25kg-coco-peat-bales", "grow-bags"],
     applications: [
       { icon: "leaf", title: "Seed germination", detail: "Grades and sizes for seed trays and starter pots." },
       { icon: "pot", title: "Nursery propagation", detail: "Growing media for seedlings and rooting cuttings." },
@@ -522,6 +667,7 @@ const ALL_PRODUCTS: Product[] = [
   },
   {
     slug: "coir-fibre-bales",
+    alternateNames: ["coir fiber bales", "coconut fibre"],
     audience: "manufacturers",
     photo: { src: "/images/product-fibre-1.avif", alt: "Compressed coir fibre bale bound with yellow straps", width: 1200, height: 800 },
     gallery: [
@@ -532,6 +678,8 @@ const ALL_PRODUCTS: Product[] = [
     name: "Coir Fibre Bales",
     shortName: "Coir Fibre Bales",
     tagline: "Natural coconut fibre for manufacturing and industry.",
+    metaDescription:
+      "Coir fibre bales from Sri Lanka for mattresses, upholstery, erosion control, mats and ropes. Fibre grade and bale weight agreed per order.",
     summary:
       "Coconut husk fibre compressed into compact bales for handling, storage and bulk transport. A raw material for mattresses, upholstery, erosion-control products, mats, pots and ropes, with grade and bale weight agreed per order.",
     description: [
@@ -628,6 +776,34 @@ const ALL_PRODUCTS: Product[] = [
         { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
       ],
     },
+    faqs: [
+      {
+        question: "What is coir fibre used for?",
+        answer:
+          "Coir fibre is a raw material for mattresses and bedding, furniture and vehicle upholstery, erosion-control blankets, drainage filters, mats and floor coverings, coir pots and liners, and yarn, twine and ropes.",
+      },
+      {
+        question: "Which fibre grades do you supply?",
+        answer:
+          "Mattress fibre, mixed fibre and other grades are supplied by availability. Fibre grade and length range are agreed per order, since suitability depends on your manufacturing process.",
+      },
+      {
+        question: "What bale weight and size can I order?",
+        answer:
+          "Bales are compressed to your preferred weight, with the tolerance agreed per order. Bale dimensions are stated in the quotation.",
+      },
+      {
+        question: "How are the bales packed and marked?",
+        answer:
+          "Fibre ships as compressed, strapped bales. Strapping, wrapping, labels and buyer markings are confirmed per order.",
+      },
+      {
+        question: "What should I send to get a quotation?",
+        answer:
+          "Tell us your intended use, the fibre grade you need, order quantity, preferred bale weight and destination port. We confirm net weight and bale count per container with the quotation.",
+      },
+    ],
+    related: ["5kg-coco-peat-blocks", "5kg-coco-chip-blocks", "25kg-coco-peat-bales"],
     applications: [
       { icon: "slab", title: "Mattresses & bedding", detail: "Raw material for coir mattress layers and padding." },
       { icon: "fiber", title: "Furniture & vehicle upholstery", detail: "Fibre for cushioning and upholstery components after processing." },
@@ -712,11 +888,14 @@ const ALL_PRODUCTS: Product[] = [
   },
   {
     slug: "grow-bags",
+    alternateNames: ["cocopeat grow bags", "coir grow slabs"],
     photo: { src: "/images/product-growbags-1.avif", alt: "SK Ceylon coco grow bag with three planting holes cut in white UV-treated film", width: 1200, height: 800 },
     highlights: ["60:40 peat : chips standard", "UV-treated film, 2 yr"],
     name: "Coco Grow Bags",
     shortName: "Grow Bags",
     tagline: "A finished substrate system, built to your spec.",
+    metaDescription:
+      "Coco grow bags from Sri Lanka, 100 × 18 × 14 cm, in UV-treated film. Peat and chip blends from 100:0 to 50:50, with holes cut to your spec.",
     summary:
       "Ready-to-plant coco grow bags, 100 × 18 × 14 cm standard (≈ 25 L expanded) in 350-gauge UV-treated white/black LDPE film. Standard 60:40 peat:chip blend, with 100:0, 80:20, 70:30 and 50:50 blends on order, buffered on request, holes cut to buyer spec.",
     description: [
@@ -819,6 +998,39 @@ const ALL_PRODUCTS: Product[] = [
         { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
       ],
     },
+    faqs: [
+      {
+        question: "What size is the standard coco grow bag?",
+        answer:
+          "The standard bag expands to 100 × 18 × 14 cm, giving about 25 litres of substrate per slab. Dry weight is 2.8 kg ± 10 %. Other slab sizes are produced against order.",
+      },
+      {
+        question: "What is the standard blend, and what other ratios are available?",
+        answer:
+          "The standard fill is 60 % dust-free coir peat and 40 % husk chips of 6 to 7 mm. We also press 100 % peat, 80:20, 70:30 and 50:50 blends, washed or buffered.",
+      },
+      {
+        question: "Which peat-to-chip ratio suits my crop?",
+        answer:
+          "60:40 is the usual choice for tomato, cucumber, pepper, eggplant and cut flowers. 80:20 suits strawberry, leafy crops and cooler climates, 70:30 is the common blend for greenhouse vegetables, and 50:50 suits crops needing strong root oxygenation. Tell us the crop and irrigation strategy and we will recommend one.",
+      },
+      {
+        question: "Can planting holes and drainage cuts be customised?",
+        answer:
+          "Yes. Plant holes and drain cuts are made at the factory, and the pattern, hole shape and slab size can all be set to your planting density and drip layout. The film can also be printed with your brand.",
+      },
+      {
+        question: "What film is used for the bag?",
+        answer:
+          "Bags are made from 350-gauge LDPE film, black inside and white outside, UV treated for 2 years.",
+      },
+      {
+        question: "How many grow bags fit in a container?",
+        answer:
+          "A pallet holds 450 slabs. A 40 ft high-cube container takes 20 pallets, or 9,000 slabs. Trial pallets are available for crop trials, and exact quantities are confirmed with each quotation.",
+      },
+    ],
+    related: ["5kg-coco-peat-blocks", "5kg-coco-chip-blocks", "coco-peat-discs"],
     applications: [
       { icon: "vine", title: "Tomatoes, cucumbers & peppers", detail: "High-wire vegetables on drip in glasshouse or polytunnel.", tag: "typical 60 : 40 – 70 : 30" },
       { icon: "berry", title: "Strawberries & berries", detail: "Gutter and tabletop systems that need drainage.", tag: "typical 50 : 50 – 60 : 40" },
@@ -925,6 +1137,14 @@ const orderOf = (slug: string) => {
 export const PRODUCTS: Product[] = ALL_PRODUCTS.filter(
   (p) => !HIDDEN_SLUGS.has(p.slug),
 ).sort((a, b) => orderOf(a.slug) - orderOf(b.slug));
+
+/**
+ * Small versions of a product's main photo, for cards (640 px) and the
+ * header dropdown (96 px). Generated by scripts/make-product-images.mjs.
+ */
+export function productThumb(slug: string, size: 640 | 96): string {
+  return `/images/thumbs/${slug}-${size}.avif`;
+}
 
 export function getProduct(slug: string): Product | undefined {
   return PRODUCTS.find((p) => p.slug === slug);

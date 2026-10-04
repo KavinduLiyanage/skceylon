@@ -5,10 +5,13 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaLink } from "@/components/CtaLink";
 import { JsonLd } from "@/components/JsonLd";
 import { ProductDiagram } from "@/components/ProductDiagram";
+import { ProductFaq } from "@/components/ProductFaq";
+import { RelatedProducts } from "@/components/RelatedProducts";
 import { RfqSection } from "@/components/RfqSection";
 import { Datasheet } from "@/components/datasheet/Datasheet";
 import { PackingSection } from "@/components/packing/PackingSection";
 import { PRODUCTS, getProduct } from "@/content/products";
+import { pageMeta } from "@/content/seo";
 import { COMPANY, SITE_URL, rfqMailto } from "@/content/site";
 
 type Props = {
@@ -23,16 +26,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const product = getProduct(slug);
   if (!product) return {};
-  return {
-    title: product.name,
-    description: product.summary,
-    alternates: { canonical: `/products/${product.slug}/` },
-    openGraph: {
-      title: `${product.name} — SK Ceylon`,
-      description: product.summary,
-      url: `/products/${product.slug}/`,
+  return pageMeta({
+    title: `${product.name} — Sri Lanka Exporter`,
+    description: product.metaDescription ?? product.summary,
+    path: `/products/${product.slug}/`,
+    image: {
+      url: `/og/${product.slug}.jpg`,
+      alt: product.photo.alt,
     },
-  };
+  });
 }
 
 export default async function ProductPage({ params }: Props) {
@@ -46,9 +48,25 @@ export default async function ProductPage({ params }: Props) {
     name: product.name,
     description: product.summary,
     url: `${SITE_URL}/products/${product.slug}/`,
-    category: "Horticultural growing media",
+    sku: product.slug,
+    ...(product.alternateNames
+      ? { alternateName: product.alternateNames }
+      : {}),
+    image: [
+      `${SITE_URL}/og/${product.slug}.jpg`,
+      `${SITE_URL}${product.photo.src}`,
+      ...(product.gallery ?? []).map((image) => `${SITE_URL}${image.src}`),
+    ],
+    category:
+      product.audience === "manufacturers"
+        ? "Coir fibre raw material"
+        : "Horticultural growing media",
     brand: { "@type": "Brand", name: "SK Ceylon" },
-    manufacturer: { "@type": "Organization", name: COMPANY.name },
+    manufacturer: {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: COMPANY.name,
+    },
     countryOfOrigin: { "@type": "Country", name: "Sri Lanka" },
     additionalProperty: [
       ...(product.datasheet.dimensions?.rows ?? []),
@@ -61,6 +79,21 @@ export default async function ProductPage({ params }: Props) {
       value: spec.note ? `${spec.value} (${spec.note})` : spec.value,
     })),
   };
+
+  const faqs = product.faqs ?? [];
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+
+  const related = (product.related ?? [])
+    .map((relatedSlug) => getProduct(relatedSlug))
+    .filter((item) => item !== undefined);
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -104,6 +137,11 @@ export default async function ProductPage({ params }: Props) {
               <p className="mt-2 font-mono text-sm text-green-deep">
                 {product.tagline}
               </p>
+              {product.alternateNames && product.alternateNames.length > 0 && (
+                <p className="mt-2 text-sm text-ink-soft">
+                  Also known as {product.alternateNames.join(", ")}.
+                </p>
+              )}
               {product.description.map((paragraph) => (
                 <p
                   key={paragraph.slice(0, 32)}
@@ -207,6 +245,15 @@ export default async function ProductPage({ params }: Props) {
         rfqHref={rfqMailto(product.name)}
         audience={product.audience}
       />
+
+      {faqs.length > 0 && (
+        <>
+          <JsonLd data={faqJsonLd} />
+          <ProductFaq product={product.shortName} faqs={faqs} />
+        </>
+      )}
+
+      <RelatedProducts products={related} />
 
       <RfqSection
         product={product.name}
