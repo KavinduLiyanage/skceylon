@@ -20,8 +20,9 @@ export function Footer() {
               Coco Peat · Coir · Est. {COMPANY.city}
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper/70">
-              {COMPANY.city}-based exporter of lab-tested coco peat, husk chips,
-              grow bags and coir fiber from Sri Lanka&rsquo;s coconut triangle.
+              {COMPANY.city}-based exporter of coco peat blocks and bales, grow
+              bags, chip blocks, discs and coir fibre from Sri Lanka&rsquo;s
+              coconut triangle.
             </p>
           </div>
 
@@ -78,13 +79,13 @@ export function Footer() {
         </div>
 
         <div className="mt-12 border-t border-paper/20 pt-6">
-          <p className="font-mono text-[0.625rem] leading-relaxed tracking-wide text-paper/50">
+          <p className="font-mono text-[0.625rem] leading-relaxed tracking-wide text-paper/70">
             {COMPLIANCE.join(" · ")}
           </p>
-          <p className="mt-2 font-mono text-[0.625rem] leading-relaxed text-paper/40">
+          <p className="mt-2 font-mono text-[0.625rem] leading-relaxed text-paper/65">
             {IMAGE_CREDITS.join(" · ")}
           </p>
-          <p className="mt-3 font-mono text-[0.625rem] text-paper/40">
+          <p className="mt-3 font-mono text-[0.625rem] text-paper/65">
             © {new Date().getFullYear()} {COMPANY.name} · {COMPANY.city},{" "}
             {COMPANY.country}
           </p>

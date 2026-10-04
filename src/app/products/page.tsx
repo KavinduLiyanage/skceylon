@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { RfqSection } from "@/components/RfqSection";
 import { SpecLedger } from "@/components/SpecLedger";
 import { JsonLd } from "@/components/JsonLd";
-import { PRODUCTS } from "@/content/products";
+import { PRODUCTS, productThumb } from "@/content/products";
 import { KEY_SPECS, SITE_URL } from "@/content/site";
 import { pageMeta } from "@/content/seo";
 
@@ -36,6 +36,7 @@ export default function ProductsPage() {
         <div className="mx-auto max-w-6xl px-5 pt-12 pb-14 sm:px-8 sm:pt-16">
           <Breadcrumbs
             crumbs={[{ label: "Home", href: "/" }, { label: "Products" }]}
+            currentPath="/products/"
           />
           <h1 className="mt-6 max-w-2xl font-display text-4xl leading-tight font-medium text-ink text-balance sm:text-5xl">
             Coco peat &amp; coir products, specified like lab samples.
@@ -65,7 +66,7 @@ export default function ProductsPage() {
               >
                 <div className="relative aspect-[16/10] overflow-hidden rounded-xl border border-rule bg-parchment lg:aspect-auto lg:h-full">
                   <Image
-                    src={product.photo.src}
+                    src={productThumb(product.slug, 640)}
                     alt={product.photo.alt}
                     fill
                     sizes="(min-width: 1024px) 280px, 100vw"

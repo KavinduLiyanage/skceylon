@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, IBM_Plex_Mono, IBM_Plex_Sans } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { PRODUCTS } from "@/content/products";
+import { PRODUCTS, productThumb } from "@/content/products";
 import { JsonLd } from "@/components/JsonLd";
 import {
   COMPANY,
@@ -119,7 +119,7 @@ export default function RootLayout({
           products={PRODUCTS.map((product) => ({
             slug: product.slug,
             name: product.shortName,
-            photo: product.photo.src,
+            photo: productThumb(product.slug, 96),
           }))}
         />
         <main id="main">{children}</main>

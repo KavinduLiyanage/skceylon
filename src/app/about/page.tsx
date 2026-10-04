@@ -27,6 +27,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-6xl px-5 pt-12 pb-14 sm:px-8 sm:pt-16">
           <Breadcrumbs
             crumbs={[{ label: "Home", href: "/" }, { label: "About" }]}
+            currentPath="/about/"
           />
           <h1 className="mt-6 max-w-2xl font-display text-4xl leading-tight font-medium text-ink text-balance sm:text-5xl">
             One exporter. One name on every shipment.
@@ -38,8 +39,9 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-14 sm:px-8 lg:grid-cols-[1fr_360px] lg:gap-16">
           <div className="max-w-xl space-y-5 text-base leading-relaxed text-ink-soft">
             <p>
-              {COMPANY.name} is a {COMPANY.city}-based exporter of coco peat,
-              husk chips, grow bags and coir fiber. We source exclusively from
+              {COMPANY.name} is a {COMPANY.city}-based exporter of coco peat
+              blocks and bales, grow bags, chip blocks, discs and coir fibre.
+              We source exclusively from
               the Kurunegala–Puttalam coconut triangle — the belt of Sri Lanka
               where coconut milling is a generational trade and the best pith
               is produced — and ship from the Port of Colombo.

@@ -5,6 +5,8 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { CtaLink } from "@/components/CtaLink";
 import { JsonLd } from "@/components/JsonLd";
 import { ProductDiagram } from "@/components/ProductDiagram";
+import { ProductFaq } from "@/components/ProductFaq";
+import { RelatedProducts } from "@/components/RelatedProducts";
 import { RfqSection } from "@/components/RfqSection";
 import { Datasheet } from "@/components/datasheet/Datasheet";
 import { PackingSection } from "@/components/packing/PackingSection";
@@ -47,6 +49,9 @@ export default async function ProductPage({ params }: Props) {
     description: product.summary,
     url: `${SITE_URL}/products/${product.slug}/`,
     sku: product.slug,
+    ...(product.alternateNames
+      ? { alternateName: product.alternateNames }
+      : {}),
     image: [
       `${SITE_URL}/og/${product.slug}.jpg`,
       `${SITE_URL}${product.photo.src}`,
@@ -74,6 +79,21 @@ export default async function ProductPage({ params }: Props) {
       value: spec.note ? `${spec.value} (${spec.note})` : spec.value,
     })),
   };
+
+  const faqs = product.faqs ?? [];
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+
+  const related = (product.related ?? [])
+    .map((relatedSlug) => getProduct(relatedSlug))
+    .filter((item) => item !== undefined);
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -117,6 +137,11 @@ export default async function ProductPage({ params }: Props) {
               <p className="mt-2 font-mono text-sm text-green-deep">
                 {product.tagline}
               </p>
+              {product.alternateNames && product.alternateNames.length > 0 && (
+                <p className="mt-2 text-sm text-ink-soft">
+                  Also known as {product.alternateNames.join(", ")}.
+                </p>
+              )}
               {product.description.map((paragraph) => (
                 <p
                   key={paragraph.slice(0, 32)}
@@ -220,6 +245,15 @@ export default async function ProductPage({ params }: Props) {
         rfqHref={rfqMailto(product.name)}
         audience={product.audience}
       />
+
+      {faqs.length > 0 && (
+        <>
+          <JsonLd data={faqJsonLd} />
+          <ProductFaq product={product.shortName} faqs={faqs} />
+        </>
+      )}
+
+      <RelatedProducts products={related} />
 
       <RfqSection
         product={product.name}

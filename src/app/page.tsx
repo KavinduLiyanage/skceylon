@@ -4,7 +4,7 @@ import Image from "next/image";
 import { CtaLink } from "@/components/CtaLink";
 import { RfqSection } from "@/components/RfqSection";
 import { SectionHeading } from "@/components/SectionHeading";
-import { PRODUCTS } from "@/content/products";
+import { PRODUCTS, productThumb } from "@/content/products";
 import { CHECKPOINTS } from "@/content/quality";
 import {
   COMPLIANCE,
@@ -70,13 +70,13 @@ export default function HomePage() {
         />
         <div className="relative z-10 max-w-4xl px-5 py-20 sm:px-6">
           <h1 className="font-display text-4xl leading-tight font-semibold text-white text-balance md:text-5xl lg:text-6xl">
-            Premium coconut substrates, grown and graded at the source.
+            Premium coco peat and coir, grown and graded in Sri Lanka.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">
-            Coco peat blocks, husk chips, grow bags and coir fiber from Sri
-            Lanka&rsquo;s coconut triangle — every lot verified by an
-            independent Colombo laboratory before it ships. The report comes
-            with the quotation.
+            SK Ceylon is a Colombo-based exporter and wholesale supplier of
+            coco peat (cocopeat) blocks and bales, grow bags, chip blocks,
+            discs and coir fibre from Sri Lanka&rsquo;s coconut triangle.
+            Low-EC grades and custom specifications, FOB Colombo.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
@@ -142,7 +142,7 @@ export default function HomePage() {
               >
                 <div className="relative aspect-[16/9] overflow-hidden border-b border-rule bg-parchment">
                   <Image
-                    src={product.photo.src}
+                    src={productThumb(product.slug, 640)}
                     alt={product.photo.alt}
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"

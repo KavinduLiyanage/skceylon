@@ -112,6 +112,12 @@ export type Packing = {
   terms: SpecRow[];
 };
 
+/** One question and answer for a product FAQ. */
+export type Faq = {
+  question: string;
+  answer: string;
+};
+
 export type ApplicationIcon =
   | "vine"
   | "berry"

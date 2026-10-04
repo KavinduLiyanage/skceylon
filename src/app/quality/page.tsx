@@ -20,6 +20,7 @@ export default function QualityPage() {
         <div className="mx-auto max-w-6xl px-5 pt-12 pb-14 sm:px-8 sm:pt-16">
           <Breadcrumbs
             crumbs={[{ label: "Home", href: "/" }, { label: "Quality" }]}
+            currentPath="/quality/"
           />
           <h1 className="mt-6 max-w-2xl font-display text-4xl leading-tight font-medium text-ink text-balance sm:text-5xl">
             Consistency isn&rsquo;t claimed. It&rsquo;s measured.
