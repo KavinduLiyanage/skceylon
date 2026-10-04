@@ -16,7 +16,7 @@ import { pageMeta } from "@/content/seo";
 
 export const metadata: Metadata = pageMeta({
   description:
-    "SK Ceylon exports coco peat blocks, grow bags, chip blocks, bales, discs and coir fibre from Sri Lanka. Low-EC grades, custom specs, FOB Colombo.",
+    "SK Ceylon exports lab-tested coco peat blocks, grow bags, chip blocks, bales, discs and coir fibre from Sri Lanka. Low-EC grades, FOB Colombo.",
   path: "/",
 });
 

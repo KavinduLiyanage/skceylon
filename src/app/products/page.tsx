@@ -42,13 +42,13 @@ export default function ProductsPage() {
             Coco peat &amp; coir products, specified like lab samples.
           </h1>
           <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft">
-            Every product below ships against a written specification, and
-            every lot is tested by an independent Colombo laboratory before
-            loading. These are the figures we hold ourselves to:
+            Every product below ships against a written specification, with
+            an independent lab report and samples available on request. These
+            are the figures we hold ourselves to:
           </p>
           <SpecLedger
             rows={KEY_SPECS}
-            caption="Sitewide baseline · verified per lot"
+            caption="Standard specification"
             framed
             className="mt-8 max-w-2xl"
           />

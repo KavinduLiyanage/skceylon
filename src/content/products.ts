@@ -2,12 +2,10 @@ import type { Application, Datasheet, Faq, Packing } from "./site";
 
 export type ProductDiagramKind =
   | "block"
-  | "chips"
   | "chipblock"
   | "peatbale"
   | "peatdisc"
-  | "growbag"
-  | "bale";
+  | "growbag";
 
 export type Product = {
   slug: string;
@@ -64,13 +62,13 @@ const ALL_PRODUCTS: Product[] = [
     metaDescription:
       "5 kg coco peat blocks from Sri Lanka, 30 × 30 × 15 cm, expanding to 60 L or more. Low-EC washed and high-EC grades. Request a wholesale quotation.",
     summary:
-      "Washed, screened coir pith compressed into 5 kg blocks, 30 × 30 × 15 cm, expanding to 60 litres or more. Low-EC washed and high-EC grades, with a certificate of analysis for every shipment.",
+      "Washed, screened coir pith compressed into 5 kg blocks, 30 × 30 × 15 cm, expanding to 60 litres or more. Low-EC washed and high-EC grades, with an independent lab report and samples on request.",
     description: [
       "The 5 kg block is the standard commercial format of coco peat: washed coir pith from Sri Lankan husk, screened to under 12 mm and compressed for economical freight. Hydrate it to produce a low-EC, free-draining growing medium, or the base for your own potting mix.",
       "Each block expands to at least 12 litres per kilogram, 60 litres or more per block, with higher-purity grades reaching 15 to 18 litres per kilogram. The low-EC washed grade is made for horticulture; a high-EC grade is available for soil amendment, landscaping and bedding. Husk chips or fibre can be blended in to order.",
     ],
     datasheet: {
-      lead: "Every shipment is supplied with a certificate of analysis for the actual lot. Sizes, mixes and EC grades can be produced to your own specification.",
+      lead: "Sizes, mixes and EC grades can be produced to your own specification. An independent lab report and samples are available on request.",
       keyFigures: [
         { value: "5 kg", label: "per block" },
         { value: "5 : 1", label: "compression" },
@@ -115,7 +113,8 @@ const ALL_PRODUCTS: Product[] = [
           title: "Documentation",
           aside: true,
           rows: [
-            { label: "Certificate of analysis", value: "every shipment", note: "EC, pH and moisture of the actual lot" },
+            { label: "Independent lab report", value: "on request", note: "EC, pH and moisture" },
+            { label: "Samples", value: "on request", note: "before you order" },
             { label: "Phytosanitary", value: "every shipment", note: "CDA export permit included" },
             { label: "Fumigation", value: "where required", note: "to destination import rules" },
           ],
@@ -127,7 +126,7 @@ const ALL_PRODUCTS: Product[] = [
         { label: "Wrapping", detail: "unwrapped as standard; shrink wrap or printed sleeve on request" },
         { label: "Loading", detail: "palletized, loose-loaded or single pallets" },
       ],
-      footnote: "Specifications from current production. Every shipment is supplied with a certificate of analysis for the actual lot, and sizes, mixes and EC grades can be produced to your own specification.",
+      footnote: "Specifications from current production. Sizes, mixes and EC grades can be produced to your own specification, and an independent lab report and samples are available on request.",
     },
     packing: {
       lead: "Shipped as full 40 ft high-cube containers, palletized or loose-loaded, or as single pallets for trials and smaller orders. Loading depends on pallet configuration and destination weight limits, so we confirm exact quantities with each quotation.",
@@ -219,7 +218,7 @@ const ALL_PRODUCTS: Product[] = [
       "The chips hold moisture within their fibres while keeping spaces for air and drainage around roots. Blend them with coco peat or other growing materials to build a mix suited to your crop and watering system, from orchid and anthurium potting mixes to nursery containers and greenhouse blends.",
     ],
     datasheet: {
-      lead: "Every shipment is supplied with a certificate of analysis for the actual lot. Chip grade, washing and packing are agreed per order.",
+      lead: "Chip grade, washing and packing are agreed per order. An independent lab report and samples are available on request.",
       keyFigures: [
         { value: "5 kg", label: "per block" },
         { value: "100 %", label: "husk chips" },
@@ -261,7 +260,8 @@ const ALL_PRODUCTS: Product[] = [
           title: "Documentation",
           aside: true,
           rows: [
-            { label: "Certificate of analysis", value: "every shipment", note: "EC, pH and moisture of the actual lot" },
+            { label: "Independent lab report", value: "on request", note: "EC, pH and moisture" },
+            { label: "Samples", value: "on request", note: "before you order" },
             { label: "Phytosanitary", value: "every shipment", note: "CDA export permit included" },
             { label: "Fumigation", value: "where required", note: "to destination import rules" },
           ],
@@ -274,7 +274,7 @@ const ALL_PRODUCTS: Product[] = [
         { label: "Packing format", detail: "bulk, shrink-wrapped, LDPE carry bags or retail cartons" },
         { label: "Labelling", detail: "your branding and customized labels" },
       ],
-      footnote: "Specifications from current production. Every shipment is supplied with a certificate of analysis for the actual lot, and chip grades, mixes and EC grades can be produced to your own specification.",
+      footnote: "Specifications from current production. Chip grades, mixes and EC grades can be produced to your own specification, and an independent lab report and samples are available on request.",
     },
     packing: {
       lead: "Blocks ship in bulk, individually wrapped or retail packed, as full containers or single pallets. Loading depends on pallet configuration and destination weight limits, so we confirm exact quantities with each quotation.",
@@ -411,7 +411,8 @@ const ALL_PRODUCTS: Product[] = [
           title: "Documentation",
           aside: true,
           rows: [
-            { label: "Certificate of analysis", value: "every shipment", note: "EC, pH and moisture of the actual lot" },
+            { label: "Independent lab report", value: "on request", note: "EC, pH and moisture" },
+            { label: "Samples", value: "on request", note: "before you order" },
             { label: "Phytosanitary", value: "every shipment", note: "CDA export permit included" },
             { label: "Fumigation", value: "where required", note: "to destination import rules" },
           ],
@@ -565,7 +566,8 @@ const ALL_PRODUCTS: Product[] = [
           title: "Documentation",
           aside: true,
           rows: [
-            { label: "Certificate of analysis", value: "every shipment", note: "EC, pH and moisture of the actual lot" },
+            { label: "Independent lab report", value: "on request", note: "EC, pH and moisture" },
+            { label: "Samples", value: "on request", note: "before you order" },
             { label: "Phytosanitary", value: "every shipment", note: "CDA export permit included" },
             { label: "Fumigation", value: "where required", note: "to destination import rules" },
           ],
@@ -815,78 +817,6 @@ const ALL_PRODUCTS: Product[] = [
     ],
   },
   {
-    slug: "husk-chips",
-    photo: { src: "/images/product-chips.jpg", alt: "Coconut husks stockpiled at a coir mill before cutting", width: 1200, height: 673 },
-    highlights: ["Graded 1 – 3 cm", "Washed on request"],
-    name: "Coconut Husk Chips",
-    shortName: "Husk Chips",
-    tagline: "Graded structure for air and drainage.",
-    summary:
-      "Cut coconut husk chips graded 1–3 cm, washed on request, supplied compressed in blocks or loose. The structural fraction for blends that need air-filled porosity and drainage.",
-    description: [
-      "Husk chips are cut from whole coconut husk and screen-graded to 1–3 cm, giving substrate blends the air-filled porosity and drainage that fine pith alone cannot provide. They resist compaction across multi-year crop cycles, which is why chip fractions dominate long-cycle crops like orchids and berries.",
-      "Chips are supplied unwashed by default and washed on request, compressed into blocks for economical freight or loose where the buyer's process requires it. Grading consistency is checked per lot — a chip fraction is only useful if the size band actually holds.",
-    ],
-    datasheet: {
-      lead: "Grading is checked per lot and every washed lot is tested by an independent Colombo laboratory before a container is confirmed.",
-      keyFigures: [
-        { value: "1 – 3 cm", label: "chip grade" },
-        { value: "5 : 1", label: "compression" },
-        { value: "< 0.5", label: "mS/cm EC, washed" },
-        { value: "< 18 %", label: "moisture" },
-      ],
-      lab: [
-        { label: "EC, washed", value: "< 0.5 mS/cm", note: "1:1.5 method", scale: [0, 2], band: [0, 0.5], ticks: ["0", "2 mS/cm"] },
-        { label: "pH", value: "5.5 – 6.8", scale: [4, 8], band: [5.5, 6.8] },
-        { label: "Moisture", value: "< 18 %", note: "at packing", scale: [0, 40], band: [0, 18], ticks: ["0", "40 %"] },
-      ],
-      groups: [
-        {
-          title: "Chips",
-          rows: [
-            { label: "Chip grade", value: "1 – 3 cm", note: "screen-graded" },
-            { label: "Form", value: "compressed blocks or loose" },
-          ],
-        },
-      ],
-      options: [
-        { label: "Washing", detail: "fresh-water washed at mill on request" },
-        { label: "Form", detail: "5 kg compressed blocks or loose bagged" },
-        { label: "Bag size", detail: "to buyer spec for loose supply" },
-      ],
-    },
-    packing: {
-      lead: "Chips ship compressed or loose. Loading depends on pallet configuration and destination weight limits, so we confirm exact quantities with each quotation.",
-      units: [
-        { icon: "block", label: "Block or bag", value: "5 kg blocks", note: "or loose, bag size to buyer spec" },
-        { icon: "pallet", label: "Pallet", value: "Palletized", note: "or floor-loaded" },
-        { icon: "container", label: "Container", value: "40 ft HC", note: "quantity confirmed with quotation" },
-      ],
-      steps: [
-        "Chips are screen-graded to 1 – 3 cm and washed on request.",
-        "Compressed 5 : 1 into 5 kg blocks, or bagged loose.",
-        "Palletized or floor-loaded to the agreed plan.",
-        "Stuffed into a 40 ft high-cube container at Colombo.",
-      ],
-      notes: [
-        { label: "Loading plan", value: "shared with quotation" },
-      ],
-      terms: [
-        { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP to your port or warehouse" },
-        { label: "Container", value: "40 ft HC", note: "quantity per loading plan" },
-        { label: "Lead time", value: "3 – 5 weeks", note: "from order confirmation" },
-        { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
-      ],
-    },
-    applications: [
-      { icon: "flower", title: "Orchids & anthurium", detail: "Open, free-draining media for epiphytes.", tag: "1 – 3 cm" },
-      { icon: "slab", title: "Peat : chip blends", detail: "The chip fraction for air-filled porosity in slabs.", tag: "washed" },
-      { icon: "berry", title: "Berries & long-cycle crops", detail: "Resists compaction over multi-year cycles.", tag: "washed" },
-      { icon: "leaf", title: "Mulching & landscaping", detail: "Decorative, slow-breakdown ground cover.", tag: "unwashed" },
-    ],
-    diagram: "chips",
-  },
-  {
     slug: "grow-bags",
     alternateNames: ["cocopeat grow bags", "coir grow slabs"],
     photo: { src: "/images/product-growbags-1.avif", alt: "SK Ceylon coco grow bag with three planting holes cut in white UV-treated film", width: 1200, height: 800 },
@@ -957,7 +887,8 @@ const ALL_PRODUCTS: Product[] = [
           title: "Documentation",
           aside: true,
           rows: [
-            { label: "Certificate of analysis", value: "every shipment", note: "EC, pH and moisture of the actual batch" },
+            { label: "Independent lab report", value: "on request", note: "EC, pH and moisture" },
+            { label: "Samples", value: "on request", note: "before you order" },
             { label: "Phytosanitary", value: "every shipment", note: "CDA export permit included" },
             { label: "Fumigation", value: "where required", note: "to destination import rules" },
           ],
@@ -971,7 +902,7 @@ const ALL_PRODUCTS: Product[] = [
         { label: "Buffering", detail: "calcium nitrate treated substrate" },
         { label: "Film printing", detail: "your brand on the bag" },
       ],
-      footnote: "Specifications from current production. Every shipment is supplied with a certificate of analysis for the actual batch, and sizes, mixes and EC grades can be produced to your own specification.",
+      footnote: "Specifications from current production. Sizes, mixes and EC grades can be produced to your own specification, and an independent lab report and samples are available on request.",
     },
     packing: {
       lead: "Slabs leave Colombo palletized, strapped and wrapped. Loading depends on pallet configuration and destination weight limits, so we confirm exact quantities with each quotation.",
@@ -1040,81 +971,14 @@ const ALL_PRODUCTS: Product[] = [
     diagram: "growbag",
     diagramImage: { src: "/images/product-growbags-2.avif", alt: "Grow bag diagram showing planting holes, plant spacing, irrigation openings, drainage cuts and the coco peat and husk chip blend, all set to buyer requirements", width: 1200, height: 800 },
   },
-  {
-    slug: "coir-fiber",
-    photo: { src: "/images/product-fiber.jpg", alt: "Baled golden coir fiber stacked in an export warehouse", width: 1200, height: 675 },
-    highlights: ["Bristle & mattress", "100 – 120 kg bales"],
-    name: "Coir Fiber",
-    shortName: "Coir Fiber",
-    tagline: "Golden fiber, baled for industry.",
-    summary:
-      "Sri Lankan coir fiber in compressed bales of roughly 100–120 kg. Bristle and mattress grades for brushes, twine, upholstery, erosion control and horticultural liners.",
-    description: [
-      "Coir fiber is the long golden strand extracted from coconut husk — strong, elastic and resistant to salt water, which is why it has been export cargo from this coastline for over a century. We supply both bristle fiber, the longer and stiffer grade, and mattress fiber, the finer curled grade.",
-      "Fiber ships in machine-compressed bales of roughly 100–120 kg, strapped for container stuffing. Grade, fiber length and bale weight are agreed per order and confirmed against samples before loading.",
-    ],
-    datasheet: {
-      lead: "Grade, fiber length and bale weight are agreed per order and confirmed against samples before loading.",
-      keyFigures: [
-        { value: "100 – 120 kg", label: "per bale" },
-        { value: "2 grades", label: "bristle & mattress" },
-        { value: "< 18 %", label: "moisture" },
-      ],
-      lab: [
-        { label: "Moisture", value: "< 18 %", note: "at packing", scale: [0, 40], band: [0, 18], ticks: ["0", "40 %"] },
-      ],
-      groups: [
-        {
-          title: "Fiber",
-          rows: [
-            { label: "Grades", value: "bristle / mattress" },
-            { label: "Bale weight", value: "≈ 100 – 120 kg", note: "machine compressed" },
-            { label: "Color", value: "golden brown", note: "natural, unbleached" },
-            { label: "Fiber length", value: "per grade", note: "confirmed against sample" },
-          ],
-        },
-      ],
-      options: [
-        { label: "Grade", detail: "bristle or mattress" },
-        { label: "Bale weight", detail: "agreed per order" },
-      ],
-    },
-    packing: {
-      lead: "Bales are floor-loaded at Colombo. Loading depends on bale size and destination weight limits, so we confirm exact quantities with each quotation.",
-      units: [
-        { icon: "bale", label: "Bale", value: "≈ 100 – 120 kg", note: "machine compressed, strapped" },
-        { icon: "container", label: "Container", value: "40 ft HC", note: "floor-loaded, quantity per loading plan" },
-      ],
-      steps: [
-        "Fiber is machine-compressed into bales of roughly 100 – 120 kg.",
-        "Bales are strapped for container stuffing.",
-        "Floor-loaded into a 40 ft high-cube container at Colombo.",
-      ],
-      notes: [
-        { label: "Loading plan", value: "shared with quotation" },
-      ],
-      terms: [
-        { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP to your port or warehouse" },
-        { label: "Container", value: "40 ft HC", note: "quantity per loading plan" },
-        { label: "Lead time", value: "3 – 5 weeks", note: "from order confirmation" },
-        { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
-      ],
-    },
-    applications: [
-      { icon: "brush", title: "Brushes, brooms & tawashi", detail: "Stiff bristle fiber for sweeping and scouring.", tag: "bristle" },
-      { icon: "rope", title: "Ropes, twine & netting", detail: "Salt-resistant cordage for marine and farm use.", tag: "bristle" },
-      { icon: "fiber", title: "Mattress & upholstery", detail: "Curled fiber filling with lasting resilience.", tag: "mattress" },
-      { icon: "leaf", title: "Erosion control & liners", detail: "Coir logs, geotextiles and hanging-basket liners.", tag: "mattress" },
-    ],
-    diagram: "bale",
-  },
 ];
 
 /**
  * Slugs temporarily hidden from the catalog (and from generated pages,
- * sitemap, footer and forms). Remove a slug from this set to restore it.
+ * sitemap, footer and forms). Add a slug here to hide a product without
+ * deleting its content.
  */
-const HIDDEN_SLUGS = new Set(["husk-chips", "coir-fiber"]);
+const HIDDEN_SLUGS = new Set<string>([]);
 
 /**
  * Display order for the catalog, homepage, footer, sitemap and forms.

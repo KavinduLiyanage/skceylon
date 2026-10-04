@@ -33,7 +33,7 @@ export default function QualityPage() {
           </p>
           <SpecLedger
             rows={KEY_SPECS}
-            caption="What the lab verifies · every lot"
+            caption="Standard specification"
             framed
             className="mt-8 max-w-2xl"
           />
@@ -75,10 +75,10 @@ export default function QualityPage() {
       <section className="border-t border-rule">
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
           <p className="font-mono text-[0.6875rem] tracking-[0.18em] text-green-deep uppercase">
-            With every quotation
+            Before you order
           </p>
           <h2 className="mt-3 max-w-xl font-display text-3xl leading-tight font-medium text-ink text-balance sm:text-4xl">
-            The proof arrives before the order does.
+            Check the material before you commit.
           </h2>
           <div className="mt-10 grid gap-5 sm:grid-cols-3">
             {QUOTATION_INCLUDES.map((item, i) => (
@@ -101,7 +101,7 @@ export default function QualityPage() {
         </div>
       </section>
 
-      <RfqSection heading="See your lot's numbers before you commit." />
+      <RfqSection heading="Ask for a sample and a lab report with your quotation." />
     </>
   );
 }

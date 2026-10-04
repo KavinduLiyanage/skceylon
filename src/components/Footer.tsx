@@ -20,9 +20,9 @@ export function Footer() {
               Coco Peat · Coir · Est. {COMPANY.city}
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper/70">
-              {COMPANY.city}-based exporter of coco peat blocks and bales, grow
-              bags, chip blocks, discs and coir fibre from Sri Lanka&rsquo;s
-              coconut triangle.
+              {COMPANY.city}-based exporter of lab-tested coco peat blocks and
+              bales, grow bags, chip blocks, discs and coir fibre from Sri
+              Lanka&rsquo;s coconut triangle.
             </p>
           </div>
 

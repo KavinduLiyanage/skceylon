@@ -11,7 +11,7 @@ const DEFAULT_SHARE_IMAGE = {
   url: "/og/default.png",
   width: 1200,
   height: 630,
-  alt: "SK Ceylon — coco peat and coir exports from Sri Lanka",
+  alt: "SK Ceylon — lab-tested coco peat and coir exports from Sri Lanka",
 };
 
 type PageMetaInput = {
