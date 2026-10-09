@@ -7,6 +7,17 @@
 export const SITE_URL = "https://skceylon.lk";
 
 export const SITE_NAME = "SK Ceylon";
+
+/**
+ * Site-ownership tokens for Google Search Console and Bing Webmaster Tools
+ * ("HTML tag" method; paste only the content value, not the whole tag).
+ * The Google property is already verified by DNS, so these are optional
+ * fallbacks; nothing is rendered for an empty string.
+ */
+export const SITE_VERIFICATION = {
+  google: "",
+  bing: "",
+} as const;
 /** Homepage title; other pages use "<page title> | SK Ceylon". */
 export const SITE_TITLE_SUFFIX =
   "Coco Peat & Coir Exporter in Sri Lanka | SK Ceylon";

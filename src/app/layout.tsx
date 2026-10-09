@@ -10,6 +10,7 @@ import {
   SITE_NAME,
   SITE_TITLE_SUFFIX,
   SITE_URL,
+  SITE_VERIFICATION,
 } from "@/content/site";
 import "./globals.css";
 
@@ -56,6 +57,12 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
     googleBot: { "max-image-preview": "large", "max-snippet": -1 },
+  },
+  verification: {
+    ...(SITE_VERIFICATION.google ? { google: SITE_VERIFICATION.google } : {}),
+    ...(SITE_VERIFICATION.bing
+      ? { other: { "msvalidate.01": SITE_VERIFICATION.bing } }
+      : {}),
   },
 };
 

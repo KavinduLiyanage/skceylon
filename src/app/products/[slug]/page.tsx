@@ -13,7 +13,7 @@ import { PackingSection } from "@/components/packing/PackingSection";
 import { guidesForProduct } from "@/content/guides";
 import { PRODUCTS, getProduct } from "@/content/products";
 import { pageMeta } from "@/content/seo";
-import { COMPANY, SITE_URL, rfqMailto } from "@/content/site";
+import { COMPANY, MARKETS, SITE_URL, rfqMailto } from "@/content/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -69,6 +69,25 @@ export default async function ProductPage({ params }: Props) {
       name: COMPANY.name,
     },
     countryOfOrigin: { "@type": "Country", name: "Sri Lanka" },
+    // Wholesale only: no list price, so the offer carries availability,
+    // Incoterms and the quotation contact instead of a figure.
+    offers: {
+      "@type": "Offer",
+      url: `${SITE_URL}/products/${product.slug}/`,
+      availability: "https://schema.org/InStock",
+      itemCondition: "https://schema.org/NewCondition",
+      businessFunction: "http://purl.org/goodrelations/v1#Sell",
+      priceCurrency: "USD",
+      priceSpecification: {
+        "@type": "PriceSpecification",
+        priceCurrency: "USD",
+        description: "Quoted per container, FOB Colombo (CIF / DAP on request)",
+        valueAddedTaxIncluded: false,
+      },
+      eligibleRegion: MARKETS.map((name) => ({ "@type": "Country", name })),
+      seller: { "@id": `${SITE_URL}/#organization` },
+      availableDeliveryMethod: "http://purl.org/goodrelations/v1#DeliveryModeFreight",
+    },
     additionalProperty: [
       ...(product.datasheet.dimensions?.rows ?? []),
       ...(product.datasheet.blend?.rows ?? []),

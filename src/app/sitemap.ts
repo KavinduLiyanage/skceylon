@@ -6,9 +6,9 @@ import { SITE_URL } from "@/content/site";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // The site is statically exported, so the build date is the last change.
-  const lastModified = new Date();
-
+  // No lastModified on static and product pages: stamping the build time on
+  // every deploy would tell crawlers that everything changed each time, so
+  // the field is only set where a real date exists (guides).
   const staticPages = [
     "",
     "products/",
@@ -19,7 +19,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ].map(
     (path) => ({
       url: `${SITE_URL}/${path}`,
-      lastModified,
       changeFrequency: "monthly" as const,
       priority: path === "" ? 1 : 0.8,
     }),
@@ -27,7 +26,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const productPages = PRODUCTS.map((product) => ({
     url: `${SITE_URL}/products/${product.slug}/`,
-    lastModified,
     changeFrequency: "monthly" as const,
     priority: 0.9,
     images: [
