@@ -242,6 +242,7 @@ export const IMAGE_CREDITS = [
 
 export const NAV_LINKS = [
   { href: "/products/", label: "Products" },
+  { href: "/guides/", label: "Guides" },
   { href: "/quality/", label: "Quality" },
   { href: "/about/", label: "About" },
   { href: "/contact/", label: "Contact" },
