@@ -10,6 +10,7 @@ import { RelatedProducts } from "@/components/RelatedProducts";
 import { RfqSection } from "@/components/RfqSection";
 import { Datasheet } from "@/components/datasheet/Datasheet";
 import { PackingSection } from "@/components/packing/PackingSection";
+import { guidesForProduct } from "@/content/guides";
 import { PRODUCTS, getProduct } from "@/content/products";
 import { pageMeta } from "@/content/seo";
 import { COMPANY, SITE_URL, rfqMailto } from "@/content/site";
@@ -249,7 +250,14 @@ export default async function ProductPage({ params }: Props) {
       {faqs.length > 0 && (
         <>
           <JsonLd data={faqJsonLd} />
-          <ProductFaq product={product.shortName} faqs={faqs} />
+          <ProductFaq
+            product={product.shortName}
+            faqs={faqs}
+            links={guidesForProduct(product.slug).map((guide) => ({
+              href: `/guides/${guide.slug}/`,
+              label: guide.title,
+            }))}
+          />
         </>
       )}
 

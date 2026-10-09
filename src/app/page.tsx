@@ -5,6 +5,7 @@ import { CtaLink } from "@/components/CtaLink";
 import { RfqSection } from "@/components/RfqSection";
 import { SectionHeading } from "@/components/SectionHeading";
 import { PRODUCTS, productThumb } from "@/content/products";
+import { GUIDES, readingMinutes } from "@/content/guides";
 import { CHECKPOINTS } from "@/content/quality";
 import {
   COMPLIANCE,
@@ -201,6 +202,44 @@ export default function HomePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Buyer guides */}
+      <section className="border-b border-rule bg-paper">
+        <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <SectionHeading
+              eyebrow="Buyer guides"
+              title="What to know before you order."
+            />
+            <Link
+              href="/guides/"
+              className="font-mono text-xs font-medium text-green-deep underline-offset-4 hover:underline"
+            >
+              All guides →
+            </Link>
+          </div>
+          <ul className="mt-10 grid gap-5 sm:grid-cols-3">
+            {GUIDES.slice(0, 3).map((guide) => (
+              <li key={guide.slug}>
+                <Link
+                  href={`/guides/${guide.slug}/`}
+                  className="group flex h-full flex-col rounded-2xl border border-rule bg-paper p-6 shadow-sm shadow-ink/5 transition-all hover:-translate-y-1 hover:border-rule-strong hover:shadow-lg hover:shadow-ink/10"
+                >
+                  <p className="font-mono text-[0.6875rem] tracking-[0.14em] text-ink-soft uppercase">
+                    {guide.category} · {readingMinutes(guide)} min read
+                  </p>
+                  <h3 className="mt-3 font-display text-xl leading-tight font-medium text-ink text-balance">
+                    {guide.title}
+                  </h3>
+                  <p className="mt-auto pt-5 font-mono text-xs font-medium text-green-deep group-hover:underline">
+                    Read the guide →
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { GUIDES } from "@/content/guides";
 import { PRODUCTS } from "@/content/products";
 import { SITE_URL } from "@/content/site";
 
@@ -8,7 +9,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // The site is statically exported, so the build date is the last change.
   const lastModified = new Date();
 
-  const staticPages = ["", "products/", "quality/", "about/", "contact/"].map(
+  const staticPages = [
+    "",
+    "products/",
+    "guides/",
+    "quality/",
+    "about/",
+    "contact/",
+  ].map(
     (path) => ({
       url: `${SITE_URL}/${path}`,
       lastModified,
@@ -28,5 +36,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ],
   }));
 
-  return [...staticPages, ...productPages];
+  const guidePages = GUIDES.map((guide) => ({
+    url: `${SITE_URL}/guides/${guide.slug}/`,
+    lastModified: new Date(guide.published),
+    changeFrequency: "yearly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...productPages, ...guidePages];
 }

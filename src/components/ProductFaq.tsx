@@ -1,16 +1,26 @@
+import Link from "next/link";
 import type { Faq } from "@/content/site";
 
 type ProductFaqProps = {
   /** Short product name used in the heading, e.g. "Grow Bags". */
   product: string;
   faqs: Faq[];
+  /** Replaces the default "Questions about …" heading. */
+  heading?: string;
+  /** Optional "further reading" links shown under the intro. */
+  links?: { href: string; label: string }[];
 };
 
 /**
  * Frequently asked questions as native disclosure widgets: no script, and
  * every answer is in the page HTML for search engines whether open or not.
  */
-export function ProductFaq({ product, faqs }: ProductFaqProps) {
+export function ProductFaq({
+  product,
+  faqs,
+  heading,
+  links,
+}: ProductFaqProps) {
   return (
     <section
       aria-labelledby="faq-heading"
@@ -25,12 +35,31 @@ export function ProductFaq({ product, faqs }: ProductFaqProps) {
             id="faq-heading"
             className="mt-2 font-display text-3xl leading-tight font-medium text-ink text-balance sm:text-4xl"
           >
-            Questions about {product.toLowerCase()}
+            {heading ?? `Questions about ${product.toLowerCase()}`}
           </h2>
           <p className="mt-3 text-base leading-relaxed text-ink-soft">
             The answers buyers ask for most. Anything else, ask with your
             quotation request.
           </p>
+          {links && links.length > 0 && (
+            <div className="mt-6">
+              <p className="font-mono text-[0.6875rem] tracking-[0.18em] text-ink-soft uppercase">
+                Buyer guides
+              </p>
+              <ul className="mt-2 space-y-2">
+                {links.map((link) => (
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
+                      className="text-sm leading-snug font-medium text-green-deep underline-offset-4 hover:underline"
+                    >
+                      {link.label} →
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
 
         <div className="overflow-hidden rounded-2xl border border-rule bg-paper shadow-sm shadow-ink/5 lg:col-span-8">
