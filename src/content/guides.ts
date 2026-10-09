@@ -507,6 +507,428 @@ export const GUIDES: Guide[] = [
     ],
     products: ["5kg-coco-peat-blocks", "25kg-coco-peat-bales", "coco-peat-discs"],
   },
+  {
+    slug: "coco-peat-vs-peat-moss",
+    title: "Coco peat vs peat moss: which growing medium should you buy?",
+    metaTitle: "Coco Peat vs Peat Moss Compared",
+    description:
+      "How coco peat and sphagnum peat moss compare on pH, wetting, nutrient holding, structure, shipping and sustainability, and when each one is the better buy.",
+    category: "Choosing a grade",
+    published: "2026-10-09",
+    summary:
+      "Peat moss was the default substrate for a century. Coco peat now replaces it in most professional mixes. The two behave differently enough that switching needs a few recipe changes.",
+    takeaways: [
+      "Coco peat is naturally pH 5.5 to 6.5 and needs no lime; peat moss is pH 3.5 to 4.5 and must be limed before use.",
+      "Coco peat rewets easily after drying out, where dry peat moss repels water and needs a wetting agent.",
+      "Coco peat holds potassium and sodium on its exchange sites, so feed recipes need more calcium and less potassium in the first weeks, or a buffered grade.",
+      "Coco peat ships compressed 5:1 and is a by-product of coconut harvesting, which is why peat-restricted markets are moving to it.",
+    ],
+    blocks: [
+      { type: "h2", id: "what-each-one-is", text: "What each one is" },
+      {
+        type: "p",
+        text: "Sphagnum peat moss is partially decomposed moss harvested from drained bogs, mainly in Canada, the Baltic states and Ireland. The bogs took thousands of years to form and recover very slowly once cut. Coco peat, also called coir pith, is the spongy material left after fibre is extracted from coconut husks. Coconuts are harvested every year, so the supply renews with the crop.",
+      },
+      {
+        type: "p",
+        text: "Both are used for the same job: a lightweight, water-holding base for potting mixes, propagation and container growing. The differences are in chemistry and handling rather than in what they are for.",
+      },
+      { type: "h2", id: "side-by-side", text: "Side by side" },
+      {
+        type: "table",
+        caption: "Typical properties of horticultural grades",
+        head: ["Property", "Coco peat", "Sphagnum peat moss"],
+        rows: [
+          ["Natural pH", "5.5 – 6.5", "3.5 – 4.5"],
+          ["Lime needed before use", "No", "Yes, usually 3 – 6 kg per m³"],
+          ["Rewetting after drying out", "Easy; absorbs water readily", "Difficult; dry peat repels water"],
+          ["Water-holding capacity", "High", "Very high"],
+          ["Air porosity", "Good, and stable over the crop", "Good when fresh; falls as it decomposes"],
+          ["Cation exchange capacity", "High, loaded with K and Na", "High, loaded with H"],
+          ["Soluble salts (EC)", "Varies by grade; washed is < 0.5 mS/cm", "Very low"],
+          ["Breakdown during use", "Slow; high lignin content", "Faster; shrinks and compacts"],
+          ["Shipping form", "Compressed 5:1 in blocks, bales or slabs", "Loose compressed bales, about 2:1"],
+          ["Source", "Annual coconut harvest by-product", "Drained peat bog, slow to regenerate"],
+        ],
+      },
+      { type: "h2", id: "ph-and-lime", text: "pH and lime" },
+      {
+        type: "p",
+        text: "Peat moss is strongly acidic and is always limed before it goes into a mix, which adds a step, a cost and a source of batch variation. Coco peat arrives inside the range most crops want and needs no adjustment. The pH of coco peat does drift with the irrigation water over a long crop, so it is still worth checking the drain solution on a schedule, but there is no start-up correction.",
+      },
+      { type: "h2", id: "wetting-and-structure", text: "Wetting and structure" },
+      {
+        type: "p",
+        text: "The practical difference growers notice first is rewetting. A peat moss mix that dries out becomes hydrophobic: water runs down the gap between the root ball and the pot wall and out of the bottom. Coco peat takes water back up readily, which makes it more forgiving under drip irrigation and in retail where pots sit unwatered.",
+      },
+      {
+        type: "p",
+        text: "Coco peat also keeps its structure for longer. Peat moss continues to decompose in the pot, losing air space and compacting over a long crop. Coco peat is high in lignin and breaks down slowly, so air porosity in month six is close to what it was at planting. For long-cycle crops such as tomato, cucumber and soft fruit, this is the main reason the industry moved to coco slabs.",
+      },
+      { type: "h2", id: "nutrition", text: "Nutrition and the first weeks" },
+      {
+        type: "p",
+        text: "This is where switching needs care. Coco peat holds potassium and sodium on its exchange sites. In the first weeks of a crop it releases potassium and takes up calcium and magnesium from the feed, so a recipe written for peat moss will under-supply calcium on coco. Growers either order buffered coco peat, which has been pre-treated with calcium nitrate, or raise calcium and lower potassium in the starter feed.",
+      },
+      {
+        type: "p",
+        text: "Coco peat also carries more soluble salt than peat moss unless it is washed. For containers and propagation, specify washed low-EC material, under 0.5 mS/cm at 1:5 v/v. For salt-tolerant landscape use, unwashed material is fine and cheaper.",
+      },
+      { type: "h2", id: "cost-and-shipping", text: "Cost and shipping" },
+      {
+        type: "p",
+        text: "Coco peat ships at a 5:1 compression ratio, so a 40 ft high-cube container of 5 kg blocks expands to roughly 300 cubic metres of substrate. Peat moss bales are compressed about 2:1. Per cubic metre of finished mix delivered, coco peat is usually cheaper to freight even over a longer sea route, though the comparison depends on the destination and the moisture content shipped.",
+      },
+      { type: "h2", id: "sustainability", text: "Sustainability and regulation" },
+      {
+        type: "p",
+        text: "Peat bogs store large amounts of carbon, and harvesting releases it. Several European markets, the United Kingdom among them, are phasing out horticultural peat in retail and professional use, and many garden-centre chains and certification schemes already require peat-free mixes. Coco peat is the main replacement because it is the by-product of an existing crop and performs most like peat. Its own footprint is mostly sea freight and the fresh water used for washing, which is why the washing is done at the mill in Sri Lanka rather than at the destination.",
+      },
+      { type: "h2", id: "which-to-choose", text: "Which to choose" },
+      {
+        type: "ul",
+        items: [
+          "Long-cycle fruiting crops on drip, such as tomato, cucumber, pepper and strawberry: coco grow bags, buffered.",
+          "Nursery and potting mixes, propagation plugs: washed low-EC coco peat blocks or discs, usually blended with chips or perlite for extra air.",
+          "Mixes that must be peat-free for a certification scheme or retail customer: coco peat, with the EC and buffering specified on the order.",
+          "Acid-loving crops such as blueberry and azalea: peat moss still has an edge because of its low pH, or coco peat with sulphur added to the feed.",
+          "Existing peat recipes that cannot be reformulated: stay on peat, or blend coco in at 30 to 50 % as a first step.",
+        ],
+      },
+      {
+        type: "callout",
+        title: "What SK Ceylon supplies",
+        text: "Washed low-EC and buffered coco peat as 5 kg blocks, 25 kg bales, discs and grow bags, with chip blocks for adding air to a mix. Every product ships against a written EC, pH and moisture specification, with an independent lab report on request.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Is coco peat better than peat moss?",
+        answer:
+          "For most container and greenhouse crops, yes: it needs no lime, rewets easily and keeps its structure longer. Peat moss is still preferred for acid-loving crops and in recipes that were developed around it.",
+      },
+      {
+        question: "Can I replace peat moss with coco peat one for one?",
+        answer:
+          "Volume for volume, yes, but drop the lime and adjust the feed: more calcium and less potassium in the first weeks, or order buffered coco peat. Washed low-EC material is essential for containers.",
+      },
+      {
+        question: "Does coco peat hold as much water as peat moss?",
+        answer:
+          "Slightly less at saturation, but it releases water to the plant more readily and rewets after drying out, so in practice irrigation is easier to manage.",
+      },
+      {
+        question: "Is coco peat sustainable?",
+        answer:
+          "It is a by-product of the annual coconut harvest, so supply renews each year, whereas peat bogs take millennia to form. The main footprint is washing water and sea freight.",
+      },
+    ],
+    products: ["5kg-coco-peat-blocks", "grow-bags", "5kg-coco-chip-blocks"],
+  },
+
+  {
+    slug: "how-to-import-coco-peat-from-sri-lanka",
+    title: "How to import coco peat from Sri Lanka: documents, Incoterms and lead times",
+    metaTitle: "Importing Coco Peat from Sri Lanka: A Buyer's Guide",
+    description:
+      "The steps, documents and shipping terms involved in importing coco peat and coir from Sri Lanka: samples, specification, FOB vs CIF, export permits, phytosanitary certificates and lead time.",
+    category: "Shipping",
+    published: "2026-10-09",
+    summary:
+      "A first container from Sri Lanka is a straightforward process if the specification is agreed before production starts and the paperwork is prepared against the rules at your end. Here is the sequence from enquiry to delivery.",
+    takeaways: [
+      "Agree the written specification (EC, pH, moisture, size, packing) before confirming; it is what the lab report and the goods are checked against.",
+      "FOB Colombo is the usual term; CIF or DAP shifts freight and insurance to the exporter for buyers who prefer one price to the door.",
+      "Every shipment carries a Coconut Development Authority export permit and a phytosanitary certificate; fumigation is added where the destination requires it.",
+      "Allow 3 to 5 weeks from order confirmation to dispatch, plus the sailing time to your port.",
+    ],
+    blocks: [
+      { type: "h2", id: "why-sri-lanka", text: "Why Sri Lanka" },
+      {
+        type: "p",
+        text: "Sri Lanka and southern India supply most of the world's coco peat. Sri Lankan material comes from the coconut triangle north of Colombo, and the island's coir industry is older than the horticultural use of pith, so the milling, washing and compression infrastructure is mature. Exports are regulated by the Coconut Development Authority (CDA), which licenses exporters and issues a quality certificate for each consignment.",
+      },
+      { type: "h2", id: "step-by-step", text: "The process, step by step" },
+      {
+        type: "ol",
+        items: [
+          "Enquiry. Send the product, the grade (washed, unwashed or buffered), the quantity in containers or pallets, the destination port and your target delivery date. If you have a specification sheet from a current supplier, send that too.",
+          "Quotation and specification. The quotation comes with a written specification, a packing specification and a loading plan for the container. Check every figure against what your crop needs, especially the EC limit and its test method.",
+          "Sample and lab report. Ask for a sample of the material and an independent lab report for EC, pH and moisture. Test the sample with your own method before confirming, since methods differ.",
+          "Order confirmation and payment terms. Confirm the specification, quantity, Incoterm and delivery window in writing. Payment terms are agreed at this stage; an advance with the balance against shipping documents is common for a first order, and letters of credit are accepted for larger volumes. Confirm the exact terms on your quotation.",
+          "Production and quality checks. Material is sourced from mills that meet the specification, tested, compressed and packed. Allow 3 to 5 weeks from confirmation to dispatch for standard products.",
+          "Export documentation. The exporter obtains the CDA export permit and quality certificate, the phytosanitary certificate from the plant quarantine service, and arranges fumigation if your import rules require it.",
+          "Loading and shipping. The container is loaded to the agreed plan, photographed, sealed and delivered to the Port of Colombo. Under FOB, your forwarder's line takes over from here; under CIF or DAP, the exporter books the freight.",
+          "Documents and customs clearance. You receive the commercial invoice, packing list, bill of lading, certificate of origin, CDA certificate and phytosanitary certificate, and clear the goods with your broker.",
+        ],
+      },
+      { type: "h2", id: "incoterms", text: "FOB, CIF or DAP" },
+      {
+        type: "table",
+        caption: "What each term covers",
+        head: ["Term", "Exporter pays", "You pay", "Choose it when"],
+        rows: [
+          ["FOB Colombo", "Everything up to and including loading at Colombo port", "Sea freight, insurance, destination charges, customs, inland delivery", "You have a forwarder or a freight contract and want control of the sailing"],
+          ["CIF your port", "As FOB plus sea freight and marine insurance to your port", "Destination charges, customs, inland delivery", "You want one price to the port without arranging freight"],
+          ["DAP your warehouse", "As CIF plus destination handling and inland transport to your door", "Import duty and clearance", "You want a delivered price and no freight administration"],
+        ],
+      },
+      {
+        type: "p",
+        text: "Most repeat buyers use FOB because their freight rates are better than a single exporter can obtain. First-time buyers often start on CIF and move to FOB once they have a forwarder in place. Either way, the product price is the same; only the freight and risk allocation change.",
+      },
+      { type: "h2", id: "documents", text: "Documents that travel with the shipment" },
+      {
+        type: "ul",
+        items: [
+          "Commercial invoice and packing list, matching the specification and the loading plan.",
+          "Bill of lading from the shipping line, or a sea waybill if you prefer telex release.",
+          "Certificate of origin, needed for preferential duty under trade agreements your country has with Sri Lanka.",
+          "CDA export permit and quality certificate, confirming the consignment was inspected and cleared for export as a coconut product.",
+          "Phytosanitary certificate, issued for every shipment because coco peat and coir are plant products. Most countries require it at import.",
+          "Fumigation certificate, where your destination requires treatment. Some markets accept heat treatment or a declaration instead; tell the exporter what your plant health authority asks for.",
+          "Independent lab report, if requested, so the EC, pH and moisture of the batch can be filed with the shipment.",
+        ],
+      },
+      { type: "h2", id: "import-rules", text: "Import rules at your end" },
+      {
+        type: "p",
+        text: "Requirements differ by country, and the exporter prepares documents against the rules you give them. Before ordering, check with your plant health authority or customs broker whether an import permit is needed, whether fumigation or another treatment is mandatory, and which tariff code applies. Coco peat is normally classified as a vegetable product under HS heading 1404 or, when sold as a growing medium, under 2703 or 3824 depending on the country, and the duty rate follows from that.",
+      },
+      { type: "h2", id: "lead-time", text: "Lead time" },
+      {
+        type: "p",
+        text: "Standard products dispatch 3 to 5 weeks after order confirmation. Custom sizes, buffered grades and printed grow bag film take longer and are confirmed with the quotation. Add the sailing time from Colombo: roughly 2 to 3 weeks to the Middle East and India, 3 to 4 weeks to East Asia, and 4 to 6 weeks to Europe, subject to the line and transhipment. Order at least two months ahead of the season you need the material for, and more during the peak demand from January to April.",
+      },
+      { type: "h2", id: "what-to-check-on-arrival", text: "What to check on arrival" },
+      {
+        type: "ul",
+        items: [
+          "Seal number against the bill of lading before opening.",
+          "Unit count against the packing list and loading plan.",
+          "Moisture and compression on a sample of blocks or slabs, and the condition of wrapping and pallets.",
+          "EC and pH of a hydrated sample, using the method stated on the specification, against the lab report.",
+        ],
+      },
+      {
+        type: "callout",
+        title: "SK Ceylon's terms",
+        text: "We quote FOB Colombo, or CIF and DAP to your port or warehouse, in 40 ft high-cube containers or LCL pallets for trials. CDA permit and phytosanitary certificate come with every shipment, with fumigation where you need it, and a lead time of 3 to 5 weeks from order confirmation.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Do I need an import permit for coco peat?",
+        answer:
+          "Some countries require one because coco peat is a plant product; others only require a phytosanitary certificate at the border. Check with your plant health authority or customs broker before you order, and tell the exporter what they ask for.",
+      },
+      {
+        question: "What is the minimum order for importing coco peat?",
+        answer:
+          "A single pallet shipped as LCL is enough for a trial. Container orders are priced per 40 ft high-cube, and the minimum for each product is stated with the quotation.",
+      },
+      {
+        question: "How long does it take to import coco peat from Sri Lanka?",
+        answer:
+          "Allow 3 to 5 weeks for production and dispatch, then 2 to 6 weeks of sailing depending on your port. Two to three months from order to delivery is a safe planning figure for a first container.",
+      },
+      {
+        question: "Should I buy FOB or CIF?",
+        answer:
+          "FOB if you have a freight forwarder and want to control the sailing and rate; CIF or DAP if you want a single price to the port or your warehouse. The product price does not change between them.",
+      },
+    ],
+    products: ["5kg-coco-peat-blocks", "grow-bags", "25kg-coco-peat-bales"],
+  },
+
+  {
+    slug: "coco-peat-price-what-drives-it",
+    title: "What drives the price of coco peat, and how to compare quotations",
+    metaTitle: "Coco Peat Price: What Drives It and How to Compare",
+    description:
+      "Why coco peat prices differ between suppliers and seasons: grade, washing, buffering, compression, packing, freight and moisture, and how to compare quotes on a like-for-like basis.",
+    category: "Buying",
+    published: "2026-10-09",
+    summary:
+      "Two quotations for ‘5 kg coco peat blocks’ can differ by half and both be fair. The difference is almost always in the specification, the packing and what the price includes. This guide explains what moves the number.",
+    takeaways: [
+      "Grade is the biggest factor: unwashed, washed low-EC and buffered material are three different products at three different prices.",
+      "Compare on delivered cost per expanded cubic metre, not price per block or per ton, because moisture and expansion differ between suppliers.",
+      "Packing, pallets, printed film and retail labelling can add more to the landed cost than the material itself.",
+      "Prices move with the season: demand peaks before the northern spring and supply tightens in the Sri Lankan monsoon months.",
+    ],
+    blocks: [
+      { type: "h2", id: "grade", text: "Grade: unwashed, washed or buffered" },
+      {
+        type: "p",
+        text: "Unwashed coco peat is the base material, compressed as it comes from the mill. Washing it to a low-EC specification takes fresh water, time and drying capacity, and a share of the material is lost in the process, so washed material costs more. Buffering adds a calcium nitrate soak and a second rinse, with the chemical and the extra handling on top. A buffered grade can cost noticeably more than an unwashed one for the same block, and a quotation that does not state the grade and the EC limit cannot be compared with one that does.",
+      },
+      { type: "h2", id: "moisture-and-expansion", text: "Moisture and expansion" },
+      {
+        type: "p",
+        text: "A price per ton is a price for water as much as for pith unless the moisture is fixed. Material shipped at 25 % moisture carries a quarter of its weight as water; material at 15 % carries far less. Always compare quotes at the same stated maximum moisture, or ask for the price on a dry-weight basis.",
+      },
+      {
+        type: "p",
+        text: "Expansion matters for the same reason. A block that expands to 60 litres gives you more substrate than one that expands to 50, and the difference comes from the fibre and pith ratio, the particle size and the compression. The fair comparison is the delivered cost per cubic metre of usable substrate after hydration, which is what your mixing line or your grow bags actually consume.",
+      },
+      { type: "h2", id: "particle-size-and-fibre", text: "Particle size and fibre content" },
+      {
+        type: "p",
+        text: "Sieved grades with a controlled particle size, or with fibre removed for propagation plugs, cost more than the mill's standard output. Chip blocks, where the husk is cut rather than milled, are a different product again. If your application tolerates a wider particle range, say so; it is the cheapest specification to meet.",
+      },
+      { type: "h2", id: "packing", text: "Packing and presentation" },
+      {
+        type: "ul",
+        items: [
+          "Loose-loaded blocks are the cheapest to ship and the most expensive to unload. Pallets add cost at origin and save it at the destination.",
+          "Individually shrink-wrapped blocks with a printed label cost more than bulk-wrapped pallets of unprinted blocks, and are only worth it for retail.",
+          "Printed grow bag film, custom hole patterns and drip-hole placement add tooling and set-up cost that is spread over the order, so the per-slab premium falls with volume.",
+          "Custom block and bale dimensions change the loading pattern and often reduce the count per container, which raises the freight share per unit.",
+        ],
+      },
+      { type: "h2", id: "freight", text: "Freight and Incoterms" },
+      {
+        type: "p",
+        text: "Sea freight from Colombo varies by route, by season and by the state of the container market, and it can be a large share of the landed cost for a low-value, high-volume product. A FOB price excludes it; a CIF or DAP price includes it. When you compare a FOB quote with a CIF quote, add your own freight, insurance and destination charges to the FOB figure first. Container utilisation matters too: a product that loads 5,120 units loose against 4,800 on pallets spreads the same freight over more units.",
+      },
+      { type: "h2", id: "season", text: "Season and supply" },
+      {
+        type: "p",
+        text: "Demand for coco peat peaks from January to April as growers in the northern hemisphere prepare for spring, and prices and lead times rise with it. On the supply side, the south-west monsoon from May to September slows drying at the mills in Sri Lanka, which tightens the availability of low-moisture washed material. Buyers who can confirm volume for the year and take delivery in the quieter months generally secure better pricing than those buying spot in the peak.",
+      },
+      { type: "h2", id: "quality-assurance", text: "Testing and documentation" },
+      {
+        type: "p",
+        text: "An independent lab report, product samples before confirmation and a written specification add a small cost to the exporter and remove most of the risk for the buyer. A quotation that includes them is rarely the cheapest on paper, but a container of the wrong EC costs far more than the testing would have.",
+      },
+      { type: "h2", id: "how-to-compare", text: "How to compare quotations" },
+      {
+        type: "ol",
+        items: [
+          "Put every quote on the same Incoterm. Add freight, insurance and destination charges to FOB prices.",
+          "Check the grade, the EC limit and its test method, and the maximum moisture are the same. If not, ask each supplier to requote to one specification.",
+          "Convert to cost per expanded cubic metre using each supplier's stated expansion, not a nominal figure.",
+          "Add the cost of unloading: labour for loose cargo, or the pallet surcharge.",
+          "Note what documentation and testing is included, and the lead time.",
+        ],
+      },
+      {
+        type: "callout",
+        title: "Ask for a like-for-like quotation",
+        text: "Send us the specification you are currently buying to, or the one you need, with the quantity and destination port, and we will quote the same material on the same terms so the comparison is direct.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How much does coco peat cost per ton?",
+        answer:
+          "It depends on the grade, moisture, packing and Incoterm, and it moves with the season and freight market, so a single figure is not meaningful. Request a quotation with your specification and destination port for a current price.",
+      },
+      {
+        question: "Why is washed coco peat more expensive than unwashed?",
+        answer:
+          "Washing uses fresh water, drying capacity and time, and loses some material in the process. Buffering adds a calcium nitrate treatment on top. Each step is a real cost at the mill.",
+      },
+      {
+        question: "Is it cheaper to buy coco peat loose or on pallets?",
+        answer:
+          "Loose is cheaper per block at origin and fits more in the container, but costs labour to unload. Pallets cost more at origin and come off with a forklift. The right choice depends on your warehouse.",
+      },
+    ],
+    products: ["5kg-coco-peat-blocks", "25kg-coco-peat-bales", "grow-bags"],
+  },
+
+  {
+    slug: "coir-fibre-grades-explained",
+    title: "Coir fibre grades explained: bristle, mattress and mixed fibre",
+    metaTitle: "Coir Fibre Grades: Bristle, Mattress and Mixed",
+    description:
+      "The difference between brown and white coir, bristle, mattress and mixed fibre grades, what each is used for, and the specifications to agree when buying coir fibre bales.",
+    category: "Choosing a grade",
+    published: "2026-10-09",
+    summary:
+      "Coir fibre is sold by grade, and the grade decides what a manufacturer can make from it. This guide covers the grades produced in Sri Lanka, their uses and the figures to fix on an order.",
+    takeaways: [
+      "Brown coir comes from mature husks and is the fibre used for mattresses, upholstery, brushes, ropes and erosion control; white coir from green husks goes into finer yarn and mats.",
+      "Bristle fibre is the long, stiff fraction; mattress fibre is the short, springy fraction; mixed fibre is the two together as they leave the mill.",
+      "Length, colour, moisture, impurity or pith content and bale weight are the five figures to agree before ordering.",
+      "Bales are compressed to the buyer's weight, with strapping and wrapping chosen for the destination.",
+    ],
+    blocks: [
+      { type: "h2", id: "brown-and-white", text: "Brown coir and white coir" },
+      {
+        type: "p",
+        text: "Coir is the fibre from the husk that surrounds the coconut shell. Husks from mature, brown coconuts give brown coir: thick, strong fibre with a high lignin content, which is what most industrial buyers want. Husks from green coconuts, harvested before they ripen and soaked for months in water, give white coir: finer, paler and more flexible, used for spinning fine yarn and weaving mats. Sri Lanka's export trade is mainly in brown fibre, and that is what this guide covers.",
+      },
+      { type: "h2", id: "grades", text: "The three grades" },
+      {
+        type: "table",
+        caption: "Brown coir grades and their uses",
+        head: ["Grade", "What it is", "Typical uses"],
+        rows: [
+          ["Bristle fibre", "The longest, stiffest fibres, combed out and sold in bundles or bales", "Brushes and brooms, ropes and twine, doormats, upholstery stuffing"],
+          ["Mattress fibre", "The shorter, curly fibre left after the bristle is combed out", "Mattresses and bedding, rubberised coir sheets for seats and upholstery, erosion-control blankets, pots and liners"],
+          ["Mixed fibre", "Bristle and mattress fibre together, as decorticated, with no combing", "Erosion control, geotextiles, mulch mats, filter media, applications that tolerate a range of lengths"],
+        ],
+      },
+      {
+        type: "p",
+        text: "Mattress fibre is the largest volume grade in the export trade, and the one most often compressed into bales. Bristle fibre is sold in smaller quantities to specialist buyers. Mixed fibre is the cheapest and suits any process that cuts or needles the fibre anyway.",
+      },
+      { type: "h2", id: "how-it-is-made", text: "How the fibre is made" },
+      {
+        type: "p",
+        text: "Husks are either retted, meaning soaked in water for weeks so that the pith softens and separates, or mechanically decorticated, where a machine beats the dry husk apart. Decortication is faster and now the usual route for brown fibre; retting gives a softer, cleaner fibre and is still used for the finer grades. After separation the fibre is cleaned of pith and dust, dried, combed into bristle and mattress fractions if the order calls for it, and compressed into bales.",
+      },
+      { type: "h2", id: "specifications", text: "What to specify" },
+      {
+        type: "ul",
+        items: [
+          "Grade: bristle, mattress or mixed, and whether the fibre should be combed or decorticated.",
+          "Fibre length: the range you can process, since each grade spans a range and the mill can sort to it.",
+          "Colour: golden brown to dark brown, confirmed against a sample. Colour reflects the husk maturity and the processing, and matters most for visible products such as mats.",
+          "Moisture: a maximum at dispatch, with the test method stated. Fibre shipped too wet can heat and discolour in the container.",
+          "Impurity and pith content: a maximum percentage of pith, dust and short fibre, measured on an agreed basis. This is the figure that most affects a mattress or rubberising line.",
+          "Bale weight and dimensions: the net weight with a tolerance, and the size that suits your handling and the container loading.",
+          "Strapping and wrapping: plastic or metal straps, and whether bales are wrapped, depending on the voyage and the destination's import rules.",
+        ],
+      },
+      { type: "h2", id: "packing-and-shipping", text: "Packing and shipping" },
+      {
+        type: "p",
+        text: "Fibre is compressed into bales because loose fibre is almost all air. The bale weight sets how much fits in a container and how it is handled at your end, so it is agreed per order rather than fixed. Every shipment carries a Coconut Development Authority export permit and a phytosanitary certificate, with fumigation where the destination requires it. Terms are FOB Colombo, or CIF and DAP on request, and the bale count and net weight per container are stated in the quotation.",
+      },
+      {
+        type: "callout",
+        title: "What SK Ceylon supplies",
+        text: "Mattress, mixed and other brown coir grades by availability, compressed to your bale weight, with length range, colour, moisture and impurity limits agreed before order confirmation. Tell us the product you make and we will propose the grade.",
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the difference between bristle and mattress coir fibre?",
+        answer:
+          "Bristle fibre is the long, stiff fraction combed out of the husk fibre, used for brushes, ropes and mats. Mattress fibre is the shorter, springy fraction that remains, used for bedding, rubberised coir and erosion control.",
+      },
+      {
+        question: "Which coir fibre grade is used for mattresses?",
+        answer:
+          "Mattress fibre, usually rubberised or needle-punched into sheets. Buyers specify a maximum pith and impurity content because it affects the bonding and the finished sheet.",
+      },
+      {
+        question: "What is the difference between brown and white coir?",
+        answer:
+          "Brown coir comes from mature coconuts and is strong and coarse; white coir comes from green coconuts retted in water and is finer and paler. Sri Lankan exports are mainly brown fibre.",
+      },
+      {
+        question: "How is coir fibre shipped?",
+        answer:
+          "In compressed, strapped bales at a net weight agreed per order, loaded to a plan stated in the quotation, with a phytosanitary certificate and CDA export permit for every shipment.",
+      },
+    ],
+    products: ["coir-fibre-bales", "5kg-coco-chip-blocks", "5kg-coco-peat-blocks"],
+  },
 ];
 
 export function getGuide(slug: string): Guide | undefined {
