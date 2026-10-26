@@ -7,17 +7,12 @@ import { SectionHeading } from "@/components/SectionHeading";
 import { PRODUCTS, productThumb } from "@/content/products";
 import { GUIDES, readingMinutes } from "@/content/guides";
 import { CHECKPOINTS } from "@/content/quality";
-import {
-  COMPLIANCE,
-  FEATURES,
-  MARKETS,
-  rfqMailto,
-} from "@/content/site";
+import { COMPLIANCE, FEATURES, MARKETS, rfqMailto } from "@/content/site";
 import { pageMeta } from "@/content/seo";
 
 export const metadata: Metadata = pageMeta({
   description:
-    "SK Ceylon exports lab-tested coco peat blocks, grow bags, chip blocks, bales, discs and coir fibre from Sri Lanka. Low-EC grades, FOB Colombo.",
+    "SK Ceylon exports lab-tested coco peat blocks, grow bags, chip blocks, bales, discs and coir fibre from Sri Lanka. Low-EC grades, shipped FOB, CFR or CIF from Colombo.",
   path: "/",
 });
 
@@ -56,6 +51,9 @@ function FeatureIcon({ icon }: { icon: string }) {
   );
 }
 
+/** Temporarily hidden; set to true to show the "Shipping from Colombo to" strip again. */
+const SHOW_MARKETS_STRIP = false;
+
 export default function HomePage() {
   return (
     <>
@@ -74,10 +72,10 @@ export default function HomePage() {
             Premium coco peat and coir, grown and graded in Sri Lanka.
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/90 md:text-xl">
-            SK Ceylon is a Colombo-based exporter and wholesale supplier of
-            coco peat (cocopeat) blocks and bales, grow bags, chip blocks,
-            discs and coir fibre from Sri Lanka&rsquo;s coconut triangle.
-            Low-EC grades and custom specifications, FOB Colombo.
+            SK Ceylon is an exporter and wholesale supplier of coco peat
+            (cocopeat) blocks and bales, grow bags, chip blocks, discs and coir
+            fibre from Sri Lanka&rsquo;s coconut triangle. Low-EC grades and
+            custom specifications, shipped FOB, CFR or CIF from Colombo.
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
@@ -97,26 +95,28 @@ export default function HomePage() {
       </section>
 
       {/* Markets strip */}
-      <section
-        aria-label="Export markets"
-        className="border-b border-rule bg-paper"
-      >
-        <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-8 gap-y-3 px-5 py-5 sm:px-8">
-          <p className="font-mono text-[0.6875rem] tracking-[0.18em] text-ink-soft uppercase">
-            Shipping FOB Colombo to
-          </p>
-          <ul className="flex flex-wrap gap-2">
-            {MARKETS.map((market) => (
-              <li
-                key={market}
-                className="rounded-full border border-rule-strong bg-parchment px-4 py-1.5 font-mono text-xs font-medium tracking-wide text-ink"
-              >
-                {market}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      {SHOW_MARKETS_STRIP && (
+        <section
+          aria-label="Export markets"
+          className="border-b border-rule bg-paper"
+        >
+          <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-8 gap-y-3 px-5 py-5 sm:px-8">
+            <p className="font-mono text-[0.6875rem] tracking-[0.18em] text-ink-soft uppercase">
+              Shipping from Colombo to
+            </p>
+            <ul className="flex flex-wrap gap-2">
+              {MARKETS.map((market) => (
+                <li
+                  key={market}
+                  className="rounded-full border border-rule-strong bg-parchment px-4 py-1.5 font-mono text-xs font-medium tracking-wide text-ink"
+                >
+                  {market}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
 
       {/* Product catalog preview */}
       <section className="border-b border-rule">
@@ -277,7 +277,10 @@ export default function HomePage() {
       </section>
 
       {/* Compliance strip */}
-      <section aria-label="Compliance" className="border-b border-rule bg-paper">
+      <section
+        aria-label="Compliance"
+        className="border-b border-rule bg-paper"
+      >
         <div className="mx-auto max-w-6xl px-5 py-8 sm:px-8">
           <ul className="grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
             {COMPLIANCE.map((item) => (

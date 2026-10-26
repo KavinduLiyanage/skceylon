@@ -81,7 +81,7 @@ export default async function ProductPage({ params }: Props) {
       priceSpecification: {
         "@type": "PriceSpecification",
         priceCurrency: "USD",
-        description: "Quoted per container, FOB Colombo (CIF / DAP on request)",
+        description: "Quoted per container, FOB Colombo, CFR or CIF to your port",
         valueAddedTaxIncluded: false,
       },
       eligibleRegion: MARKETS.map((name) => ({ "@type": "Country", name })),

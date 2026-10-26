@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { InquiryForm } from "@/components/InquiryForm";
 import { SpecLedger } from "@/components/SpecLedger";
+import { SocialLinks } from "@/components/SocialLinks";
 import { WhatsAppLinks } from "@/components/WhatsAppLinks";
 import { COMPANY, TRADE_TERMS } from "@/content/site";
 import { pageMeta } from "@/content/seo";
@@ -80,6 +81,10 @@ export default function ContactPage() {
                 WhatsApp
               </p>
               <WhatsAppLinks className="mt-2" />
+              <p className="mt-4 font-mono text-[0.6875rem] tracking-[0.18em] text-ink-soft uppercase">
+                Follow
+              </p>
+              <SocialLinks className="mt-2" />
               <p className="mt-4 max-w-md text-sm leading-relaxed text-ink-soft">
                 Samples are available against courier account for serious
                 enquiries. If you prefer, send your existing substrate

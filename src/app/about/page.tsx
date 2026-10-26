@@ -8,16 +8,24 @@ import { pageMeta } from "@/content/seo";
 export const metadata: Metadata = pageMeta({
   title: "About Us",
   description:
-    "SK Ceylon is a Colombo-based exporter of coco peat and coir products, sourcing from Sri Lanka's coconut triangle with hands-on quality supervision.",
+    "SK Ceylon is an exporter of coco peat and coir products, sourcing from Sri Lanka's coconut triangle with hands-on quality supervision.",
   path: "/about/",
 });
 
 const FACTS = [
-  { label: "Based", value: "Colombo, Sri Lanka" },
-  { label: "Sourcing", value: "Kurunegala – Puttalam", note: "coconut triangle" },
+  { label: "Based", value: "Sri Lanka" },
+  {
+    label: "Sourcing",
+    value: "Kurunegala – Puttalam",
+    note: "coconut triangle",
+  },
   { label: "Mills", value: "CDA-registered", note: "with washing capability" },
   { label: "Testing", value: "independent lab report", note: "on request" },
-  { label: "Markets", value: `${MARKETS.length} countries`, note: MARKETS.slice(0, 3).join(", ") + " …" },
+  {
+    label: "Markets",
+    value: `${MARKETS.length} countries`,
+    note: MARKETS.slice(0, 3).join(", ") + " …",
+  },
 ];
 
 export default function AboutPage() {
@@ -39,12 +47,11 @@ export default function AboutPage() {
         <div className="mx-auto grid max-w-6xl gap-12 px-5 py-14 sm:px-8 lg:grid-cols-[1fr_360px] lg:gap-16">
           <div className="max-w-xl space-y-5 text-base leading-relaxed text-ink-soft">
             <p>
-              {COMPANY.name} is a {COMPANY.city}-based exporter of coco peat
-              blocks and bales, grow bags, chip blocks, discs and coir fibre.
-              We source exclusively from
-              the Kurunegala–Puttalam coconut triangle — the belt of Sri Lanka
-              where coconut milling is a generational trade and the best pith
-              is produced — and ship from the Port of Colombo.
+              {COMPANY.name} is an exporter of coco peat blocks and bales, grow
+              bags, chip blocks, discs and coir fibre. We source exclusively
+              from the Kurunegala–Puttalam coconut triangle — the belt of Sri
+              Lanka where coconut milling is a generational trade and the best
+              pith is produced — and ship from the Port of Colombo.
             </p>
             <p>
               We are deliberately not a trading desk. Large exporters route
@@ -57,9 +64,9 @@ export default function AboutPage() {
             <p>
               That structure is our positioning: direct, personal
               accountability. When you buy from SK Ceylon, you know exactly who
-              chose the mill, who checked the specification, and who stood at the
-              container door while it was loaded. The same person answers your
-              email.
+              chose the mill, who checked the specification, and who stood at
+              the container door while it was loaded. The same person answers
+              your email.
             </p>
             <p>
               It also means we say no. If a lot misses specification, it does
