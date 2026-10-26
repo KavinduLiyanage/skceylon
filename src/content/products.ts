@@ -52,8 +52,8 @@ const ALL_PRODUCTS: Product[] = [
     alternateNames: ["5 kg cocopeat blocks", "coir pith blocks"],
     photo: { src: "/images/product-blocks-1.avif", alt: "Compressed 5 kg coco peat block", width: 1200, height: 800 },
     gallery: [
-      { src: "/images/product-blocks-2.avif", alt: "Close-up of compressed coco peat texture and layered coir fibre", width: 1200, height: 800 },
-      { src: "/images/product-blocks-3.avif", alt: "Palletized coco peat blocks strapped and shrink-wrapped for export", width: 1200, height: 800 },
+      { src: "/images/product-blocks-2.avif", alt: "Close-up of compressed coco peat texture and layered coir fibre", width: 1200, height: 1200 },
+      { src: "/images/product-blocks-3.avif", alt: "Palletized coco peat blocks strapped and shrink-wrapped for export", width: 1200, height: 1200 },
     ],
     highlights: ["EC < 0.5 mS/cm", "Min. 12 L/kg expansion"],
     name: "5 kg Coco Peat Blocks",
@@ -148,7 +148,7 @@ const ALL_PRODUCTS: Product[] = [
         { label: "Marking", value: "to buyer spec" },
       ],
       terms: [
-        { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP to your port or warehouse" },
+        { label: "Incoterms", value: "FOB · CFR · CIF", note: "FOB Colombo, or CFR / CIF to your port" },
         { label: "Container", value: "40 ft HC", note: "4,800 palletized or 5,120 loose-loaded" },
         { label: "Lead time", value: "3 – 5 weeks", note: "from order confirmation" },
         { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
@@ -183,7 +183,7 @@ const ALL_PRODUCTS: Product[] = [
       {
         question: "What are the shipping terms and lead time?",
         answer:
-          "We quote FOB Colombo, or CIF and DAP to your port or warehouse. Lead time is 3 to 5 weeks from order confirmation.",
+          "We quote FOB Colombo, CFR or CIF to your port, whichever suits your freight arrangements. Lead time is 3 to 5 weeks from order confirmation.",
       },
     ],
     related: ["25kg-coco-peat-bales", "5kg-coco-chip-blocks", "grow-bags"],
@@ -296,7 +296,7 @@ const ALL_PRODUCTS: Product[] = [
         { label: "Loading plan", value: "with quotation", note: "packing method and loading quantities" },
       ],
       terms: [
-        { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP to your port or warehouse" },
+        { label: "Incoterms", value: "FOB · CFR · CIF", note: "FOB Colombo, or CFR / CIF to your port" },
         { label: "Container", value: "40 ft HC", note: "quantity quoted per order" },
         { label: "Lead time", value: "3 – 5 weeks", note: "from order confirmation" },
         { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
@@ -331,7 +331,7 @@ const ALL_PRODUCTS: Product[] = [
       {
         question: "What are the shipping terms and lead time?",
         answer:
-          "We quote FOB Colombo, or CIF and DAP to your port or warehouse. Lead time is 3 to 5 weeks from order confirmation, and loading quantities are provided with the quotation.",
+          "We quote FOB Colombo, CFR or CIF to your port, whichever suits your freight arrangements. Lead time is 3 to 5 weeks from order confirmation, and loading quantities are provided with the quotation.",
       },
     ],
     related: ["5kg-coco-peat-blocks", "grow-bags", "25kg-coco-peat-bales"],
@@ -454,7 +454,7 @@ const ALL_PRODUCTS: Product[] = [
         { label: "Loading plan", value: "with quotation" },
       ],
       terms: [
-        { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP to your port or warehouse" },
+        { label: "Incoterms", value: "FOB · CFR · CIF", note: "FOB Colombo, or CFR / CIF to your port" },
         { label: "Container", value: "40 ft HC", note: "quantity per loading plan" },
         { label: "Lead time", value: "3 – 5 weeks", note: "from order confirmation" },
         { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
@@ -623,7 +623,7 @@ const ALL_PRODUCTS: Product[] = [
         { label: "Loading details", value: "with quotation", note: "carton, pallet and container quantities" },
       ],
       terms: [
-        { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP to your port or warehouse" },
+        { label: "Incoterms", value: "FOB · CFR · CIF", note: "FOB Colombo, or CFR / CIF to your port" },
         { label: "Container", value: "per quotation", note: "calculated for your product and packing" },
         { label: "Lead time", value: "3 – 5 weeks", note: "from order confirmation" },
         { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
@@ -772,7 +772,7 @@ const ALL_PRODUCTS: Product[] = [
         { label: "Loading plan", value: "with quotation", note: "net weight and bale count per container" },
       ],
       terms: [
-        { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP to your port or warehouse" },
+        { label: "Incoterms", value: "FOB · CFR · CIF", note: "FOB Colombo, or CFR / CIF to your port" },
         { label: "Container", value: "per quotation", note: "bale count by container type" },
         { label: "Lead time", value: "with quotation", note: "production and dispatch time confirmed per order" },
         { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
@@ -827,15 +827,14 @@ const ALL_PRODUCTS: Product[] = [
     metaDescription:
       "Coco grow bags from Sri Lanka, 100 × 18 × 14 cm, in UV-treated film. Peat and chip blends from 100:0 to 50:50, with holes cut to your spec.",
     summary:
-      "Ready-to-plant coco grow bags, 100 × 18 × 14 cm standard (≈ 25 L expanded) in 350-gauge UV-treated white/black LDPE film. Standard 60:40 peat:chip blend, with 100:0, 80:20, 70:30 and 50:50 blends on order, buffered on request, holes cut to buyer spec.",
+      "Ready-to-plant coco grow bags, 100 × 18 × 14 cm standard in 350-gauge UV-treated white/black LDPE film. Standard 60:40 peat:chip blend, with 100:0, 80:20, 70:30 and 50:50 blends on order, buffered on request, holes cut to buyer spec.",
     description: [
-      "Grow bags arrive at the greenhouse as a finished system: compressed substrate slab, UV-treated co-extruded film, planting and drainage holes already cut. Lay, drip, expand, plant. The standard bag expands to 100 × 18 × 14 cm, roughly 25 litres of substrate per slab from a 2.8 kg dry fill; other dimensions are produced against order.",
+      "Grow bags arrive at the greenhouse as a finished system: compressed substrate slab, UV-treated co-extruded film, planting and drainage holes already cut. Lay, drip, expand, plant. The standard bag expands to 100 × 18 × 14 cm from a 2.8 kg dry fill; other dimensions are produced against order.",
       "The blend is the specification that matters most, and it is yours to set. The standard fill is 60 % dust-free coir peat to 40 % husk chips of 6–7 mm; 100 % peat, 80:20, 70:30 and 50:50 blends are available, washed or buffered, with hole patterns matched to your planting density and drip layout. Every blend batch is lab-verified for EC and pH before filling.",
     ],
     datasheet: {
       lead: "Every blend batch is lab-verified for EC and pH before filling. Holes, sizes and ratios are cut and mixed to your order.",
       keyFigures: [
-        { value: "25 L", label: "substrate per slab" },
         { value: "2.8 kg", label: "dry weight" },
         { value: "60 : 40", label: "peat : chips, standard" },
         { value: "2 yr", label: "UV-treated film" },
@@ -847,7 +846,7 @@ const ALL_PRODUCTS: Product[] = [
         unit: "cm",
         caption: "expanded slab",
         rows: [
-          { label: "Expanded size", value: "100 × 18 × 14 cm", note: "≈ 25 L substrate per slab" },
+          { label: "Expanded size", value: "100 × 18 × 14 cm" },
           { label: "Dry weight", value: "2.8 kg ± 10 %", note: "per slab" },
           { label: "Expansion", value: "18 L / kg" },
         ],
@@ -877,7 +876,7 @@ const ALL_PRODUCTS: Product[] = [
         {
           title: "Bag & finishing",
           rows: [
-            { label: "Film", value: "LDPE, 350 gauge", note: "black inside / white outside" },
+            { label: "Film", value: "LDPE", note: "black inside / white outside" },
             { label: "UV treatment", value: "2 years" },
             { label: "Finishing", value: "factory-cut", note: "plant holes and drain cuts; pattern, hole shape and slab size customisable" },
             { label: "Printing", value: "to buyer spec" },
@@ -923,7 +922,7 @@ const ALL_PRODUCTS: Product[] = [
         { label: "Marking", value: "printed film to buyer spec" },
       ],
       terms: [
-        { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP to your port or warehouse" },
+        { label: "Incoterms", value: "FOB · CFR · CIF", note: "FOB Colombo, or CFR / CIF to your port" },
         { label: "Container", value: "40 ft HC", note: "20 pallets · 9,000 slabs" },
         { label: "Lead time", value: "3 – 5 weeks", note: "from order confirmation" },
         { label: "Documents", value: "CDA permit · phytosanitary", note: "fumigation where the destination requires it" },
@@ -933,7 +932,7 @@ const ALL_PRODUCTS: Product[] = [
       {
         question: "What size is the standard coco grow bag?",
         answer:
-          "The standard bag expands to 100 × 18 × 14 cm, giving about 25 litres of substrate per slab. Dry weight is 2.8 kg ± 10 %. Other slab sizes are produced against order.",
+          "The standard bag expands to 100 × 18 × 14 cm. Dry weight is 2.8 kg ± 10 %. Other slab sizes are produced against order.",
       },
       {
         question: "What is the standard blend, and what other ratios are available?",

@@ -32,6 +32,20 @@ export const COMPANY = {
   whatsapp: ["+94 76 867 7530", "+94 77 422 9289"],
 } as const;
 
+/** Company social profiles, shown in the footer and contact page. */
+export const SOCIAL_LINKS = [
+  {
+    id: "facebook",
+    label: "Facebook",
+    href: "https://www.facebook.com/skceylonlk/",
+  },
+  {
+    id: "linkedin",
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/skceylon/",
+  },
+] as const;
+
 /** Shown on the About page. */
 export const VISION_MISSION = [
   {
@@ -205,7 +219,7 @@ export const MARKETS = [
 ] as const;
 
 export const TRADE_TERMS: SpecRow[] = [
-  { label: "Incoterms", value: "FOB Colombo", note: "or CIF / DAP on request" },
+  { label: "Incoterms", value: "FOB · CFR · CIF", note: "FOB Colombo, or CFR / CIF to your port" },
   { label: "Container", value: "40 ft HC" },
   { label: "Lead time", value: "3 – 5 weeks", note: "from order confirmation" },
 ];
@@ -243,12 +257,6 @@ export const FEATURES = [
       "Peat:chip ratios from 50:50 to 70:30, washing, buffering, hole patterns and printed film — produced to your specification, not ours.",
     icon: "blend",
   },
-] as const;
-
-/** Attribution for CC-licensed photography, shown in the footer. */
-export const IMAGE_CREDITS = [
-  "Plantation photo: Vyacheslav Argenberg (CC BY 4.0)",
-  "via Wikimedia Commons",
 ] as const;
 
 export const NAV_LINKS = [

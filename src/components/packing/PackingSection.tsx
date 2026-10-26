@@ -66,8 +66,8 @@ export function PackingSection({
               </h3>
               <p className="font-mono text-[0.6875rem] tracking-[0.18em] text-ink-soft uppercase">
                 {terms.some((row) => row.value === "40 ft HC")
-                  ? "FOB Colombo · 40 ft HC"
-                  : "FOB Colombo"}
+                  ? "FOB · CFR · CIF · 40 ft HC"
+                  : "FOB · CFR · CIF"}
               </p>
             </div>
 
@@ -183,7 +183,10 @@ export function PackingSection({
               }`}
             >
               {applications.map((application) => (
-                <li key={application.title} className="flex gap-4 py-5 sm:flex-col sm:gap-3">
+                <li
+                  key={application.title}
+                  className="flex gap-4 py-5 sm:flex-col sm:gap-3"
+                >
                   <span className="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-rule bg-parchment/60">
                     <ApplicationIcon kind={application.icon} />
                   </span>

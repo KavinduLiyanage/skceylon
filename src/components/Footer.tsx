@@ -1,12 +1,7 @@
 import Link from "next/link";
-import {
-  COMPANY,
-  COMPLIANCE,
-  IMAGE_CREDITS,
-  NAV_LINKS,
-  rfqMailto,
-} from "@/content/site";
+import { COMPANY, COMPLIANCE, NAV_LINKS, rfqMailto } from "@/content/site";
 import { PRODUCTS } from "@/content/products";
+import { SocialLinks } from "./SocialLinks";
 import { WhatsAppLinks } from "./WhatsAppLinks";
 
 export function Footer() {
@@ -20,9 +15,9 @@ export function Footer() {
               Coco Peat · Coir · Est. {COMPANY.city}
             </p>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-paper/70">
-              {COMPANY.city}-based exporter of lab-tested coco peat blocks and
-              bales, grow bags, chip blocks, discs and coir fibre from Sri
-              Lanka&rsquo;s coconut triangle.
+              Exporter of lab-tested coco peat blocks and bales, grow bags, chip
+              blocks, discs and coir fibre from Sri Lanka&rsquo;s coconut
+              triangle.
             </p>
           </div>
 
@@ -75,15 +70,16 @@ export function Footer() {
               WhatsApp
             </p>
             <WhatsAppLinks onInk className="mt-2" />
+            <p className="mt-4 font-mono text-[0.6875rem] tracking-[0.18em] text-paper/60 uppercase">
+              Follow
+            </p>
+            <SocialLinks onInk className="mt-2" />
           </div>
         </div>
 
         <div className="mt-12 border-t border-paper/20 pt-6">
           <p className="font-mono text-[0.625rem] leading-relaxed tracking-wide text-paper/70">
             {COMPLIANCE.join(" · ")}
-          </p>
-          <p className="mt-2 font-mono text-[0.625rem] leading-relaxed text-paper/65">
-            {IMAGE_CREDITS.join(" · ")}
           </p>
           <p className="mt-3 font-mono text-[0.625rem] text-paper/65">
             © {new Date().getFullYear()} {COMPANY.name} · {COMPANY.city},{" "}

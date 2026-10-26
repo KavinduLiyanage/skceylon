@@ -305,7 +305,7 @@ export const GUIDES: Guide[] = [
       {
         type: "callout",
         title: "Terms",
-        text: "SK Ceylon quotes FOB Colombo, or CIF and DAP to your port or warehouse, with a lead time of 3 to 5 weeks from order confirmation. The loading plan comes with the quotation.",
+        text: "SK Ceylon quotes FOB Colombo, CFR or CIF to your port, with a lead time of 3 to 5 weeks from order confirmation. The loading plan comes with the quotation.",
       },
     ],
     faqs: [
@@ -631,14 +631,14 @@ export const GUIDES: Guide[] = [
     title: "How to import coco peat from Sri Lanka: documents, Incoterms and lead times",
     metaTitle: "Importing Coco Peat from Sri Lanka: A Buyer's Guide",
     description:
-      "The steps, documents and shipping terms involved in importing coco peat and coir from Sri Lanka: samples, specification, FOB vs CIF, export permits, phytosanitary certificates and lead time.",
+      "The steps, documents and shipping terms involved in importing coco peat and coir from Sri Lanka: samples, specification, FOB, CFR and CIF, export permits, phytosanitary certificates and lead time.",
     category: "Shipping",
     published: "2026-10-09",
     summary:
       "A first container from Sri Lanka is a straightforward process if the specification is agreed before production starts and the paperwork is prepared against the rules at your end. Here is the sequence from enquiry to delivery.",
     takeaways: [
       "Agree the written specification (EC, pH, moisture, size, packing) before confirming; it is what the lab report and the goods are checked against.",
-      "FOB Colombo is the usual term; CIF or DAP shifts freight and insurance to the exporter for buyers who prefer one price to the door.",
+      "FOB Colombo, CFR and CIF are all quoted. FOB leaves freight to your forwarder; CFR and CIF shift freight, and with CIF insurance, to the exporter for one price to the port.",
       "Every shipment carries a Coconut Development Authority export permit and a phytosanitary certificate; fumigation is added where the destination requires it.",
       "Allow 3 to 5 weeks from order confirmation to dispatch, plus the sailing time to your port.",
     ],
@@ -658,24 +658,24 @@ export const GUIDES: Guide[] = [
           "Order confirmation and payment terms. Confirm the specification, quantity, Incoterm and delivery window in writing. Payment terms are agreed at this stage; an advance with the balance against shipping documents is common for a first order, and letters of credit are accepted for larger volumes. Confirm the exact terms on your quotation.",
           "Production and quality checks. Material is sourced from mills that meet the specification, tested, compressed and packed. Allow 3 to 5 weeks from confirmation to dispatch for standard products.",
           "Export documentation. The exporter obtains the CDA export permit and quality certificate, the phytosanitary certificate from the plant quarantine service, and arranges fumigation if your import rules require it.",
-          "Loading and shipping. The container is loaded to the agreed plan, photographed, sealed and delivered to the Port of Colombo. Under FOB, your forwarder's line takes over from here; under CIF or DAP, the exporter books the freight.",
+          "Loading and shipping. The container is loaded to the agreed plan, photographed, sealed and delivered to the Port of Colombo. Under FOB, your forwarder's line takes over from here; under CFR or CIF, the exporter books the freight.",
           "Documents and customs clearance. You receive the commercial invoice, packing list, bill of lading, certificate of origin, CDA certificate and phytosanitary certificate, and clear the goods with your broker.",
         ],
       },
-      { type: "h2", id: "incoterms", text: "FOB, CIF or DAP" },
+      { type: "h2", id: "incoterms", text: "FOB, CFR or CIF" },
       {
         type: "table",
         caption: "What each term covers",
         head: ["Term", "Exporter pays", "You pay", "Choose it when"],
         rows: [
           ["FOB Colombo", "Everything up to and including loading at Colombo port", "Sea freight, insurance, destination charges, customs, inland delivery", "You have a forwarder or a freight contract and want control of the sailing"],
-          ["CIF your port", "As FOB plus sea freight and marine insurance to your port", "Destination charges, customs, inland delivery", "You want one price to the port without arranging freight"],
-          ["DAP your warehouse", "As CIF plus destination handling and inland transport to your door", "Import duty and clearance", "You want a delivered price and no freight administration"],
+          ["CFR your port", "As FOB plus sea freight to your port", "Marine insurance, destination charges, customs, inland delivery", "You want one price to the port but prefer to insure the cargo yourself"],
+          ["CIF your port", "As FOB plus sea freight and marine insurance to your port", "Destination charges, customs, inland delivery", "You want one price to the port without arranging freight or insurance"],
         ],
       },
       {
         type: "p",
-        text: "Most repeat buyers use FOB because their freight rates are better than a single exporter can obtain. First-time buyers often start on CIF and move to FOB once they have a forwarder in place. Either way, the product price is the same; only the freight and risk allocation change.",
+        text: "Buyers with their own freight contracts often prefer FOB because their rates can beat what a single exporter obtains. Buyers without a forwarder in place usually take CFR or CIF for one price to the port. Either way, the product price is the same; only the freight and risk allocation change.",
       },
       { type: "h2", id: "documents", text: "Documents that travel with the shipment" },
       {
@@ -713,7 +713,7 @@ export const GUIDES: Guide[] = [
       {
         type: "callout",
         title: "SK Ceylon's terms",
-        text: "We quote FOB Colombo, or CIF and DAP to your port or warehouse, in 40 ft high-cube containers or LCL pallets for trials. CDA permit and phytosanitary certificate come with every shipment, with fumigation where you need it, and a lead time of 3 to 5 weeks from order confirmation.",
+        text: "We quote FOB Colombo, CFR or CIF to your port, in 40 ft high-cube containers or LCL pallets for trials. CDA permit and phytosanitary certificate come with every shipment, with fumigation where you need it, and a lead time of 3 to 5 weeks from order confirmation.",
       },
     ],
     faqs: [
@@ -733,9 +733,9 @@ export const GUIDES: Guide[] = [
           "Allow 3 to 5 weeks for production and dispatch, then 2 to 6 weeks of sailing depending on your port. Two to three months from order to delivery is a safe planning figure for a first container.",
       },
       {
-        question: "Should I buy FOB or CIF?",
+        question: "Should I buy FOB, CFR or CIF?",
         answer:
-          "FOB if you have a freight forwarder and want to control the sailing and rate; CIF or DAP if you want a single price to the port or your warehouse. The product price does not change between them.",
+          "FOB if you have a freight forwarder and want to control the sailing and rate; CFR or CIF if you want a single price to the port, without or with marine insurance included. The product price does not change between them.",
       },
     ],
     products: ["5kg-coco-peat-blocks", "grow-bags", "25kg-coco-peat-bales"],
@@ -790,7 +790,7 @@ export const GUIDES: Guide[] = [
       { type: "h2", id: "freight", text: "Freight and Incoterms" },
       {
         type: "p",
-        text: "Sea freight from Colombo varies by route, by season and by the state of the container market, and it can be a large share of the landed cost for a low-value, high-volume product. A FOB price excludes it; a CIF or DAP price includes it. When you compare a FOB quote with a CIF quote, add your own freight, insurance and destination charges to the FOB figure first. Container utilisation matters too: a product that loads 5,120 units loose against 4,800 on pallets spreads the same freight over more units.",
+        text: "Sea freight from Colombo varies by route, by season and by the state of the container market, and it can be a large share of the landed cost for a low-value, high-volume product. A FOB price excludes it; a CFR or CIF price includes it. When you compare a FOB quote with a CIF quote, add your own freight, insurance and destination charges to the FOB figure first. Container utilisation matters too: a product that loads 5,120 units loose against 4,800 on pallets spreads the same freight over more units.",
       },
       { type: "h2", id: "season", text: "Season and supply" },
       {
@@ -897,7 +897,7 @@ export const GUIDES: Guide[] = [
       { type: "h2", id: "packing-and-shipping", text: "Packing and shipping" },
       {
         type: "p",
-        text: "Fibre is compressed into bales because loose fibre is almost all air. The bale weight sets how much fits in a container and how it is handled at your end, so it is agreed per order rather than fixed. Every shipment carries a Coconut Development Authority export permit and a phytosanitary certificate, with fumigation where the destination requires it. Terms are FOB Colombo, or CIF and DAP on request, and the bale count and net weight per container are stated in the quotation.",
+        text: "Fibre is compressed into bales because loose fibre is almost all air. The bale weight sets how much fits in a container and how it is handled at your end, so it is agreed per order rather than fixed. Every shipment carries a Coconut Development Authority export permit and a phytosanitary certificate, with fumigation where the destination requires it. Terms are FOB Colombo, CFR or CIF to your port, and the bale count and net weight per container are stated in the quotation.",
       },
       {
         type: "callout",

@@ -11,6 +11,7 @@ import {
   SITE_TITLE_SUFFIX,
   SITE_URL,
   SITE_VERIFICATION,
+  SOCIAL_LINKS,
 } from "@/content/site";
 import "./globals.css";
 
@@ -35,7 +36,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 const SITE_DESCRIPTION =
-  "SK Ceylon exports lab-tested coco peat blocks, grow bags, chip blocks, bales, discs and coir fibre from Sri Lanka. Low-EC grades, FOB Colombo.";
+  "SK Ceylon exports lab-tested coco peat blocks, grow bags, chip blocks, bales, discs and coir fibre from Sri Lanka. Low-EC grades, shipped FOB, CFR or CIF from Colombo.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -83,6 +84,7 @@ const organizationJsonLd = {
     addressLocality: COMPANY.city,
     addressCountry: "LK",
   },
+  sameAs: SOCIAL_LINKS.map((link) => link.href),
   areaServed: MARKETS.map((name) => ({ "@type": "Country", name })),
   contactPoint: COMPANY.whatsapp.map((telephone) => ({
     "@type": "ContactPoint",
