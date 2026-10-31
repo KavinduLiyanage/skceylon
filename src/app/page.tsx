@@ -248,7 +248,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-20">
           <SectionHeading
             eyebrow="Quality"
-            title="Four checkpoints between the mill and your port."
+            title="Four checkpoints between our mill and your port."
           />
           <ol className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {CHECKPOINTS.map((checkpoint) => (

@@ -10,12 +10,12 @@ export type Checkpoint = {
 export const CHECKPOINTS: Checkpoint[] = [
   {
     number: "01",
-    title: "Source",
+    title: "Produce",
     short:
-      "CDA-registered mills with washing capability, inside the Kurunegala–Puttalam coconut triangle.",
+      "Washed, screened, dried and compressed at our own mill in the Kurunegala–Puttalam coconut triangle.",
     body: [
-      "Every kilogram we ship starts at a mill we have chosen deliberately. We buy only from CDA-registered mills inside the Kurunegala–Puttalam coconut triangle — the belt where Sri Lanka's coconut production, and its best pith, is concentrated.",
-      "Registration is the floor, not the bar. A mill must also have on-site fresh-water washing capability, because washed low-EC material cannot be produced by blending or hoping — it has to be washed at source, before compression.",
+      "Every kilogram we ship is made by us. Raw pith comes from the Kurunegala–Puttalam coconut triangle — the belt where Sri Lanka's coconut production, and its best husk, is concentrated — and is washed, screened, dried and compressed at our own mill.",
+      "Owning the process matters because washed low-EC material cannot be produced by blending or hoping — it has to be washed with fresh water before compression, and the water has to be measured. We control that step ourselves rather than relying on a supplier's word for it.",
     ],
   },
   {
@@ -41,10 +41,10 @@ export const CHECKPOINTS: Checkpoint[] = [
   {
     number: "04",
     title: "Load",
-    short: "Container loading personally supervised at the mill.",
+    short: "Container loading personally supervised at our mill.",
     body: [
-      "Loading is where good material gets ruined quietly — wet floors, torn wrapping, short counts. So we do not delegate it. Container loading is personally supervised at the mill: container condition checked before stuffing, count and wrapping verified, photos taken as it happens.",
-      "You receive the loading photos with your shipping documents. What left the mill is what arrives at your port.",
+      "Loading is where good material gets ruined quietly — wet floors, torn wrapping, short counts. So we do not delegate it. Container loading is personally supervised at our mill: container condition checked before stuffing, count and wrapping verified, photos taken as it happens.",
+      "You receive the loading photos with your shipping documents. What left our mill is what arrives at your port.",
     ],
   },
 ];
