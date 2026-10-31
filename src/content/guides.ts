@@ -74,7 +74,7 @@ export const GUIDES: Guide[] = [
       },
       {
         type: "p",
-        text: "Washing must happen at source. A mill without fresh-water washing capability cannot produce reliable low-EC material by blending, which is why SK Ceylon buys only from mills that have it.",
+        text: "Washing must happen at source. Material cannot be made reliably low-EC by blending after the fact, which is why SK Ceylon washes with fresh water before compression.",
       },
       { type: "h2", id: "buffered", text: "Buffered coco peat" },
       {
@@ -656,7 +656,7 @@ export const GUIDES: Guide[] = [
           "Quotation and specification. The quotation comes with a written specification, a packing specification and a loading plan for the container. Check every figure against what your crop needs, especially the EC limit and its test method.",
           "Sample and lab report. Ask for a sample of the material and an independent lab report for EC, pH and moisture. Test the sample with your own method before confirming, since methods differ.",
           "Order confirmation and payment terms. Confirm the specification, quantity, Incoterm and delivery window in writing. Payment terms are agreed at this stage; an advance with the balance against shipping documents is common for a first order, and letters of credit are accepted for larger volumes. Confirm the exact terms on your quotation.",
-          "Production and quality checks. Material is sourced from mills that meet the specification, tested, compressed and packed. Allow 3 to 5 weeks from confirmation to dispatch for standard products.",
+          "Production and quality checks. Raw pith is washed, screened, dried, compressed and packed at the exporter's facility and tested against the specification. Allow 3 to 5 weeks from confirmation to dispatch for standard products.",
           "Export documentation. The exporter obtains the CDA export permit and quality certificate, the phytosanitary certificate from the plant quarantine service, and arranges fumigation if your import rules require it.",
           "Loading and shipping. The container is loaded to the agreed plan, photographed, sealed and delivered to the Port of Colombo. Under FOB, your forwarder's line takes over from here; under CFR or CIF, the exporter books the freight.",
           "Documents and customs clearance. You receive the commercial invoice, packing list, bill of lading, certificate of origin, CDA certificate and phytosanitary certificate, and clear the goods with your broker.",
@@ -928,6 +928,584 @@ export const GUIDES: Guide[] = [
       },
     ],
     products: ["coir-fibre-bales", "5kg-coco-chip-blocks", "5kg-coco-peat-blocks"],
+  },
+  {
+    slug: "how-to-choose-a-coco-peat-exporter-in-sri-lanka",
+    title: "How to choose a coco peat exporter in Sri Lanka",
+    metaTitle: "Choosing a Coco Peat Exporter in Sri Lanka",
+    description:
+      "How to vet coco peat exporters in Sri Lanka: manufacturer or trader, registrations to check, lab reports, samples, factory audits and the warning signs.",
+    category: "Buying",
+    published: "2026-10-31",
+    summary:
+      "Sri Lanka has hundreds of companies offering coco peat for export, from mills with their own compression lines to one-person trading desks. The product can look identical in a photograph. This is how to tell them apart before money changes hands.",
+    takeaways: [
+      "Ask whether the company compresses and packs the material itself or buys finished blocks from a mill; both can be fine, but you need to know whose quality system you are relying on.",
+      "Check the registrations: business registration, Export Development Board registration, and the Coconut Development Authority status needed for coconut products.",
+      "Judge a supplier on a recent independent lab report and a physical sample tested with your own method, not on a brochure specification.",
+      "Confirm payment terms, specification and loading plan in one written document before the advance is paid.",
+    ],
+    blocks: [
+      { type: "h2", id: "manufacturer-or-trader", text: "Manufacturer, processor or trader" },
+      {
+        type: "p",
+        text: "The coco peat supply chain in Sri Lanka has three layers. Mills in the coconut triangle around Kurunegala, Puttalam and Gampaha extract fibre from husk and produce raw pith. Processors wash, screen, dry and compress that pith into blocks, bales, discs and grow bags, and many also run their own mills. Traders buy finished product from processors and sell it under their own name. A trader with good processor relationships and a strict inspection routine can be a reliable supplier, but you should know which layer you are dealing with, because it tells you who controls washing, EC testing and packing.",
+      },
+      {
+        type: "p",
+        text: "Ask directly: where is the material compressed, who owns that facility, and can you visit it or see it on a video call? Evasive answers to those three questions are the most common early warning sign.",
+      },
+      { type: "h2", id: "registrations", text: "Registrations to check" },
+      {
+        type: "ul",
+        items: [
+          "Business registration or company incorporation in Sri Lanka. A (Pvt) Ltd company is registered with the Department of the Registrar of Companies and the registration number can be checked.",
+          "Export Development Board (EDB) registration, which every Sri Lankan exporter needs and which the EDB lists in its exporter directory.",
+          "Coconut Development Authority (CDA) status. Coconut products are regulated by the CDA, and the exporter arranges the CDA documentation for each consignment. Ask to see a CDA document from a recent shipment.",
+          "A tax identification number on the quotation and pro forma invoice, matching the company name on the bank account you are asked to pay.",
+        ],
+      },
+      { type: "h2", id: "evidence-of-quality", text: "Evidence of quality, not claims of it" },
+      {
+        type: "p",
+        text: "Every supplier website in this industry promises low EC and consistent quality. Ask for evidence that can be checked. The most useful items are an independent laboratory report for a recent batch, naming the lab, the method and the sample; a physical sample of 1 to 5 kg that you can test with your own method; photographs of a recent container being loaded, with the seal number visible; and the written specification the supplier will be held to. A supplier who tests only in-house, or who cannot say which extraction method the EC figure refers to, is a higher risk than one who sends a dated lab report without being asked.",
+      },
+      {
+        type: "callout",
+        title: "A quick consistency test",
+        text: "Ask for the EC and pH of three different recent batches rather than one. A real quality system has the figures to hand and they vary a little. A single perfect figure repeated for every batch is a sign that the number comes from the brochure, not the lab.",
+      },
+      { type: "h2", id: "audit", text: "Seeing the facility" },
+      {
+        type: "p",
+        text: "A site visit is the surest check and is worth the cost before a multi-container contract. If you cannot travel, a live video walk-through of the washing beds, drying yard, screening line, press and packing area takes an hour and is hard to fake. Look for covered drying and storage, since rain-wet pith raises moisture and encourages mould; a washing system with water testing, since washing without measuring is guesswork; and a press that produces blocks of uniform dimensions and weight, since variation there shows up as variation in expansion and loading counts later.",
+      },
+      { type: "h2", id: "terms", text: "Commercial terms to agree in writing" },
+      {
+        type: "table",
+        caption: "What a complete pro forma should contain",
+        head: ["Item", "Why it matters"],
+        rows: [
+          ["Full specification with test methods", "The lab report and arrival inspection are checked against it; a limit without a method cannot be enforced"],
+          ["Packing specification and loading plan", "Unit count, pallet or loose loading, wrapping and strapping decide what arrives in usable condition"],
+          ["Incoterm and named port", "FOB Colombo, CFR or CIF change who pays freight and carries risk, and by how much the quote differs"],
+          ["Payment terms and bank details", "An advance with balance against documents is normal; the account name must match the company"],
+          ["Lead time and shipment window", "Protects you against slippage in peak season, usually January to April"],
+          ["Documents to be supplied", "Invoice, packing list, bill of lading, certificate of origin, CDA documents, phytosanitary certificate, fumigation certificate if required"],
+        ],
+      },
+      { type: "h2", id: "warning-signs", text: "Warning signs" },
+      {
+        type: "ul",
+        items: [
+          "A price far below the market without a difference in grade, moisture or packing to explain it. Unwashed, wet, or under-weight blocks are the usual reason.",
+          "Pressure to pay the full amount in advance, or a bank account in a personal name or in a different country.",
+          "No fixed address, no facility photographs of their own, and product images that appear on other suppliers’ websites.",
+          "An EC figure quoted without a method, a pH quoted as a single number, or a moisture figure quoted without saying when it was measured.",
+          "Unwillingness to provide a small trial order or LCL pallet before a full container.",
+        ],
+      },
+      {
+        type: "callout",
+        title: "How SK Ceylon answers these questions",
+        text: "We are a registered Sri Lankan (Pvt) Ltd company, quote with a written specification stating the test method for every figure, supply independent lab reports and samples on request, and photograph every loading. Facility video calls are welcome before a first order.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How do I verify a coco peat exporter in Sri Lanka is genuine?",
+        answer:
+          "Check the company registration number, look for the company in the Export Development Board exporter directory, ask for a Coconut Development Authority document from a recent shipment, and make sure the bank account name matches the company name on the pro forma invoice.",
+      },
+      {
+        question: "Is it better to buy from a manufacturer or a trading company?",
+        answer:
+          "A manufacturer controls washing, testing and packing directly, which makes quality easier to trace. A trader can still be reliable if it inspects each batch and names its processors, but you should know which one you are dealing with.",
+      },
+      {
+        question: "What documents should a Sri Lankan coco peat supplier provide?",
+        answer:
+          "Commercial invoice, packing list, bill of lading, certificate of origin, Coconut Development Authority documentation and a phytosanitary certificate for every shipment, plus a fumigation certificate where your country requires it and a lab report if you ask for one.",
+      },
+      {
+        question: "Should I visit the factory before ordering?",
+        answer:
+          "Before a multi-container contract, yes if you can. For a first container, a live video walk-through of the washing, drying, screening, pressing and packing areas is a practical substitute.",
+      },
+    ],
+    products: ["5kg-coco-peat-blocks", "grow-bags", "25kg-coco-peat-bales"],
+  },
+
+  {
+    slug: "coco-peat-hs-code-and-customs-classification",
+    title: "Coco peat HS code: how it is classified and why it matters for duty",
+    metaTitle: "Coco Peat HS Code and Customs Classification",
+    description:
+      "Which HS code applies to coco peat and coir fibre, why 1404.90 is the usual heading, where 5305 and 2703 come from, and how the code affects duty and checks.",
+    category: "Shipping",
+    published: "2026-10-31",
+    summary:
+      "Buyers often ask for the HS code before anything else, because it decides the duty rate, whether a certificate of origin is worth having and which plant health checks apply. Coco peat sits in a heading most people have never heard of, and not every customs service agrees.",
+    takeaways: [
+      "Coco peat and coir pith are normally classified under HS heading 1404 (vegetable products not elsewhere specified), subheading 1404.90. Sri Lanka Customs has a national line for coconut coir pith under 1404.90.",
+      "Coir fibre is a textile fibre and is classified under heading 5305. Some older rulings also placed coco peat there as fibre waste.",
+      "The first six digits of the code are international; the digits after them are national, so the full code differs from country to country.",
+      "Your customs broker gives the binding answer for your country. The exporter declares the Sri Lankan code on the export side and shows it on the documents.",
+    ],
+    blocks: [
+      { type: "h2", id: "the-usual-heading", text: "The usual heading: 1404.90" },
+      {
+        type: "p",
+        text: "The Harmonized System has no heading that names coco peat. The pith left after fibre is extracted from coconut husk is treated as a vegetable product not specified elsewhere, which puts it in Chapter 14 under heading 1404, subheading 1404.90. Sri Lanka Customs breaks that subheading down further and carries a national line for coconut coir pith, compressed or not, so Sri Lankan export declarations and the Sri Lankan Customs statistics for coco peat use a 1404.90 code. US Customs rulings on coco peat blocks from Sri Lanka and India have reached the same heading.",
+      },
+      {
+        type: "p",
+        text: "Whether the material is compressed into blocks, pressed into grow bags or discs, washed or unwashed, does not change the heading, because none of those steps turns the pith into a different product. A grow bag with printed film is still a block of pith in a bag.",
+      },
+      { type: "h2", id: "other-headings", text: "Where 5305, 2703 and 3824 come from" },
+      {
+        type: "table",
+        caption: "Headings that appear in connection with coco peat",
+        head: ["Heading", "What it covers", "When it is used"],
+        rows: [
+          ["1404.90", "Vegetable products not elsewhere specified", "The normal classification for coco peat and coir pith in Sri Lanka and most importing countries"],
+          ["5305.00", "Coconut (coir) and other vegetable textile fibres, raw or processed but not spun, including tow and waste", "Coir fibre bales. Some older customs rulings also put coco peat here as fibre waste"],
+          ["2703.00", "Peat, including peat litter, whether or not agglomerated", "Sphagnum peat moss. Occasionally applied to coco peat sold as a peat substitute, but coco peat is not peat"],
+          ["3824 / 3101", "Prepared growing media or fertilisers", "Blended, fertilised or otherwise formulated substrates. Plain washed or buffered pith is not usually treated as a preparation"],
+        ],
+      },
+      {
+        type: "p",
+        text: "If your broker proposes a heading other than 1404.90, ask for the reasoning and, for a long-term supply arrangement, consider requesting a binding tariff ruling from your customs authority. A ruling fixes the classification for several years and removes the risk of a reassessment later.",
+      },
+      { type: "h2", id: "national-digits", text: "Six international digits, then national ones" },
+      {
+        type: "p",
+        text: "The World Customs Organization fixes the first six digits. Each country adds its own: Sri Lanka uses an eight-digit code with national subdivisions, the EU uses an eight-digit Combined Nomenclature code with further TARIC digits for measures, the US uses a ten-digit HTS code and India uses an eight-digit ITC-HS code. So 1404.90 is the shared part, and the exporter’s full Sri Lankan code will not match your import code beyond those six digits. That is normal and is not an error on the documents.",
+      },
+      { type: "h2", id: "why-it-matters", text: "Why the code matters to a buyer" },
+      {
+        type: "ul",
+        items: [
+          "Duty rate. Products of heading 1404 attract low or zero duty in many markets, but the rate is set by your tariff schedule and should be confirmed by your broker.",
+          "Preferential origin. If your country has a trade agreement or preference scheme with Sri Lanka, a certificate of origin from Sri Lanka can reduce the duty further. The exporter obtains it from the chamber or the Department of Commerce; tell them which form your customs accepts.",
+          "Plant health controls. Border plant health checks are triggered by the nature of the goods and the declared code, so a code that signals a plant product also tells the border agency to expect a phytosanitary certificate.",
+          "Statistics and contracts. Your purchasing system, insurance policy and letter of credit will all carry the code, so agree it before the first shipment and keep it consistent.",
+        ],
+      },
+      { type: "h2", id: "on-the-documents", text: "What appears on the shipping documents" },
+      {
+        type: "p",
+        text: "The commercial invoice and packing list carry the HS code the exporter declares to Sri Lanka Customs, the description of the goods, the net and gross weights and the unit count. The bill of lading carries the description and weights. The certificate of origin carries the code and description and must match the invoice. If you need a particular wording for your import declaration, for example ‘coconut coir pith, compressed, unused growing medium’, give it to the exporter before the documents are drawn up.",
+      },
+      {
+        type: "callout",
+        title: "SK Ceylon’s practice",
+        text: "We declare coco peat products under the Sri Lankan 1404.90 national line for coconut coir pith and coir fibre bales under 5305.00, show the code and your preferred description on the invoice, and obtain a certificate of origin in the form your customs requires. Check the import-side classification and duty with your broker; we will match the documents to it.",
+      },
+    ],
+    faqs: [
+      {
+        question: "What is the HS code for coco peat?",
+        answer:
+          "Coco peat and coir pith are normally classified under subheading 1404.90, vegetable products not elsewhere specified. Sri Lanka Customs has a national line within 1404.90 for coconut coir pith, compressed or not. Your own country adds its national digits, so confirm the full code with your broker.",
+      },
+      {
+        question: "What is the HS code for coir fibre?",
+        answer:
+          "Coir fibre is a vegetable textile fibre and falls under heading 5305.00, which covers coconut, abaca, ramie and similar fibres, raw or processed but not spun, including tow and waste.",
+      },
+      {
+        question: "Is coco peat classified as peat under 2703?",
+        answer:
+          "Not normally. Heading 2703 covers peat from bogs. Coco peat is coconut husk pith, a vegetable product, and is classified under 1404.90. A few customs services have taken a different view, so check locally.",
+      },
+      {
+        question: "Does the HS code affect the import duty on coco peat?",
+        answer:
+          "Yes. The duty rate is set per code in your national tariff. Heading 1404 goods are often low or zero duty, and a Sri Lankan certificate of origin may reduce the rate further under a preference scheme or trade agreement.",
+      },
+    ],
+    products: ["5kg-coco-peat-blocks", "coir-fibre-bales", "grow-bags"],
+  },
+
+  {
+    slug: "coco-peat-specification-for-hydroponics",
+    title: "Coco peat specification for hydroponics and soilless growing",
+    metaTitle: "Coco Peat Specification for Hydroponics",
+    description:
+      "What a hydroponic grower should specify in coco peat: EC and pH with test methods, sodium and potassium, particle size, blend ratio, buffering and moisture.",
+    category: "Specifications",
+    published: "2026-10-31",
+    summary:
+      "In soilless growing the substrate is the whole root zone, so there is no soil to buffer a poor batch. The specification you send to the exporter is the only control you have over what arrives. This is what it should contain and why.",
+    takeaways: [
+      "Specify EC and pH with the extraction method and ratio, for example EC below 0.5 mS/cm in a 1:5 v/v water extract to EN 13038, pH 5.5 to 6.5 to EN 13037.",
+      "For fruiting crops on drip irrigation, specify buffered material and ask for sodium and potassium in the extract, not just EC.",
+      "Set a particle size range and a peat to chip ratio that match your irrigation frequency, because air and water holding follow from them.",
+      "Add moisture at dispatch, foreign matter, expansion and packing to the sheet, and ask for an independent lab report on each batch.",
+    ],
+    blocks: [
+      { type: "h2", id: "why-the-spec-matters-more", text: "Why the specification matters more in soilless systems" },
+      {
+        type: "p",
+        text: "In a field or a soil-based pot, a slightly salty or unbuffered amendment is diluted by the soil. In a grow bag, a slab or a container of pure coco peat, every property of the material acts directly on the root. Salts that arrive in the pith go straight into the root zone solution, cation exchange sites loaded with sodium and potassium pull calcium and magnesium out of the first weeks of feed, and a particle size that holds too much water drowns roots that have nowhere else to go. The remedy is a complete specification, with methods, agreed before production.",
+      },
+      { type: "h2", id: "chemical", text: "Chemical properties" },
+      {
+        type: "table",
+        caption: "Chemical specification for hydroponic use",
+        head: ["Property", "Typical specification", "Method to state", "Notes"],
+        rows: [
+          ["EC", "< 0.5 mS/cm washed; buffered material similar after treatment", "1:5 v/v water extract, EN 13038, or 1:1.5 v/v", "A 1:1.5 extract gives a higher number than 1:5 for the same material; never compare across methods"],
+          ["pH", "5.5 – 6.5", "Water suspension, EN 13037", "Coco peat is naturally in range and does not need lime"],
+          ["Sodium (Na)", "Low, with a limit agreed per crop", "Same extract as EC, reported in mg/L or mmol/L", "The figure that EC alone can hide; important for salt-sensitive crops"],
+          ["Potassium (K)", "Reported; reduced in buffered grades", "Same extract as EC", "Unbuffered pith releases K and binds Ca and Mg in the first weeks"],
+          ["Chloride (Cl)", "Low, with a limit agreed per crop", "Same extract as EC", "Comes with sodium from coastal husk; washing removes most of it"],
+          ["Buffering", "Buffered with calcium nitrate for fruiting crops on drip; washed unbuffered acceptable for short-cycle crops", "State the treatment", "See the guide to washed, unwashed and buffered grades"],
+        ],
+      },
+      {
+        type: "p",
+        text: "EN 13038 and EN 13037 are the European methods for conductivity and pH in growing media and are widely used by independent laboratories. Many Dutch and other European growers work to the 1:1.5 volume extract instead, and some laboratories report both. Which method you choose matters less than stating it, because the same block can read 0.4 mS/cm by one method and 1.0 by another.",
+      },
+      { type: "h2", id: "physical", text: "Physical properties" },
+      {
+        type: "table",
+        caption: "Physical specification for hydroponic use",
+        head: ["Property", "What to specify", "Why"],
+        rows: [
+          ["Particle size", "A screen size, e.g. under 12 mm for fine peat, and the share of fines below 1 mm if your system is sensitive to it", "Fines hold water and reduce air; coarse material drains and dries faster"],
+          ["Peat to chip ratio", "e.g. 70:30 or 50:50 for grow bags and slabs; 100 % peat for propagation", "Chips add air-filled porosity and drainage for crops irrigated many times a day"],
+          ["Fibre content", "A maximum share of long fibre, or a statement that fibre is screened out", "Fibre improves structure in small amounts and causes uneven wetting in large amounts"],
+          ["Air and water holding", "Ask for the supplier’s measured air-filled porosity and water holding capacity for the blend, if available", "These follow from particle size and ratio and are the figures your irrigation schedule depends on"],
+          ["Expansion", "Minimum litres per kilogram, e.g. 12 L/kg, and the dry bulk density", "Decides how much substrate a block, bag or bale actually gives you"],
+          ["Moisture at dispatch", "A maximum, e.g. below 20 %, measured at packing", "Wet material weighs more, costs more to ship and can mould in transit"],
+          ["Foreign matter", "Free of stones, sand, plastic and weed seed; state a limit for sand if your source area is coastal", "Sand raises bulk density and wears pumps and emitters"],
+        ],
+      },
+      { type: "h2", id: "by-system", text: "Starting points by system" },
+      {
+        type: "ul",
+        items: [
+          "Drip-irrigated fruiting crops in grow bags or slabs (tomato, cucumber, pepper, strawberry): buffered low-EC pith, 70:30 to 50:50 peat to chips depending on climate and irrigation frequency, screened to remove long fibre.",
+          "Propagation plugs, discs and seedling trays: 100 % fine washed pith, often buffered, under 6 to 8 mm, with a tight EC limit because young roots are the most salt-sensitive.",
+          "Container nursery and potting mixes: washed low-EC pith as a component with bark, perlite or compost; the mix supplier sets the final properties, so the pith specification can be a little wider.",
+          "Flood and drain or ebb and flow benches: a coarser blend with more chips so that the medium drains between floods.",
+        ],
+      },
+      { type: "h2", id: "sampling-and-testing", text: "Sampling and testing each batch" },
+      {
+        type: "p",
+        text: "A specification is only as good as the test that checks it. Ask the exporter for a batch sample and an independent lab report for every production run, with the sampling point stated. On arrival, hydrate a sample of blocks or bags from different pallets with the water you will use in production, let it stand, and test EC and pH with the method on the specification. Record the result against the lab report and the container number. Over a season this gives you a record of the supplier’s consistency that is worth more than any single certificate.",
+      },
+      {
+        type: "callout",
+        title: "What SK Ceylon can produce to",
+        text: "Washed low-EC pith at EC below 0.5 mS/cm in a 1:5 v/v extract, pH 5.5 to 6.5, moisture below 20 % at dispatch, screened to the size you need and blended with chips at any ratio from 100:0 to 50:50. Buffering with calcium nitrate is available for fruiting crops. Send us your current specification sheet and we will confirm each line or tell you where we differ.",
+      },
+    ],
+    faqs: [
+      {
+        question: "What EC should coco peat have for hydroponics?",
+        answer:
+          "Washed low-EC material is specified at under 0.5 mS/cm in a 1:5 v/v water extract. Always state the extraction ratio and method, because a 1:1.5 extract gives a higher figure for the same material.",
+      },
+      {
+        question: "Do I need buffered coco peat for hydroponics?",
+        answer:
+          "For fruiting crops on drip irrigation, buffered material is the safer choice because it prevents the pith from binding calcium and magnesium during the first weeks. Short-cycle crops and nursery mixes often use washed unbuffered pith.",
+      },
+      {
+        question: "What peat to chip ratio is best for hydroponic grow bags?",
+        answer:
+          "Starting points are 70:30 for cooler climates or less frequent irrigation and 50:50 for hot climates or many irrigations a day. The right ratio depends on your irrigation frequency and crop, and can be adjusted after a trial.",
+      },
+      {
+        question: "Which test standards apply to coco peat for growing media?",
+        answer:
+          "EN 13037 for pH, EN 13038 for electrical conductivity and EN 13040 for sample preparation and moisture are the European growing media methods used by many independent laboratories. The 1:1.5 volume extract is also widely used in the Netherlands.",
+      },
+    ],
+    products: ["grow-bags", "5kg-coco-peat-blocks", "coco-peat-discs"],
+  },
+
+  {
+    slug: "coco-peat-import-requirements-by-market",
+    title: "Coco peat import requirements: what the EU, UK, Asia and the Gulf ask for",
+    metaTitle: "Coco Peat Import Requirements by Market",
+    description:
+      "Plant health and customs requirements for importing coco peat into the EU, UK, Korea, Japan, the Gulf, India, Australia and New Zealand, and what to tell the exporter.",
+    category: "Shipping",
+    published: "2026-10-31",
+    summary:
+      "Coco peat is a plant product, so it crosses borders under plant health rules as well as customs rules. The requirements range from a phytosanitary certificate and nothing more to an import permit and seed viability testing. Here is what buyers in the main markets usually need, and what to confirm locally.",
+    takeaways: [
+      "Almost every market wants a phytosanitary certificate from Sri Lanka’s National Plant Quarantine Service with the consignment; the exporter obtains it for each shipment.",
+      "The EU and UK treat unused coconut pith as a low-risk growing medium; soil and used growing media are the restricted materials, so the declaration that the pith is new and unused matters.",
+      "Some markets require an import permit before shipment, and some may order treatment on arrival if inspection finds pests or viable seed.",
+      "Rules change. Confirm with your plant health authority or broker before each new contract, and give the exporter the exact wording your border agency wants on the certificate.",
+    ],
+    blocks: [
+      { type: "h2", id: "why-plant-health-rules-apply", text: "Why plant health rules apply to coco peat" },
+      {
+        type: "p",
+        text: "Coco peat is milled coconut husk, and growing media of plant origin can in principle carry soil, weed seed, insects or plant pathogens. National plant protection organisations therefore regulate it under the same framework as other plant products, which is why a phytosanitary certificate travels with every shipment. In practice washed, dried and compressed pith from a controlled process is a low-risk material, and most markets reflect that with light requirements. The exceptions are countries with strict biosecurity regimes, which ask for permits, declarations or testing in addition to the certificate.",
+      },
+      { type: "h2", id: "by-market", text: "Requirements by market" },
+      {
+        type: "table",
+        caption: "What buyers usually need; confirm locally before each contract",
+        head: ["Market", "Usual requirement", "Notes"],
+        rows: [
+          ["European Union", "Phytosanitary certificate; standard customs entry", "EU plant health law restricts soil and used growing media. Growing medium composed entirely of unused peat or coconut fibre is a recognised low-risk category, and the certificate should state that the material is new and has not been used for cultivation. Check with the national plant protection organisation at the port of entry, for example the NVWA in the Netherlands"],
+          ["United Kingdom", "Phytosanitary certificate; standard customs entry", "UK rules mirror the EU framework for growing media since 2021. Guidance notes that material made entirely of unused peat is outside the soil prohibition; confirm the current position for coir with APHA or Defra"],
+          ["Norway", "Generally no phytosanitary certificate for pure coconut fibre products", "Norwegian guidance allows pure coconut fibre growing media from outside Europe without a certificate; blends may differ. Confirm with Mattilsynet"],
+          ["South Korea", "Phytosanitary certificate; import inspection on arrival", "Plant products are inspected by the Animal and Plant Quarantine Agency; treatment can be ordered if pests are found. Confirm whether your product needs any additional declaration"],
+          ["Japan", "Phytosanitary certificate; import inspection on arrival", "Plant quarantine inspection by MAFF at the port; confirm current requirements for coir pith with your broker"],
+          ["UAE and Saudi Arabia", "Phytosanitary certificate; certificate of origin; standard customs entry", "Some Gulf importers are asked for a fumigation certificate; confirm with the Ministry of Climate Change and Environment (UAE) or the Ministry of Environment, Water and Agriculture (Saudi Arabia)"],
+          ["India", "Phytosanitary certificate; import permit may be required for plant products", "India is also a producer, so duty and permit rules reflect that; check with the Plant Quarantine Organisation of India and your broker"],
+          ["Australia", "Import permit and inspection; treatment often required", "One of the strictest regimes; check the BICON database for current conditions for coir peat before ordering"],
+          ["New Zealand", "Import permit and viable seed testing", "New Zealand’s import health standard for coco peat requires a permit and testing for viable seed; allow time for this before the first shipment"],
+        ],
+      },
+      {
+        type: "p",
+        text: "This table is an orientation, not legal advice. Plant health requirements are revised regularly and can differ for blends, for material packed with fertiliser, and for retail packs. Before a new contract, ask your plant health authority or customs broker to confirm the import conditions for ‘coconut coir pith, compressed, unused growing medium’ and send the answer to the exporter.",
+      },
+      { type: "h2", id: "the-certificate", text: "The phytosanitary certificate" },
+      {
+        type: "p",
+        text: "In Sri Lanka the phytosanitary certificate is issued by the National Plant Quarantine Service after inspection of the consignment. It names the exporter, the importer, the product, the quantity, the means of conveyance and the port of entry, and it can carry an additional declaration in wording the importing country specifies. If your border agency wants a particular statement, for instance that the growing medium is new and unused or that it was treated in a specified way, send that wording to the exporter before inspection. Certificates cannot be amended easily after issue, and a certificate that does not say what your authority wants is the most common cause of a held container.",
+      },
+      { type: "h2", id: "treatment", text: "Fumigation and other treatments" },
+      {
+        type: "p",
+        text: "Where a market requires treatment, methyl bromide or phosphine fumigation before loading is the usual method, carried out by a licensed fumigator who issues a certificate. Some authorities accept heat treatment or a systems approach instead. Treatment adds cost and a few days to the schedule and is not needed for most destinations, so it is worth confirming whether your country really requires it rather than ordering it by default. Buyers of buffered or certified organic material should also check that the treatment is compatible with their certification.",
+      },
+      { type: "h2", id: "customs-side", text: "The customs side" },
+      {
+        type: "ul",
+        items: [
+          "Classification. Coco peat is normally entered under HS 1404.90; the national digits and the duty rate follow your tariff. See the guide to the coco peat HS code.",
+          "Certificate of origin. Useful where your country gives Sri Lanka preferential duty, and sometimes required by Gulf customs regardless of duty.",
+          "Import permits and licences. Where required, they are issued to the importer, not the exporter, and should be in hand before the container is loaded.",
+          "Labelling. Retail packs may need the importer’s name, country of origin, weight and expanded volume in the local language. Tell the exporter before film is printed.",
+        ],
+      },
+      {
+        type: "callout",
+        title: "How SK Ceylon handles this",
+        text: "Every shipment carries a phytosanitary certificate and Coconut Development Authority documentation, with fumigation and any additional declaration wording added when your authority requires it. Send us your import conditions and we prepare the documents against them.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Do I need a phytosanitary certificate to import coco peat?",
+        answer:
+          "In almost every market, yes. The exporter obtains it from Sri Lanka’s National Plant Quarantine Service for each shipment. Norway is a notable exception for pure coconut fibre products, and a few other countries ask for more, such as an import permit.",
+      },
+      {
+        question: "Does coco peat need an import permit in the EU?",
+        answer:
+          "Unused coconut pith is not a prohibited material under EU plant health law, which targets soil and used growing media, and a phytosanitary certificate normally suffices. Confirm the current position with the plant protection organisation at your port of entry.",
+      },
+      {
+        question: "Is fumigation required for coco peat?",
+        answer:
+          "Only where the importing country requires it. Many markets do not, so check with your plant health authority rather than ordering it by default, since it adds cost and time.",
+      },
+      {
+        question: "Which countries are strictest about importing coco peat?",
+        answer:
+          "Australia and New Zealand require import permits, inspection and, for New Zealand, testing for viable seed. Allow extra time and confirm conditions before ordering for those markets.",
+      },
+    ],
+    products: ["5kg-coco-peat-blocks", "grow-bags", "25kg-coco-peat-bales"],
+  },
+
+  {
+    slug: "coco-peat-trial-order-samples-and-moq",
+    title: "Running a coco peat trial: samples, minimum orders and what to measure",
+    metaTitle: "Coco Peat Samples, Trial Orders and MOQ",
+    description:
+      "How to trial coco peat from a new exporter before a full container: what a sample shows, LCL pallet quantities, minimum orders and what to measure during the trial.",
+    category: "Buying",
+    published: "2026-10-31",
+    summary:
+      "A sample tells you whether a supplier can make the material. A pallet grown through a crop cycle tells you whether they can make it consistently and whether it suits your system. This guide sets out what to ask for at each stage and how to judge the result.",
+    takeaways: [
+      "Ask for a sample of 1 to 5 kg of the exact grade and blend you intend to buy, and test it with your own method before anything else.",
+      "A trial pallet shipped as LCL is the realistic minimum for a crop trial; a 40 ft container is the normal commercial unit.",
+      "Measure the trial: EC and pH on arrival, expansion, wetting time, drainage behaviour and crop performance against your current substrate.",
+      "Agree in advance what the trial has to show for the first container order to follow, so both sides know what success looks like.",
+    ],
+    blocks: [
+      { type: "h2", id: "samples", text: "Stage one: the sample" },
+      {
+        type: "p",
+        text: "A sample is a small quantity of the actual product, usually 1 to 5 kg, sent by courier. Ask for the exact grade, blend and screen size you intend to buy, taken from current production rather than a sample stock, and for the lab report that goes with that batch. Courier cost for a small sample is modest and many exporters will send one without charge against a serious enquiry; a 5 kg block is heavier and the buyer is sometimes asked to cover the courier.",
+      },
+      {
+        type: "p",
+        text: "Test the sample with your own method. Hydrate a measured weight, record the expanded volume and the time it takes to wet, then measure EC and pH in the extract your laboratory or your meter uses. Compare the figures with the exporter’s report and note the method difference if there is one. Look at the material: fines, fibre, chips, any sand at the bottom of the container, any smell of fermentation. A sample cannot tell you how consistent production is or how the material behaves over a crop cycle, but it rules out suppliers whose product does not match their specification at all.",
+      },
+      { type: "h2", id: "trial-quantities", text: "Stage two: a trial quantity" },
+      {
+        type: "table",
+        caption: "Trial and commercial quantities",
+        head: ["Quantity", "How it ships", "Suits"],
+        rows: [
+          ["1 – 5 kg", "Courier", "Laboratory and bench testing of the grade"],
+          ["1 – 3 pallets", "LCL (less than container load) sea freight, shared container", "A crop trial in part of a greenhouse or a nursery block over one cycle"],
+          ["A 20 ft container", "FCL, where the line offers 20 ft for this cargo", "A larger trial or a small grower’s season; less economical per block than 40 ft"],
+          ["A 40 ft high-cube container", "FCL", "The normal commercial unit and the basis of most quotations"],
+        ],
+      },
+      {
+        type: "p",
+        text: "LCL freight is priced per cubic metre and the fixed charges at origin and destination are significant, so a pallet of coco peat costs much more per block than the same block in a full container. Treat the trial price as the cost of information, not as the price you will pay later. Ask the exporter to quote the trial and the first container at the same time, so you can see both figures.",
+      },
+      { type: "h2", id: "what-to-measure", text: "What to measure during the trial" },
+      {
+        type: "ul",
+        items: [
+          "On arrival: unit count and weight, block dimensions, condition of wrapping and pallets, moisture of a sample, and EC and pH of a hydrated sample from at least three units.",
+          "At hydration: litres obtained per kilogram, time to full wetting, and whether any dry cores remain in blocks hydrated to your normal routine.",
+          "In the system: drainage and run-off EC over the first two weeks, which shows whether salts are leaching and whether the material was properly washed or buffered.",
+          "Crop performance: root development, uniformity and yield or quality against your current substrate in the same house, with the same feed and irrigation. Keep the comparison fair; a trial in a different house with a different schedule proves nothing.",
+          "Handling: how the format fits your filling, planting and disposal routine, and whether the packing survived transport and storage.",
+        ],
+      },
+      { type: "h2", id: "agreeing-the-outcome", text: "Agreeing the outcome in advance" },
+      {
+        type: "p",
+        text: "Before the trial ships, write down what it has to show for the first container to follow: the EC and pH limits, the minimum expansion, the acceptable run-off EC profile, and the crop comparison you will make. Share it with the exporter. This turns the trial from a vague impression into a decision, and it gives the exporter a clear target. If the trial falls short on one point, the specification can often be adjusted, for example a different peat to chip ratio or a buffered grade, and a second trial pallet is cheaper than a wrong container.",
+      },
+      { type: "h2", id: "moq", text: "Minimum order quantities" },
+      {
+        type: "p",
+        text: "Most Sri Lankan exporters quote per 40 ft high-cube container and state a minimum per product, because the press, washing and packing lines are set up per run. Some products carry a higher minimum than others: printed grow bag film, custom block sizes and buffered material need a production run of their own, while standard 5 kg blocks can be combined with other products in a mixed container. Ask for the minimum per product and whether mixed containers are possible before you plan the trial, so that the first commercial order is realistic.",
+      },
+      {
+        type: "callout",
+        title: "Trials with SK Ceylon",
+        text: "We send samples of the exact grade and blend you intend to buy, with the batch lab report, and ship trial pallets by LCL. Standard products can be combined in a mixed 40 ft container; minimums for custom sizes, printed film and buffered grades are stated with the quotation.",
+      },
+    ],
+    faqs: [
+      {
+        question: "Can I get a sample of coco peat before ordering?",
+        answer:
+          "Yes. Ask for 1 to 5 kg of the exact grade and blend you intend to buy, taken from current production, together with the batch lab report. Test it with your own method before going further.",
+      },
+      {
+        question: "What is the minimum order for coco peat from Sri Lanka?",
+        answer:
+          "A trial pallet shipped as LCL is the practical minimum. Commercial orders are quoted per 40 ft high-cube container, with a minimum per product stated in the quotation. Standard products can often be mixed in one container.",
+      },
+      {
+        question: "How much does a trial pallet of coco peat cost to ship?",
+        answer:
+          "LCL freight is priced per cubic metre with fixed origin and destination charges, so a pallet costs far more per block than a full container. Ask for the trial and the first container to be quoted together so you can see both.",
+      },
+      {
+        question: "How long should a coco peat trial run?",
+        answer:
+          "One full crop cycle in the same house and on the same schedule as your current substrate, with EC, pH, expansion and run-off measured from arrival, is the minimum for a fair comparison.",
+      },
+    ],
+    products: ["5kg-coco-peat-blocks", "grow-bags", "5kg-coco-chip-blocks"],
+  },
+
+  {
+    slug: "coco-peat-storage-and-shelf-life",
+    title: "How to store coco peat: shelf life, moisture, mould and stacking",
+    metaTitle: "Coco Peat Storage and Shelf Life",
+    description:
+      "How long compressed coco peat keeps, how to store blocks, bales, discs and grow bags, what causes mould and odour, and how to check older stock before use.",
+    category: "Using the product",
+    published: "2026-10-31",
+    summary:
+      "Dry, compressed coco peat does not expire in any useful sense; stock that has been kept dry for years hydrates and performs as it did when it was pressed. What shortens its life is water. This guide covers how to keep it out, and what to do with stock that has been wet.",
+    takeaways: [
+      "Compressed coco peat keeps for years if it stays dry, under cover and off the floor; there is no fixed expiry date.",
+      "Moisture is the only real enemy: wet blocks swell, lose compression, grow surface mould and can ferment and smell.",
+      "Store on pallets, away from walls, in a dry shed or warehouse; outdoors only under a waterproof, breathable cover for short periods.",
+      "Rotate stock by batch, keep the lab report with each batch, and re-test EC and pH on stock older than a season before using it in a sensitive crop.",
+    ],
+    blocks: [
+      { type: "h2", id: "does-it-expire", text: "Does coco peat expire?" },
+      {
+        type: "p",
+        text: "Coco peat is lignocellulosic material that has already been through its most active decomposition in the husk pile and the washing beds. Once dried to below about 20 % moisture and compressed, biological activity is very low, and the material does not degrade in the way compost or bark does. Blocks stored dry for several years hydrate normally, with the same EC, pH and expansion as fresh stock. There is therefore no manufacturer’s expiry date; what you are managing is moisture, not time.",
+      },
+      { type: "h2", id: "what-goes-wrong", text: "What goes wrong when it gets wet" },
+      {
+        type: "ul",
+        items: [
+          "Swelling and loss of compression. A block that takes on water begins to expand in its wrapping, splits the film and no longer stacks or counts as a compressed unit. Grow bags swell inside the film and may burst at the seams.",
+          "Surface mould. White or grey mould on the face of a damp block is a saprophytic growth on the surface and is cosmetic; it brushes off once the block is hydrated and usually does no harm to crops. It is a sign that storage is too damp, not that the block is spoiled.",
+          "Fermentation and odour. Material that stays wet and warm for weeks can ferment anaerobically, which produces a sour smell and can lower pH and raise EC. Such stock should be hydrated, flushed and tested before any horticultural use, and is better directed to soil amendment.",
+          "Weight gain. Wet stock weighs more, so batches sold by weight are short on dry matter, and pallets can exceed rack or vehicle limits.",
+        ],
+      },
+      { type: "h2", id: "how-to-store", text: "How to store it" },
+      {
+        type: "table",
+        caption: "Storage conditions by product",
+        head: ["Product", "Store", "Avoid"],
+        rows: [
+          ["5 kg blocks, palletized and shrink-wrapped", "On the pallet, under cover, on a dry floor, stacked to the height the pallet was built for", "Standing water, direct rain, stacking loose blocks higher than about 1.5 m without a pallet"],
+          ["25 kg bales", "Under cover on pallets or dunnage; keep strapping intact", "Cutting straps before use; outdoor storage without a cover"],
+          ["Grow bags and slabs", "Flat, in cartons or on pallets, out of sunlight to protect the film", "Sunlight on unprinted film for long periods, which weakens it before the crop; stacking so high that bottom bags deform"],
+          ["Discs and plugs", "In the original cartons, dry and sealed", "Humidity, which makes discs swell and lose shape before use"],
+          ["Loose or opened material", "In sealed bags or covered bins, used within the season", "Open piles outdoors, which take up rain and weed seed"],
+        ],
+      },
+      {
+        type: "p",
+        text: "A dry, roofed warehouse or shed with a concrete floor is ideal. Keep pallets off the floor and a little away from the walls so that condensation and splash cannot reach them. If stock has to wait outside, put it on pallets on hard standing, cover it with a waterproof tarpaulin that is open at the base so air can move underneath, and bring it inside as soon as possible. Containers left standing in the sun develop condensation inside; unload them promptly rather than using them as storage.",
+      },
+      { type: "h2", id: "in-transit", text: "Moisture in transit" },
+      {
+        type: "p",
+        text: "Sea containers travel through temperature swings that cause condensation, which is why exporters dry material to below about 20 % moisture before compression and wrap pallets tightly. On arrival, check the top layer of the first pallets you open for damp or mould; if the container has been through heavy rain at the port and the roof has leaked, the damage is usually visible on the top tier only. Photograph anything you find, note the seal and container number, and tell the exporter and your insurer promptly.",
+      },
+      { type: "h2", id: "stock-rotation", text: "Stock rotation and re-testing" },
+      {
+        type: "p",
+        text: "Keep the batch number and the lab report with each delivery, and use the oldest stock first. Before using stock that has been stored for more than a season in a sensitive crop such as propagation or a fruiting crop on drip, hydrate a sample from a few blocks and check EC, pH and expansion against the original report. If the figures match, the stock is fine. If EC has risen or the material smells sour, it has been wet at some point, and should be flushed or used for a less sensitive purpose.",
+      },
+      {
+        type: "callout",
+        title: "How SK Ceylon ships for storage",
+        text: "Material is dried to below 20 % moisture at dispatch, palletized, strapped and shrink-wrapped, and loaded into inspected containers with the batch lab report filed with the shipment. Stored dry, it will keep until you need it.",
+      },
+    ],
+    faqs: [
+      {
+        question: "How long does compressed coco peat last?",
+        answer:
+          "Indefinitely for practical purposes, as long as it stays dry. Blocks stored under cover for several years hydrate and perform as they did when pressed. Moisture, not age, is what spoils stock.",
+      },
+      {
+        question: "Is mould on a coco peat block a problem?",
+        answer:
+          "White or grey surface mould on a damp block is cosmetic and brushes off once the block is hydrated. It shows that the storage area is too damp. Material that smells sour or fermented should be flushed and tested before horticultural use.",
+      },
+      {
+        question: "Can coco peat blocks be stored outside?",
+        answer:
+          "Only for short periods, on pallets on hard standing under a waterproof cover that lets air move underneath. Long-term storage should be under a roof on a dry floor.",
+      },
+      {
+        question: "Should I re-test old coco peat stock before using it?",
+        answer:
+          "For stock older than a season going into a sensitive crop, yes. Hydrate a sample from a few blocks and check EC, pH and expansion against the original lab report. If they match, the stock is fine to use.",
+      },
+    ],
+    products: ["5kg-coco-peat-blocks", "25kg-coco-peat-bales", "grow-bags", "coco-peat-discs"],
   },
 ];
 

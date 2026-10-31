@@ -8,18 +8,18 @@ import { pageMeta } from "@/content/seo";
 export const metadata: Metadata = pageMeta({
   title: "About Us",
   description:
-    "SK Ceylon is an exporter of coco peat and coir products, sourcing from Sri Lanka's coconut triangle with hands-on quality supervision.",
+    "SK Ceylon is an exporter of coco peat and coir products, producing at its own mill in Sri Lanka's coconut triangle with founder-supervised quality.",
   path: "/about/",
 });
 
 const FACTS = [
   { label: "Based", value: "Sri Lanka" },
   {
-    label: "Sourcing",
+    label: "Production",
     value: "Kurunegala – Puttalam",
     note: "coconut triangle",
   },
-  { label: "Mills", value: "CDA-registered", note: "with washing capability" },
+  { label: "Process", value: "washed, screened, pressed", note: "at our own mill" },
   { label: "Testing", value: "independent lab report", note: "on request" },
   {
     label: "Markets",
@@ -48,23 +48,23 @@ export default function AboutPage() {
           <div className="max-w-xl space-y-5 text-base leading-relaxed text-ink-soft">
             <p>
               {COMPANY.name} is an exporter of coco peat blocks and bales, grow
-              bags, chip blocks, discs and coir fibre. We source exclusively
-              from the Kurunegala–Puttalam coconut triangle — the belt of Sri
-              Lanka where coconut milling is a generational trade and the best
-              pith is produced — and ship from the Port of Colombo.
+              bags, chip blocks, discs and coir fibre. We produce our own
+              material in the Kurunegala–Puttalam coconut triangle — the belt
+              of Sri Lanka where coconut processing is a generational trade and
+              the best husk is grown — and ship from the Port of Colombo.
             </p>
             <p>
-              We are deliberately not a trading desk. Large exporters route
+              We are deliberately not a trading desk. Trading exporters route
               orders through whichever mill has capacity that week; the
               specification drifts, and the buyer finds out at the greenhouse.
-              We work with a small, vetted set of CDA-registered mills, and the
-              founder personally supervises quality from lot selection to
-              container loading.
+              We wash, screen, dry, compress and pack our own material, and the
+              founder personally supervises quality from raw pith to container
+              loading.
             </p>
             <p>
               That structure is our positioning: direct, personal
               accountability. When you buy from SK Ceylon, you know exactly who
-              chose the mill, who checked the specification, and who stood at
+              made the product, who checked the specification, and who stood at
               the container door while it was loaded. The same person answers
               your email.
             </p>

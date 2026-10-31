@@ -242,7 +242,7 @@ export const FEATURES = [
   {
     title: "Founder-supervised quality",
     detail:
-      "One accountable name from mill selection to container loading. The person who checks your cargo is the person who answers your email.",
+      "One accountable name from mill to container loading. The person who makes and checks your cargo is the person who answers your email.",
     icon: "eye",
   },
   {
